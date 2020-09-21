@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" async src="https://cdn.jsdelivr.net/gh/mathjax/MathJax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>solution-sets-of-linear-systems</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<div id="Solution sets of linear systems"><h2 id="Solution sets of linear systems">Solution sets of linear systems</h2></div>
+<div id="Solution sets of linear systems-Homogeneous linear systems"><h3 id="Homogeneous linear systems">Homogeneous linear systems</h3></div>
+<p>
+homogeneous: if you can write it in \(Ax = 0\) where A is an \(m \times n\) matrix and 0 is the zero vector in \(\Re^m\)
+</p>
+<ul>
+<li>
+always has at least one solution (the trivial solution, \(x = 0\)).
+
+<li>
+has a nontrivial solution iff there is a free variable
+
+<ul>
+<li>
+if the equation has only one free variable, the solution is a line through the origin
+
+<li>
+when there are two or more free variables, it's a line through the origin
+
+</ul>
+<li>
+solution set is \(\text{Span} \{v_1, \ldots, v_p\}\) for suitable vectors
+
+</ul>
+
+<div id="Solution sets of linear systems-Parametric vector form"><h3 id="Parametric vector form">Parametric vector form</h3></div>
+<p>
+implicit description:
+</p>
+<ul>
+<li>
+a simple equation
+
+<li>
+e.g. \(10x_1 - 3x_2 - 2x_3 = 0\)
+
+</ul>
+
+<p>
+explicit description (parametric vector form):
+</p>
+<ul>
+<li>
+the solution to the equation as a set spanned by u and v
+
+<li>
+of the form \(x = su + tv\), with \(s,t \in \Re\)
+
+</ul>
+
+<p>
+the solution set of \(Ax = 0\) is \(x = tv\) with \(t \in \Re\).
+</p>
+
+<p>
+if \(Ax = b\) has a solution, then you get the solution set by translating the solution set of \(Ax = 0\) using any particular solution p of \(Ax = b\). The set is then \(x = p + tv\)
+</p>
+
+<p>
+Writing a solution set in parametric vector form:
+</p>
+<ol>
+<li>
+Row reduce augmented matrix to echelon form
+
+<li>
+Express each basic variable in terms of any free variables.
+
+<li>
+Write a typical solution x as a vector, with entries depending on the (potential) free variables.
+
+<li>
+Decompose x into a linear combination of vectors using free vars as parameters.
+
+</ol>
+
+<div id="Solution sets of linear systems-Linear independence"><h3 id="Linear independence">Linear independence</h3></div>
+
+<p>
+linearly independent:
+</p>
+<ul>
+<li>
+set of vector equations: iff the vector equation has only the trivial solution (\(x_1 = x_2 = x_3 = 0\))
+
+<li>
+columns of matrix: iff \(Ax = 0\) has <em>only</em> the trivial solution
+
+<li>
+one vector: iff v is not the zero vector
+
+<li>
+two vectors: if neither of the vectors is a multiple of the other
+
+</ul>
+
+<p>
+linearly dependent:
+</p>
+<ul>
+<li>
+iff at least one of the vectors is a linear combination of the others
+
+<li>
+if there are more vectors than entries in each vector
+
+<li>
+if the set contains the zero vector
+
+</ul>
+
+<p>
+a set is linearly dependent iff it's not linearly independent.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+
+				<!DOCTYPE html>
+				<html>
+					<head>
+						<meta charset="UTF-8">
+
+						<title>Introduction</title>
+					<link rel="stylesheet" href="pluginAssets/katex/katex.css" /><link rel="stylesheet" href="./style.css" /></head>
+					<body>
+
+<div id="rendered-md"><h1 id="introduction">Introduction</h1>
+<nav class="table-of-contents"><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#what-is-ml">What is ML?</a></li><li><a href="#supervised-ml">Supervised ML</a><ul><li><a href="#classification">Classification</a></li><li><a href="#regression">Regression</a></li></ul></li><li><a href="#unsupervised-ml">Unsupervised ML</a></li><li><a href="#what-isnt-ml">What isn&#39;t ML?</a></li></ul></li></ul></nav><h2 id="what-is-ml">What is ML?</h2>
+<p>Deductive vs inductive reasoning:</p>
+<ul>
+<li>Deductive (conclusion by logic): discrete, unambiguous, provable, known rules</li>
+<li>Inductive (conclusion from experience): fuzzy, ambiguous, experimental, unknown rules</li>
+</ul>
+<p>ML lets systems learn and improve from experience without being explicitly programmed (for a specific situation).</p>
+<p>Used in software, analytics, data mining, data science, statistics.</p>
+<p>Problem is suitable for ML <em>if we can't solve it explicitly</em>.</p>
+<ul>
+<li>when approximate solutions are ok</li>
+<li>when reliability is not the biggest focus</li>
+</ul>
+<p>Why don't we have explicit solutions? Sometimes could be expensive, or could change over time, or other reasons.</p>
+<p><img src="_resources/6610df2f6a4a4d21ad34c09c3468f115.png" alt="overview-diagram.png"></p>
+<p>An intelligent agent:</p>
+<ul>
+<li>online learning: acting + learning simultaneously</li>
+<li>reinforcement learning: online learning in a world based on delayed feedback</li>
+</ul>
+<p>Offline learning: separate learning and acting</p>
+<ul>
+<li>take fixed dataset of examples</li>
+<li>train model on that dataset</li>
+<li>test the model, and if it works, use it in prod</li>
+</ul>
+<h2 id="supervised-ml">Supervised ML</h2>
+<p>Supervised: explicit examples of input and output. Learn to predict output for unseen input.</p>
+<p>learning tasks:</p>
+<ul>
+<li>classification: assign class to each example</li>
+<li>regression: assign number to each example</li>
+</ul>
+<h3 id="classification">Classification</h3>
+<p>how do you reduce a problem to classification? e.g. every pixel in a grayscale image is a feature, label each feature</p>
+<p>classification: output labels are classes (categorical data)</p>
+<p>linear classifier: just draw a line, plane, or hyperplane</p>
+<ul>
+<li>feature space: contains features</li>
+<li>model space: contains models. the bright spots have low loss.</li>
+<li>loss function: performance of model on data, the lower the better</li>
+</ul>
+<p>decision tree classifier: every node is a condition for a feature, go down branch based on condition. would look like a step function in a graph.</p>
+<p>k-nearest-neighbors: lazy, doesn't do anything, just remembers the data (?? have to look this up in more detail)<br>
+features: numerical or categorical</p>
+<p>binary classification: only have two classes</p>
+<p>multiclass classification: more than two classes</p>
+<h3 id="regression">Regression</h3>
+<p>regression: output labels are numbers. the model we're trying to learn is a function from feature space to ℜ</p>
+<p>loss function: maps model to number that expresses how well it fits the data</p>
+<p>common example: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mi>o</mi><mi>s</mi><mi>s</mi><mo stretchy="false">(</mo><mi>p</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><msub><mo>∑</mo><mi>i</mi></msub><mo stretchy="false">(</mo><msub><mi>f</mi><mi>p</mi></msub><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">loss(p) = \frac{1}{n} \sum_i (f_p (x_i) - y_i)^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16195399999999993em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></p>
+<p>takes difference between model prediction and target value (residual), then square and sum all residuals</p>
+<p>overfitting: the model is too specific to the data, it's memorizing the data instead of generalizing</p>
+<p>split test and training data. don't judge performance on training data, the aim is to minimise loss on <em>test</em> data.</p>
+<h2 id="unsupervised-ml">Unsupervised ML</h2>
+<p>Unsupervised: only inputs provided, find <em>any</em> pattern that explains something about data.</p>
+<p>learning tasks:</p>
+<ul>
+<li>clustering: classification, except no target column, so model outputs cluster id</li>
+<li>density estimation: model outputs a number (probability density), should be high for instances of data that are likely. e.g. fitting prob distribution to data</li>
+<li>generative modeling: build a model from which you can sample new examples</li>
+</ul>
+<h2 id="what-isnt-ml">What isn't ML?</h2>
+<p>ML is a subdomain of AI.</p>
+<ul>
+<li>AI, but not ML: automated reasoning, planning</li>
+<li>Data Science, not ML: gathering, harmonising, and interpreting data</li>
+<li>Data mining is more closely related, but e.g. finding fraud in transaction networks is closer to data mining</li>
+<li>Stats wants to figure out the truth, whereas with ML it just has to work well enough, but doesn't necessarily have to be true</li>
+</ul>
+</div></div>
+					</body>
+				</html>

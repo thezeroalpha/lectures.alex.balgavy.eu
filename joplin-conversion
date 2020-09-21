@@ -1,0 +1,22 @@
+#!/bin/sh
+set -x
+for f in *.md; do
+  sed 's/\(\.\.\/\)*_resources\///g; s:([^)]*/\([^/]*\).md):(\1.md):g; s:\^\([^\^]*\)\^:<sup>\1</sup>:g; s:\~\([^\~]*\)\~:<sub>\1</sub>:g' "$f" > "$f.new"
+  mv "$f.new" "$f"
+done
+for f in *.png; do
+  containedin="$(grep -IRl "$f" .)"
+  if [ -n "$containedin" ]; then
+    case "$containedin" in
+      *index.md)
+        mv "$f" "${containedin%%index.md}"
+        ;;
+      *)
+        mkdir "${containedin%%.md}"
+        mv "$containedin" "${containedin%%.md}/index.md"
+        mv "$f" "${containedin%%.md}"
+        ;;
+    esac
+  fi
+done
+

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Lecture Notes{% endblock title %}
+
+{% block sidebar %}
+  <h1><a href="{{ config.base_url }}">{{ config.title }}</a></h1>
+  <p>{{ config.description }}</p>
+
+  <p>My <a href="http://alex.balgavy.eu">homepage,</a>
+    my <a href="http://blog.alex.balgavy.eu">blog,</a>
+    and my <a href="http://github.com/thezeroalpha/dotfiles">dotfiles.</a>
+  </p>
+  <p>My keys: <a href="keys/public.gpg">PGP</a>, <a href="keys/ssh.pub">SSH</a></p>
+{% endblock sidebar %}
+
+{% block content %}
+{{ section.content | safe }}
+{% endblock content %}

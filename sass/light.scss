@@ -1,0 +1,40 @@
+@import "base";
+$textcolor: #727272;
+$bgcolor: #e5e5e5;
+$linkcolor: #267CB9;
+
+body {
+  background-color: white;
+  color: $textcolor;
+}
+strong {
+  color: darken($textcolor, 20%);
+}
+h1 {
+  color: darken($textcolor, 30%);
+}
+h2 {
+  color: darken($textcolor, 20%);
+}
+
+h3, h4, h5, h6 {
+  color: darken($textcolor, 10%);
+}
+
+hr {
+  background: $bgcolor;
+}
+
+a {
+  color: $linkcolor;
+
+  &:hover {
+    color: adjust-color($linkcolor, $hue: 10%, $saturation: 50, $lightness: -5%);
+  }
+}
+pre {
+  border: 1px solid $bgcolor;
+}
+blockquote {
+  border-left: 1px solid $bgcolor;
+}

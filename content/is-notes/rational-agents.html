@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" async src="https://cdn.jsdelivr.net/gh/mathjax/MathJax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>rational-agents</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<div id="Rational agents"><h1 id="Rational agents">Rational agents</h1></div>
+
+<p>
+"A rational agent chooses whichever action maximizes the expected value of the performance measure given the percept sequence to date and prior environment knowledge."
+</p>
+
+<div id="Rational agents-Agents"><h2 id="Agents">Agents</h2></div>
+<p>
+agent function maps percept sequence to actions (\(f: P* \rightarrow A\))
+</p>
+
+<p>
+function is internally represented by agent program
+</p>
+
+<p>
+program runs on physical architecture to produce f
+</p>
+
+<div id="Rational agents-Rationality"><h2 id="Rationality">Rationality</h2></div>
+<p>
+what is rational at a specific time depends on:
+</p>
+<ul>
+<li>
+expected value of performance measure -- heuristics
+
+<li>
+actions and choices -- search
+
+<li>
+percept sequence to date -- learning
+
+<li>
+prior environment-- KR
+
+</ul>
+
+<p>
+rationality is not omniscience or perfection
+</p>
+
+<div id="Rational agents-Task environments"><h2 id="Task environments">Task environments</h2></div>
+
+<p>
+to design rational agent, we must specify environment (PEAS):
+</p>
+<ul>
+<li>
+performance: safety, destination, profits, legality, comfort
+
+<li>
+environment: streets, traffic, pedestrians, weather
+
+<li>
+actuators: steering, accelerating, brake, horn, speaker/display
+
+<li>
+sensors: video, sonar, speedometer, etc.
+
+</ul>
+
+<p>
+environment types:
+</p>
+<ul>
+<li>
+observable: fully (can detect all relevant aspects with sensors) or partially
+
+<li>
+deterministic: (yes or no)
+
+<li>
+static: (yes, no, semi)
+
+<li>
+discrete: (yes or no)
+
+<li>
+single-agent: (yes or no)
+
+</ul>
+
+<p>
+<img src="img/environment-types.png" alt="Environment types table" />
+</p>
+
+<p>
+For Schnapsen:
+</p>
+<ul>
+<li>
+observable: not fully
+
+<li>
+deterministic: yes
+
+<li>
+static: yes
+
+<li>
+discrete: yes
+
+<li>
+single-agent: no
+
+</ul>
+
+<div id="Rational agents-Agent types"><h2 id="Agent types">Agent types</h2></div>
+
+<div id="Rational agents-Agent types-Simple Reflex"><h3 id="Simple Reflex">Simple Reflex</h3></div>
+<p>
+select action on basis of <em>only the current percept</em>
+</p>
+
+<p>
+large reduction in possible percept/action situations
+</p>
+
+<p>
+implemented using condition-action rules
+</p>
+
+<p>
+only works if environment is fully observable, otherwise may result in infinite loops.
+</p>
+
+<div id="Rational agents-Agent types-Reflex &amp; State"><h3 id="Reflex &amp; State">Reflex &amp; State</h3></div>
+<p>
+to tackle partially observable environments, maintain internal state
+</p>
+
+<p>
+over time, update state using world knowledge.
+</p>
+
+<div id="Rational agents-Agent types-Goal-Based"><h3 id="Goal-Based">Goal-Based</h3></div>
+<p>
+agent needs a goal to know the desirable situations
+</p>
+
+<p>
+future is taken into account
+</p>
+
+<div id="Rational agents-Agent types-Learning"><h3 id="Learning">Learning</h3></div>
+<p>
+teach agents instead of instructing them
+</p>
+
+<p>
+very robust toward initially unknown environments.
+</p>
+
+</body>
+</html>

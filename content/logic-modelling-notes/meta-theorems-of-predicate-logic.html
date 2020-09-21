@@ -1,0 +1,143 @@
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script type="text/javascript" async src="https://cdn.jsdelivr.net/gh/mathjax/MathJax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre.code').forEach(function(item) {
+          hljs.highlightBlock(item)
+        })
+      });
+    </script>
+    <title>meta-theorems-of-predicate-logic</title>
+</head>
+<body>
+<style type="text/css">
+nav a {
+    text-align: left;
+}
+nav #name {
+    text-align: right;
+    float: right;
+    font-style: italic;
+}
+</style>
+    <nav>
+    <a href="index.html">Index</a>
+    <span id="name">Alex Balgavy</span>
+    </nav>
+    <hr>
+    <div class="content">
+    
+<div id="Meta-Theorems of Predicate Logic"><h2 id="Meta-Theorems of Predicate Logic" class="header"><a href="#Meta-Theorems of Predicate Logic">Meta-Theorems of Predicate Logic</a></h2></div>
+<p>
+Entailment syntactically (⊢) and semantically (⊨)
+</p>
+<ul>
+<li>
+Γ ⊢ ψ: there is natural deduction derivation of ψ that only uses premises in Γ
+
+<li>
+Γ ⊨ ψ: for all M and l, if M ⊨l Φ for every Φ ∈ Γ, then M ⊨ ψ
+
+</ul>
+
+<p>
+Soundness and completeness:
+</p>
+<ul>
+<li>
+Γ ⊢ Φ ⇔ Γ ⊨ Φ
+
+<li>
+for all formulas Φ, every set Γ of formulas
+
+<li>
+soundness (correctness): left-to-right (⇒)
+
+<li>
+completeness: right-to-left (⇐)
+
+</ul>
+
+<p>
+soundness theorem:
+</p>
+<ul>
+<li>
+Γ ⊢ Φ ⇒ Γ ⊨ Φ
+
+<li>
+if there is natural deduction derivation of Φ from Γ, then there's no model M in which all formulas of Γ are true, but Φ is false
+
+<li>
+"correct" means not possible to derive false conclusion Φ from true premises Γ
+
+<li>
+prove by induction on derivation lengths
+
+</ul>
+
+<p>
+completeness theorem:
+</p>
+<ul>
+<li>
+Γ ⊨ Φ ⇒ Γ ⊢ Φ
+
+<li>
+derivations are strong enough to derive all valid semantic entailment statements
+
+<li>
+"complete" means more derivation rules are not necessary
+
+<li>
+proof is non-trivial
+
+</ul>
+
+<p>
+consistency and syntactical consistency
+</p>
+<ul>
+<li>
+Γ is consistent ⇔ Γ is syntactically consistent
+
+<li>
+Γ has a model ⇔ there is no derivation of ⊥ from Γ
+
+</ul>
+
+<p>
+semantical consistency:
+</p>
+<ul>
+<li>
+set Γ of formulas is consistent if there is model M and environment l such that M ⊨ Φ for all Φ ∈ Γ
+
+</ul>
+
+<p>
+syntactical consistency:
+</p>
+<ul>
+<li>
+set Γ of formulas is syntactically consistent if Γ ⊬ ⊥
+
+</ul>
+
+<p>
+compactness theorem:
+</p>
+<ul>
+<li>
+Γ is consistent ⇔ every finite subset Γ₀ ⊆ Γ si consistent
+
+</ul>
+
+    </div>
+</body>
+</html>

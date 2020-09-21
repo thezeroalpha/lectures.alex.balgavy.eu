@@ -1,0 +1,276 @@
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script type="text/javascript" async src="https://cdn.jsdelivr.net/gh/mathjax/MathJax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre.code').forEach(function(item) {
+          hljs.highlightBlock(item)
+        })
+      });
+    </script>
+    <title>propositional-logic</title>
+</head>
+<body>
+<style type="text/css">
+nav a {
+    text-align: left;
+}
+nav #name {
+    text-align: right;
+    float: right;
+    font-style: italic;
+}
+</style>
+    <nav>
+    <a href="index.html">Index</a>
+    <span id="name">Alex Balgavy</span>
+    </nav>
+    <hr>
+    <div class="content">
+    
+<div id="Propositional logic"><h2 id="Propositional logic" class="header"><a href="#Propositional logic">Propositional logic</a></h2></div>
+<div id="Propositional logic-Notation review"><h3 id="Notation review" class="header"><a href="#Propositional logic-Notation review">Notation review</a></h3></div>
+<ul>
+<li>
+<code>A, B, C</code> -- propositions
+
+<li>
+<code>A ∧ B</code> -- conjunction ("and")
+
+<li>
+<code>A ∨ B</code> -- disjunction ("or")
+
+<li>
+<code>A → B</code> -- implication ("if A then B")
+
+<li>
+<code>A ↔ B</code> -- bi-implication ("A iff B")
+
+<li>
+<code>¬ A</code> -- negation ("not A")
+
+<li>
+<code>⊥</code> -- false, falsum, nonsense, bullshit, the middle finger
+
+</ul>
+
+<div id="Propositional logic-Rules of inference"><h3 id="Rules of inference" class="header"><a href="#Propositional logic-Rules of inference">Rules of inference</a></h3></div>
+<p>
+"C is a logical consequence of A and B":
+</p>
+
+<p>
+<img src="img/logical-consequence.png" alt="Logical consequence" />
+</p>
+
+
+<table>
+<tr>
+<th>
+Implication
+</th>
+<th>
+Conjunction
+</th>
+<th>
+Negation
+</th>
+<th>
+Disjunction
+</th>
+<th>
+Bi-implication ("if and only if")
+</th>
+</tr>
+<tr>
+<td>
+<img src="img/implication-elimination.png" alt="Implication elimination" />
+</td>
+<td>
+<img src="img/conjunction-introduction.png" alt="Conjunction introduction" />
+</td>
+<td>
+<img src="img/negation-hypothetical-reasoning.png" alt="Negation hypothetical reasoning" />
+</td>
+<td>
+<img src="img/disjunction-introduction.png" alt="Disjunction introduction" />
+</td>
+<td>
+<img src="img/bi-implication-introduction.png" alt="Bi-implication introduction" />
+</td>
+</tr>
+<tr>
+<td>
+<img src="img/hypothesis.png" alt="Hypothesis" />
+</td>
+<td>
+<img src="img/and-elimination.png" alt="And elimination" />
+</td>
+<td>
+<img src="img/negation-elimination.png" alt="Negation elimination" />
+</td>
+<td>
+<img src="img/disjunction-elimination.png" alt="Disjunction elimination" />
+</td>
+<td>
+<img src="img/bi-implication-elimination.png" alt="Bi-implication elimination" />
+</td>
+</tr>
+</table>
+
+<p>
+Truth and falsity: from false, you can conclude anything, and from nothing, you can conclude true.
+</p>
+
+<p>
+<img src="img/falsum-elimination.png" alt="Falsum elimination" />, <img src="img/truth-introduction.png" alt="Truth introduction" />
+</p>
+
+<p>
+You can also derive this conjunction rule:
+</p>
+
+<p>
+<img src="img/conjunction-negation-rule.png" alt="Conjunction negation rule" />
+</p>
+
+<div id="Propositional logic-Forward and backward reasoning"><h3 id="Forward and backward reasoning" class="header"><a href="#Propositional logic-Forward and backward reasoning">Forward and backward reasoning</a></h3></div>
+<p>
+Backward reasoning: looking at the goal and seeing what rules need to be applied ("bottom-up")
+</p>
+
+<p>
+Forward reasoning: starting at some hypotheses/assumptions
+</p>
+
+<p>
+The general heuristic is to always work backwards, as much as possible. Only once you get stuck should you work from your assumptions or hypotheses.
+</p>
+
+<p>
+If all else fails, try proof by contradiction.
+</p>
+
+<div id="Propositional logic-Proof by contradiction"><h3 id="Proof by contradiction" class="header"><a href="#Propositional logic-Proof by contradiction">Proof by contradiction</a></h3></div>
+<p>
+Suppose a negation of a formula is true, prove that it's impossible, thereby proving the original formula.
+</p>
+
+<p>
+<img src="img/proof-by-contradiction.png" alt="Proof by contradiction" />
+</p>
+
+<p>
+RAA stands for <em>"reductio ad absurdum"</em>
+</p>
+
+<div id="Propositional logic-Vocab definitions"><h3 id="Vocab definitions" class="header"><a href="#Propositional logic-Vocab definitions">Vocab definitions</a></h3></div>
+<ul>
+<li>
+derivable: a formula φ is "derivable" if we can prove φ with no global hypotheses (bottom line is φ, everything is closed). Then we write ⊢ φ.
+
+<li>
+φ is derivable from hypotheses ψ₁..ψn if we can compute φ assuming ψ₁..ψn
+
+<li>
+formulas φ and ψ are logically equivalent if ⊢ φ ↔ ψ
+
+</ul>
+
+<div id="Propositional logic-Classical reasoning"><h3 id="Classical reasoning" class="header"><a href="#Propositional logic-Classical reasoning">Classical reasoning</a></h3></div>
+<p>
+Principles:
+</p>
+<ul>
+<li>
+Proof by contradiction: assume the contradiction, and show false, thereby proving the original.
+
+<li>
+Double negation elimination: ¬ ¬ A ↔ A.
+
+<li>
+Contrapositive: if A → B, then ¬ B → ¬ A
+
+</ul>
+
+<p>
+A general heuristic:
+</p>
+<ol>
+<li>
+Work backward from the conclusion, using introduction rules.
+
+<li>
+When you run out of stuff to do, work forward with elimination rules.
+
+<li>
+If you get stuck,
+
+</ol>
+<blockquote>
+<img src="img/go-go-proof-by-contradiction.jpg" alt="Proof by contradiction meme" style="width:20%" />
+</blockquote>
+<blockquote>
+(meme credit goes to Geo)
+</blockquote>
+
+<div id="Propositional logic-Syntax vs Semantics"><h3 id="Syntax vs Semantics" class="header"><a href="#Propositional logic-Syntax vs Semantics">Syntax vs Semantics</a></h3></div>
+<p>
+Syntax:
+</p>
+<ul>
+<li>
+derivation, proofs
+
+<li>
+Γ ⊢ A ("A is derivable from hypotheses in Γ")
+
+</ul>
+
+<p>
+Semantics:
+</p>
+<ul>
+<li>
+truth and falsity
+
+<li>
+truth assignment says which propositional letters are true
+
+<li>
+valuation says which formulas are true
+
+</ul>
+
+<div id="Propositional logic-Soundness and completeness"><h3 id="Soundness and completeness" class="header"><a href="#Propositional logic-Soundness and completeness">Soundness and completeness</a></h3></div>
+<p>
+provable: if there is a formal proof of a formula (syntactic)
+</p>
+
+<p>
+tautology/valid: if true under any truth assignment (semantic)
+</p>
+
+<p>
+soundness: if a formula is provable, it is valid (if ⊢ A, then ⊨ A)
+</p>
+
+<p>
+completeness: if a formula is valid, it is provable (if ⊨ A, then ⊢ A)
+</p>
+
+<p>
+Proving soundness is easier than proving completeness.
+</p>
+
+<p>
+A is a logical consequence of Γ if, given any truth assignment that makes every formula in Γ true, A is true.
+</p>
+
+    </div>
+</body>
+</html>

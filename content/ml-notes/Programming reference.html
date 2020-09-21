@@ -1,0 +1,185 @@
+
+				<!DOCTYPE html>
+				<html>
+					<head>
+						<meta charset="UTF-8">
+						<link rel="stylesheet" href="pluginAssets/highlight.js/atom-one-light.css">
+						<title>Programming reference</title>
+					<link rel="stylesheet" href="pluginAssets/katex/katex.css" /><link rel="stylesheet" href="./style.css" /></head>
+					<body>
+
+<div id="rendered-md"><h1 id="numpy-matplotlib">Numpy &amp; matplotlib</h1>
+<p>Load external file:</p>
+<pre class="hljs"><code>data = numpy.loadtxt(<span class="hljs-string">'./filepath.csv'</span>, delimiter=<span class="hljs-string">','</span>)
+</code></pre>
+<p>Print information about data:</p>
+<pre class="hljs"><code>data.shape
+</code></pre>
+<p>Graph two columns of data:</p>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+%matplotlib inline
+x = data[:,<span class="hljs-number">0</span>]
+y = data[:,<span class="hljs-number">1</span>]
+<span class="hljs-comment"># includes size and transparency setting, specifies third column to use for color</span>
+plt.scatter(x, y, s=<span class="hljs-number">3</span>, alpha=<span class="hljs-number">0.2</span>, c=data[:,<span class="hljs-number">2</span>], cmap=<span class="hljs-string">'RdYlBu_r'</span>)
+plt.xlabel(<span class="hljs-string">'x axis'</span>)
+plt.ylabel(<span class="hljs-string">'y axis'</span>);
+</code></pre>
+<p>Histogram plotting:</p>
+<pre class="hljs"><code><span class="hljs-comment"># bins determines width of bars</span>
+plt.hist(data, bins=<span class="hljs-number">100</span>, range=[start, end]
+</code></pre>
+<p>The identity matrix:</p>
+<pre class="hljs"><code>np.eye(<span class="hljs-number">2</span>) <span class="hljs-comment"># for a 2x2 matrix</span>
+</code></pre>
+<p>Matrix multiplication:</p>
+<pre class="hljs"><code>a * b       <span class="hljs-comment"># element-wise</span>
+a.dot(b)    <span class="hljs-comment"># dot product</span>
+</code></pre>
+<p>Useful references:</p>
+<ul>
+<li><a data-from-md  title='https://docs.scipy.org/doc/numpy-dev/user/quickstart.html' href='https://docs.scipy.org/doc/numpy-dev/user/quickstart.html' type=''>The official numpy quickstart guide</a></li>
+<li><a data-from-md  title='https://www.datacamp.com/community/tutorials/python-numpy-tutorial' href='https://www.datacamp.com/community/tutorials/python-numpy-tutorial' type=''>A more in-depth tutorial, with in-browser samples</a></li>
+<li><a data-from-md  title='http://cs231n.github.io/python-numpy-tutorial/' href='http://cs231n.github.io/python-numpy-tutorial/' type=''>A very good walk through the most important functions and features</a>. From the famous <a data-from-md  title='http://cs231n.github.io/' href='http://cs231n.github.io/' type=''>CS231n course</a>, from Stanford.</li>
+<li><a data-from-md  title='https://matplotlib.org/users/pyplot_tutorial.html' href='https://matplotlib.org/users/pyplot_tutorial.html' type=''>The official pyplot tutorial</a>. Note that pyplot can accept basic python lists as well as numpy data.</li>
+<li><a data-from-md  title='https://matplotlib.org/gallery.html' href='https://matplotlib.org/gallery.html' type=''>A gallery of example MPL plots</a>. Most of these do not use the pyplot state-machine interface, but the more low level objects like <a data-from-md  title='https://matplotlib.org/api/axes_api.html' href='https://matplotlib.org/api/axes_api.html' type=''>Axes</a>.</li>
+<li><a data-from-md  title='http://www.scipy-lectures.org/intro/matplotlib/matplotlib.html' href='http://www.scipy-lectures.org/intro/matplotlib/matplotlib.html' type=''>In-depth walk through the main features and plot types</a></li>
+</ul>
+<h1 id="sklearn">Sklearn</h1>
+<p>Split data into train and test, on features <code class="inline-code">x</code> and target <code class="inline-code">y</code>:</p>
+<pre class="hljs"><code><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=<span class="hljs-number">0.5</span>)
+</code></pre>
+<p>An estimator implements method <code class="inline-code">fit(x,y)</code> that learns from data, and <code class="inline-code">predict(T)</code> which takes new instance and predicts target value.</p>
+<p>Linear classifier, using SVC model with linear kernel:</p>
+<pre class="hljs"><code><span class="hljs-keyword">from</span> sklearn.svm <span class="hljs-keyword">import</span> SVC
+linear = SVC(kernel=<span class="hljs-string">'linear'</span>)
+linear.fit(x_train, y_train)
+</code></pre>
+<p>Decision tree classifier:</p>
+<pre class="hljs"><code><span class="hljs-keyword">from</span> sklearn.tree <span class="hljs-keyword">import</span> DecisionTreeClassifier
+tree = DecisionTreeClassifier()
+tree.fit(x_train, y_train)
+</code></pre>
+<p>k-Nearest Neighbors:</p>
+<pre class="hljs"><code><span class="hljs-keyword">from</span> sklearn.neighbors <span class="hljs-keyword">import</span> KNeighborsClassifier
+knn = KNeighborsClassifier(<span class="hljs-number">15</span>) <span class="hljs-comment"># We set the number of neighbors to 15</span>
+knn.fit(x_train, y_train)
+</code></pre>
+<p>Try to classify new data:</p>
+<pre class="hljs"><code>linear.predict(some_data)
+</code></pre>
+<p>Compute accuracy on testing data:</p>
+<pre class="hljs"><code><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> accuracy_score
+y_predicted = linear.predict(x_test)
+accuracy_score(y_test, y_predicted)
+</code></pre>
+<p>Make a plot of classification, with colors showing classifier's decision:</p>
+<pre class="hljs"><code><span class="hljs-keyword">from</span> mlxtend.plotting <span class="hljs-keyword">import</span> plot_decision_regions
+plot_decision_regions(x_test[:<span class="hljs-number">500</span>], y_test.astype(np.integer)[:<span class="hljs-number">500</span>], clf=linear, res=<span class="hljs-number">0.1</span>);
+</code></pre>
+<p>Compare classifiers via ROC curve:</p>
+<pre class="hljs"><code><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> roc_curve, auc
+
+<span class="hljs-comment"># The linear classifier doesn't produce class probabilities by default. We'll retrain it for probabilities.</span>
+linear = SVC(kernel=<span class="hljs-string">'linear'</span>, probability=<span class="hljs-literal">True</span>)
+linear.fit(x_train, y_train)
+
+<span class="hljs-comment"># We'll need class probabilities from each of the classifiers</span>
+y_linear = linear.predict_proba(x_test)
+y_tree  = tree.predict_proba(x_test)
+y_knn   = knn.predict_proba(x_test)
+
+<span class="hljs-comment"># Compute the points on the curve</span>
+<span class="hljs-comment"># We pass the probability of the second class (KIA) as the y_score</span>
+curve_linear = sklearn.metrics.roc_curve(y_test, y_linear[:, <span class="hljs-number">1</span>])
+curve_tree   = sklearn.metrics.roc_curve(y_test, y_tree[:, <span class="hljs-number">1</span>])
+curve_knn    = sklearn.metrics.roc_curve(y_test, y_knn[:, <span class="hljs-number">1</span>])
+
+<span class="hljs-comment"># Compute Area Under the Curve</span>
+auc_linear = auc(curve_linear[<span class="hljs-number">0</span>], curve_linear[<span class="hljs-number">1</span>])
+auc_tree   = auc(curve_tree[<span class="hljs-number">0</span>], curve_tree[<span class="hljs-number">1</span>])
+auc_knn    = auc(curve_knn[<span class="hljs-number">0</span>], curve_knn[<span class="hljs-number">1</span>])
+
+plt.plot(curve_linear[<span class="hljs-number">0</span>], curve_linear[<span class="hljs-number">1</span>], label=<span class="hljs-string">'linear (area = %0.2f)'</span> % auc_linear)
+plt.plot(curve_tree[<span class="hljs-number">0</span>], curve_tree[<span class="hljs-number">1</span>], label=<span class="hljs-string">'tree (area = %0.2f)'</span> % auc_tree)
+plt.plot(curve_knn[<span class="hljs-number">0</span>], curve_knn[<span class="hljs-number">1</span>], label=<span class="hljs-string">'knn (area = %0.2f)'</span>% auc_knn)
+
+plt.xlim([<span class="hljs-number">0.0</span>, <span class="hljs-number">1.0</span>])
+plt.ylim([<span class="hljs-number">0.0</span>, <span class="hljs-number">1.0</span>])
+plt.xlabel(<span class="hljs-string">'False Positive Rate'</span>)
+plt.ylabel(<span class="hljs-string">'True Positive Rate'</span>)
+plt.title(<span class="hljs-string">'ROC curve'</span>);
+
+plt.legend();
+</code></pre>
+<p>Cross-validation:</p>
+<pre class="hljs"><code><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> cross_val_score
+<span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> roc_auc_score, make_scorer
+
+<span class="hljs-comment"># The cross_val_score function does all the training for us. We simply pass</span>
+<span class="hljs-comment"># it the complete data, the model, and the metric.</span>
+
+linear = SVC(kernel=<span class="hljs-string">'linear'</span>, probability=<span class="hljs-literal">True</span>)
+
+<span class="hljs-comment"># Train for 5 folds, returing ROC AUC. You can also try 'accuracy' as a scorer</span>
+scores = cross_val_score(linear, x, y, cv=<span class="hljs-number">3</span>, scoring=<span class="hljs-string">'roc_auc'</span>)
+
+print(<span class="hljs-string">'scores per fold '</span>, scores)
+</code></pre>
+<p>Regression:</p>
+<pre class="hljs"><code><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> datasets
+<span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> mean_squared_error, r2_score
+
+<span class="hljs-comment"># Load the diabetes dataset, and select one feature (Body Mass Index)</span>
+x, y = datasets.load_diabetes(<span class="hljs-literal">True</span>)
+x = x[:, <span class="hljs-number">2</span>].reshape(<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>)
+
+<span class="hljs-comment"># -- the reshape operation ensures that x still has two dimensions</span>
+<span class="hljs-comment"># (that is, we need it to be an n by 1 matrix, not a vector)</span>
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=<span class="hljs-number">0.5</span>)
+
+<span class="hljs-comment"># feature space on horizontal axis, output space on vertical axis</span>
+plt.scatter(x_train[:, <span class="hljs-number">0</span>], y_train)
+plt.xlabel(<span class="hljs-string">'BMI'</span>)
+plt.ylabel(<span class="hljs-string">'disease progression'</span>);
+
+<span class="hljs-comment"># Train three models: linear regression, tree regression, knn regression</span>
+<span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LinearRegression
+linear = LinearRegression()
+linear.fit(x_train, y_train)
+
+<span class="hljs-keyword">from</span> sklearn.tree <span class="hljs-keyword">import</span> DecisionTreeRegressor
+tree = DecisionTreeRegressor()
+tree.fit(x_train, y_train)
+
+<span class="hljs-keyword">from</span> sklearn.neighbors <span class="hljs-keyword">import</span> KNeighborsRegressor
+knn = KNeighborsRegressor(<span class="hljs-number">10</span>)
+knn.fit(x_train, y_train);
+
+<span class="hljs-comment"># Plot the models</span>
+<span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> mean_squared_error
+
+plt.scatter(x_train, y_train, alpha=<span class="hljs-number">0.1</span>)
+
+xlin = np.linspace(<span class="hljs-number">-0.10</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">500</span>).reshape(<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>)
+plt.plot(xlin, linear.predict(xlin), label=<span class="hljs-string">'linear'</span>)
+plt.plot(xlin, tree.predict(xlin), label=<span class="hljs-string">'tree '</span>)
+plt.plot(xlin, knn.predict(xlin), label=<span class="hljs-string">'knn '</span>)
+
+print(<span class="hljs-string">'MSE linear '</span>, mean_squared_error(y_test, linear.predict(x_test)))
+print(<span class="hljs-string">'MSE tree '</span>, mean_squared_error(y_test, tree.predict(x_test)))
+print(<span class="hljs-string">'MSE knn'</span>, mean_squared_error(y_test, knn.predict(x_test)))
+
+plt.legend();
+</code></pre>
+<p>Useful references:</p>
+<ul>
+<li><a data-from-md  title='http://scikit-learn.org/stable/tutorial/basic/tutorial.html' href='http://scikit-learn.org/stable/tutorial/basic/tutorial.html' type=''>The official quickstart guide</a></li>
+<li><a data-from-md  title='https://www.datacamp.com/community/tutorials/machine-learning-python' href='https://www.datacamp.com/community/tutorials/machine-learning-python' type=''>A DataCamp tutorial with interactive exercises</a></li>
+<li><a data-from-md  title='http://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html' href='http://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html' type=''>Analyzing text data with SKLearn</a></li>
+</ul>
+</div></div>
+					</body>
+				</html>

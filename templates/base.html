@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{ config.default_language }}">
+  <head>
+    <title>{% block title %}{% endblock title %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript">
+    var hour = new Date().getHours();
+    var css = document.createElement("link");
+    css.setAttribute("rel", "stylesheet");
+    css.setAttribute("href", (hour >= 20 || hour < 7) ? "/dark.css" : "/light.css");
+    document.head.appendChild(css);
+  </script>
+  {% block scripts %}{% endblock scripts %}
+  <noscript>
+    <link rel="stylesheet" href="/light.css">
+  </noscript>
+  </head>
+  <body>
+    {% if config.extra.debug %}
+    <div>
+      <font size="1px" face="courier">
+        <pre>{{ __tera_context | striptags }}</pre>
+      </font>
+    </div>
+    {% endif %}
+    <div class="wrapper">
+      <header>
+        {% block sidebar %}
+        {% endblock sidebar %}
+        <noscript>
+          <p>
+            <b>I see you have JavaScript disabled.</b>
+            Wise choice, but two issues.
+            I use Katex to render math equations where HTML isn't enough, so that won't display correctly.
+            I also have the page themed dynamically, so it'll use a dark theme after a certain time &mdash; you'll be missing out.
+            I'd recommend you reconsider enabling JS for this site, I don't track you because I have literally no reason to track you.
+          </p>
+        </noscript>
+      </header>
+      <section>
+        {% block content %}{% endblock content %}
+      </section>
+    </div>
+  </body>
+</html>

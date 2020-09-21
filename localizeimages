@@ -1,0 +1,16 @@
+#!/bin/sh
+for f in *.png; do
+  containedin="$(grep -IRl "$f" .)"
+  if [ -n "$containedin" ]; then
+    case "$containedin" in
+      *index.md)
+        mv "$f" "${containedin%%index.md}"
+        ;;
+      *)
+        mkdir "${containedin%%.md}"
+        mv "$containedin" "${containedin%%.md}/index.md"
+        mv "$f" "${containedin%%.md}"
+        ;;
+    esac
+  fi
+done

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" async src="https://cdn.jsdelivr.net/gh/mathjax/MathJax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>software-development-process</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<div id="Software development process"><h2 id="Software development process">Software development process</h2></div>
+
+<p>
+main activities:
+</p>
+<ul>
+<li>
+requirements engineering
+
+<ul>
+<li>
+specifies the main functionalities of the system
+
+<li>
+defines the qualities to be met
+
+</ul>
+<li>
+design
+
+<ul>
+<li>
+give shape to a system via models
+
+<li>
+not a clear-cut sequential process
+
+</ul>
+<li>
+implementation and testing
+
+<ul>
+<li>
+involves actual development of the system
+
+<li>
+component testing – test individual components independently
+
+<li>
+system testing – test the system as a whole (including emergent properties like overall performance)
+
+<li>
+acceptance testing – test with customer data to see if the system meets the customer's needs
+
+</ul>
+<li>
+evolution
+
+<ul>
+<li>
+software is inherently flexible and can change
+
+</ul>
+</ul>
+
+<div id="Software development process-Waterfall development process"><h3 id="Waterfall development process">Waterfall development process</h3></div>
+
+<p>
+<img src="img/waterfall-dev.png" alt="Waterfall dev process image" />
+</p>
+
+<p>
+exists in many variants, all with sequential flow. it's document-driven.
+</p>
+
+<p>
+issues: poor agility (when do you know how far you are in the project?), poor quality (cuts if you run out of time), high risk (finding issues in test phase)
+</p>
+
+<p>
+critical evaluation:
+</p>
+<ul>
+<li>
+positive:
+
+<ul>
+<li>
+precise planning and management – standard-oriented
+
+<li>
+postpone implementation to after understanding objectives
+
+<li>
+good documentation
+
+</ul>
+<li>
+negative:
+
+<ul>
+<li>
+hard to get all requirements once and for all (users might not even know what they want)
+
+<li>
+rigid
+
+<li>
+no feedback from the customer
+
+<li>
+no parallelism, all phases are blocking (because sequential)
+
+<li>
+a single delivery date at the end
+
+</ul>
+</ul>
+
+<div id="Software development process-Agile development process"><h3 id="Agile development process">Agile development process</h3></div>
+<p>
+iterative development processes with:
+</p>
+<ul>
+<li>
+frequent releases of the product
+
+<li>
+continuous interaction between dev team and customer
+
+<li>
+reduced product documentation
+
+<li>
+continuous and systematic assessment of produced value and risks
+
+</ul>
+
+<p>
+agile in practice:
+</p>
+<ul>
+<li>
+make a list
+
+<li>
+estimate
+
+<li>
+set priorities
+
+<li>
+start executing
+
+<li>
+update the plan at run time
+
+</ul>
+
+<p>
+critical evaluation:
+</p>
+<ul>
+<li>
+positive:
+
+<ul>
+<li>
+acceptance of change – less risky
+
+<li>
+frequent and short iterations
+
+<li>
+emphasis on working code
+
+<li>
+associates a test with every piece of functionality
+
+<li>
+continuous integration and delivery
+
+</ul>
+<li>
+negative:
+
+<ul>
+<li>
+feature-based development &amp; ignorance of dependencies
+
+<li>
+no strong quality plan
+
+<li>
+less focus on architecture of system (in fact, dismisses everything that isn't shippable)
+
+</ul>
+</ul>
+
+</body>
+</html>

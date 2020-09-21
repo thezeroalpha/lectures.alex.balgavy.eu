@@ -1,0 +1,5 @@
+{
+  "*.md": {
+    "path": ["sass/", "content/", "templates/"]
+  }
+}

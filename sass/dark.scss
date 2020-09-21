@@ -1,0 +1,55 @@
+@import "base";
+$bgcolor: #111;
+$textcolor: #727272;
+$linkcolor: #267CB9;
+
+@include scrollbars(0.6em, slategray);
+
+@include selection {
+  color: white;
+  background: #412;
+}
+body {
+  background-color: $bgcolor;
+  color: $textcolor;
+}
+strong {
+  color: lighten($textcolor, 20%);
+}
+
+h1 {
+  color: lighten($textcolor, 30%);
+}
+h2 {
+  color: lighten($textcolor, 20%);
+}
+
+h3, h4, h5, h6 {
+  color: lighten($textcolor, 10%);
+}
+
+hr {
+  border: 1px groove lighten($textcolor, 5%);
+}
+
+a {
+  color: $linkcolor;
+
+  &:hover {
+    color: lighten($linkcolor, 15%);
+  }
+
+}
+pre {
+  border: 0.5px solid #333333;
+}
+blockquote {
+  border-left:1px groove #aeaeae;
+}
+
+img, video {
+  filter: invert(90%) hue-rotate(170deg) contrast(120%) saturate(50%) sepia(10%);
+}
+span.isdark > img, span.isdark > video {
+  filter: unset;
+}

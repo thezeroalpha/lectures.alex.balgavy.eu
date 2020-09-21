@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }}{% endblock title %}
+
+{% block sidebar %}
+  <h1>{{ section.title }}</h1>
+
+  <p><a href="{{ config.base_url }}">List all lecture notes.</a></p>
+  <p><a href="http://alex.balgavy.eu">My homepage.</a></p>
+{% endblock sidebar %}
+
+{% block content %}
+{{ section.content | safe }}
+{% endblock content %}

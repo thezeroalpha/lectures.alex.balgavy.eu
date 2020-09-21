@@ -1,0 +1,63 @@
+[submodule "compnet-notes"]
+	path = compnet-notes
+	url = https://github.com/thezeroalpha/compnet-notes.git
+[submodule "is-notes"]
+	path = is-notes
+	url = https://github.com/thezeroalpha/is-notes.git
+[submodule "webtech-notes"]
+	path = webtech-notes
+	url = https://github.com/thezeroalpha/webtech-notes.git
+[submodule "sysarch-notes"]
+	path = sysarch-notes
+	url = https://github.com/thezeroalpha/sysarch-notes.git
+[submodule "logicsets-notes"]
+	path = logicsets-notes
+	url = https://github.com/thezeroalpha/logicsets-notes.git
+[submodule "networksgraphs-notes"]
+	path = networksgraphs-notes
+	url = https://github.com/thezeroalpha/networksgraphs-notes.git
+[submodule "physcomp-notes"]
+	path = physcomp-notes
+	url = https://github.com/thezeroalpha/physcomp-notes.git
+[submodule "stats-notes"]
+	path = stats-notes
+	url = https://github.com/thezeroalpha/stats-notes.git
+[submodule "dsa-notes"]
+	path = dsa-notes
+	url = https://github.com/thezeroalpha/dsa-notes.git
+[submodule "os-notes"]
+	path = os-notes
+	url = https://github.com/thezeroalpha/os-notes.git
+[submodule "lin-algebra-notes"]
+	path = lin-algebra-notes
+	url = https://github.com/thezeroalpha/lin-algebra-notes.git
+[submodule "softdesign-notes"]
+	path = softdesign-notes
+	url = https://github.com/thezeroalpha/softdesign-notes.git
+[submodule "history-science-notes"]
+	path = history-science-notes
+	url = https://github.com/thezeroalpha/history-science-notes.git
+[submodule "logic-modelling-notes"]
+	path = logic-modelling-notes
+	url = https://github.com/thezeroalpha/logic-modelling-notes.git
+[submodule "databases-notes"]
+	path = databases-notes
+	url = https://github.com/thezeroalpha/databases-notes.git
+[submodule "hci-notes"]
+	path = hci-notes
+	url = https://github.com/thezeroalpha/hci-notes.git
+[submodule "likelihood-notes"]
+	path = likelihood-notes
+	url = https://github.com/thezeroalpha/likelihood-notes.git
+[submodule "equational-notes"]
+	path = equational-notes
+	url = https://github.com/thezeroalpha/equational-notes.git
+[submodule "ml-notes"]
+	path = ml-notes
+	url = https://github.com/thezeroalpha/ml-notes.git
+[submodule "automata-complexity-notes"]
+	path = automata-complexity-notes
+	url = https://github.com/thezeroalpha/automata-complexity-notes.git
+[submodule "philosophy-notes"]
+	path = philosophy-notes
+	url = https://github.com/thezeroalpha/philosophy-notes.git

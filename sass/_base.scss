@@ -1,0 +1,186 @@
+@import "fonts";
+@mixin selection {
+    ::-moz-selection { @content; }
+    ::selection { @content; }
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+body {
+  padding: 3%;
+  font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+div.wrapper {
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+  margin: auto;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+header {
+  -webkit-font-smoothing: subpixel-antialiased;
+  max-width: 100%;
+  align-self: flex-start;
+  flex: 100%;
+  margin: 0;
+}
+section {
+  flex: 70%;
+  max-width: 100%;
+
+  h1 {
+    font-size: 16pt;
+  }
+}
+strong {
+  font-weight: 700;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem;
+}
+h1, h2, h3 {
+  line-height: 1.2;
+}
+h1 {
+  font-size: 20pt;
+}
+
+hr {
+  border:0;
+  height: 1px;
+  margin:0 0 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+p, ul, ol {
+  margin: 0 0 1rem;
+}
+
+
+code, pre {
+  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+}
+
+pre {
+  padding: 0.7rem 0.8em;
+  border-radius: 0.4rem;
+  overflow-x: auto;
+}
+
+blockquote {
+  margin:0;
+  padding:0 0 0 1rem;
+  font-style:italic;
+}
+
+img {
+  max-width:100%;
+}
+
+small {
+  font-size: 0.9rem;
+}
+
+table {
+  text-align: left;
+  border: 0.1px solid #333;
+  border-collapse: collapse;
+  empty-cells: hide;
+  margin: 1em 0;
+
+  td,th {
+    border: 0.1px solid #333;
+    border-collapse: collapse;
+    padding: 0.5em;
+  }
+
+  &.invis {
+    border: none;
+    border-collapse: separate;
+    border-spacing: 4em 0;
+    th {
+      border: none;
+      text-align:center;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  div.wrapper {
+    flex-flow: row wrap;
+    align-items: flex-start;
+  }
+  header {
+    flex: 25%;
+    max-width: 25%;
+    margin-right: 5%;
+    align-self: flex-start;
+  }
+  section {
+    max-width: 70%;
+
+    h1 {
+      font-size: 20pt;
+    }
+  }
+}
+
+@media only print {
+  body {
+    background: white;
+    color: black;
+    margin: 1in;
+    font-size: 12px;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    page-break-after:avoid;
+  }
+  pre, code{
+    page-break-inside: avoid;
+  }
+  body > * {
+    color: black;
+    background: white;
+  }
+  div.wrapper {
+    display: block;
+  }
+  header, video {
+    display: none;
+  }
+  section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  a {
+    text-decoration: underline;
+  }
+}

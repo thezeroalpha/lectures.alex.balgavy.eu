@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head><link rel="stylesheet" href="sitewide.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="exporter-version" content="Evernote Mac 7.5.2 (457164)" />
+  <meta name="altitude" content="-0.9683055877685547" />
+  <meta name="author" content="Alex Balgavy" />
+  <meta name="created" content="2017-11-07 11:04:35 +0000" />
+  <meta name="latitude" content="52.33476618838052" />
+  <meta name="longitude" content="4.866821194517779" />
+  <meta name="source" content="desktop.mac" />
+  <meta name="updated" content="2017-12-19 22:01:20 +0000" />
+  <title>Image processing</title>
+</head>
+
+<body>
+  <div>Problems:</div>
+  <div>
+    <ol>
+      <li>Acquired signals are often noisy</li>
+      <li>Context information is often hidden</li>
+    </ol>
+    <div><br /></div>
+  </div>
+  <div>Below are options for image processing.</div>
+  <div><br /></div>
+  <div><a href="Point processing.html"">Point processing</a></div>
+  <div><a href="Neighborhood processing.html"">Neighborhood processing</a></div>
+  <div><a href="Morphological operations.html">Morphological operations</a></div>
+  <div><br /></div>
+  <div><span style="font-weight: bold;">Windowing</span></div>
+  <div>Select a region of interest — user defined region within the image.</div>
+  <div>Then crop (resize) the image.</div>
+  <div><br /></div>
+  <div><span style="font-family: &quot;Helvetica Neue&quot;; font-weight: bold;">Segmentation</span></div>
+  <div><span style="font-family: &quot;Helvetica Neue&quot;;">Partitioning an image into separate objects, main vs background.</span></div>
+  <div><span style="font-family: &quot;Helvetica Neue&quot;;">Can be done by:</span></div>
+  <div>
+    <ul>
+      <li><span style="font-family: &quot;Helvetica Neue&quot;;">Edge detection</span></li>
+      <ul>
+        <li><span style="font-family: &quot;Helvetica Neue&quot;;">edge — local discontinuity in pixel value that exceeds given threshold</span></li>
+        <li><span style="font-family: &quot;Helvetica Neue&quot;;">consists of creating binary image where non-background pixel values are object boundaries</span></li>
+      </ul>
+    </ul>
+  </div>
+  <blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+    <blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+      <div>
+        <font face="Helvetica Neue"><img src="Image%20processing.resources/screenshot.png" height="245" width="467" /><br /></font>
+      </div>
+    </blockquote>
+  </blockquote>
+  <div>
+    <ul>
+      <ul>
+        <li><span style="font-family: &quot;Helvetica Neue&quot;;">can be obtained by correlation with a kernel</span></li>
+        <ul>
+          <li><span style="font-family: &quot;Helvetica Neue&quot;;">Prewitt</span></li>
+          <li><span style="font-family: &quot;Helvetica Neue&quot;;">Canny</span></li>
+          <li><span style="font-family: &quot;Helvetica Neue&quot;;"> Sobel</span></li>
+        </ul>
+      </ul>
+    </ul>
+  </div>
+  <blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+    <blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+      <div><img src="Image%20processing.resources/screenshot_2.png" height="292" width="474" /><br /></div>
+    </blockquote>
+  </blockquote>
+  <div><br /></div>
+  <div><br /></div>
+  <div><br /></div>
+  <div><br /></div>
+  <div><span style="font-weight: bold;">BLOB analysis</span></div>
+  <div>BLOB — binary large object (group of connected pixels in binary image)</div>
+  <div>connectivity decides which pixels are neighbours (4-connectivity, 8 connectivity)</div>
+  <div>set of allpixels which are connected to a given pixel is a connected component or BLOB</div>
+  <div><br /></div>
+  <div><img src="Image%20processing.resources/screenshot_1.png" height="107" width="367" /><br /></div>
+  <div><br /></div>
+  <div>extracting connected components is called labelling, each connected component is given a label.</div>
+  <div>0 is background, then 1,2,3,…</div>
+  <div>in MATLAB, <span style="font-family: &quot;Courier New&quot;;">bwlabel </span><span style="font-family: &quot;Helvetica Neue&quot;;">returns matrix with labels and number of BLOBs</span></div>
+</body>
+
+</html>

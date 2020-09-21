@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }}{% endblock title %}
+
+{% block sidebar %}
+{% set parent_section = get_section(path=page.ancestors | last) %}
+<h1><a href="{{ parent_section.permalink }}">{{ parent_section.title }}</a></h1>
+
+<h2>Table of Contents</h2>
+<ul>
+{% for h1 in page.toc %}
+<li>
+  <a href="{{h1.permalink | safe}}">{{ h1.title }}</a>
+  {% if h1.children %}
+  <ul>
+    {% for h2 in h1.children %}
+    <li>
+      <a href="{{h2.permalink | safe}}">{{ h2.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</li>
+{% endfor %}
+</ul>
+{% endblock sidebar %}
+
+{% block scripts %}
+<link rel="stylesheet" href="/katex/style.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X">
+<script defer src="/katex/script.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"></script>
+<script defer src="/katex/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+{{ page.content | safe }}
+{% endblock content %}

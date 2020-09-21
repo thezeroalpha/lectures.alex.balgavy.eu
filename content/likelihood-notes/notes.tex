@@ -1,0 +1,873 @@
+\documentclass[12pt,a4paper,oneside,fleqn]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt} \pagestyle{fancy}
+\rhead{Alex Balgavy}
+
+% \given{A}{B} ("A given B") %
+\makeatletter
+\newcommand{\@givenstar}[2]{\left(#1\;\middle|\;#2\right)}
+\newcommand{\@givennostar}[3][]{#1(#2\;#1|\;#3#1)}
+\newcommand{\given}{\@ifstar\@givenstar\@givennostar}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{A Likelihood Approach to Statistics: Notes}
+\author{Alex Balgavy}
+\date{April-May 2019}
+
+\begin{document}
+\maketitle
+\section{Introduction}
+When can we say that there is sufficient evidence?
+A large issue is with the phrasing of conditional probability.
+There's a difference between \\
+$P\given{\text{winning}}{\text{not committed fraud}})$ and $P\given{\text{committed fraud}}{\text{winning}}$.
+The relative probabilities are important.
+
+\begin{align*}
+  H_1, H_2\text{: hypotheses}\\
+  E\text{: evidence/data}\\
+  \\
+  \frac{P\given{H_1}{E}}{P\given{H_2}{E}} &= \frac{P(H_1 \cap E)}{P(H_2 \cap E} \\
+                                          &= \frac{P\given{E}{H_1} P(H_1)}{P\given{E}{H_2} P(H_2)} \\
+                                          &= \frac{P\given{E}{H_1}}{P\given{E}{H_2}} \times \frac{P(H_1)}{P(H_2)}\\
+                                          \\
+  \therefore \underbrace{\frac{P\given{H_1}{E}}{P\given{H_2}{E}}}_\text{posterior odds} &= \underbrace{\frac{P\given{E}{H_1}}{P\given{E}{H_2}}}_\text{likelihood ratio} \times \underbrace{\frac{P(H_1)}{P(H_2)}}_\text{prior odds}
+\end{align*}
+
+Questions:
+
+\begin{itemize}
+  \item When do observations support a hypothesis?
+  \item What does this mean?
+  \item What should I do next? What should I believe?
+\end{itemize}
+
+\textbf{Evidence} are data that \textbf{make you change your assessment of the hypotheses of interest}.
+It doesn't tell you what to believe, but how to change your belief.
+What to do depends on the risks and consequences.
+
+The \textbf{likelihood ratio} is \textbf{the extent to which you should change your mind}.
+
+The \textbf{evidence } is what determines the likelihood ratio.
+
+\newpage
+
+\subsection{Exercise 3.13}
+$E$: driver tests positive on breathalyzer
+
+$+$: too much alcohol
+
+$-$: below limit
+
+\[
+  LR = \frac{P \given{E}{+}}{P \given{E}{-}} = \frac{0.99}{0.10} = 9.9
+\]
+
+Then:
+
+\begin{align*}
+  \frac{P \given{+}{E}}{P \given{-}{E}} &= LR \times \text{prior odds} = 9.9 \times \overbrace{\frac{P(+)}{P(-)}}^\text{given in ex.}\\
+                                        &= 9.9 \times \frac{0.1}{9.9} = 1.1 \\
+  \frac{P \given{+}{E}}{P \given{-}{E}} &= \frac{x}{1-x} = 1.1 \\
+  x &= \frac{11}{21} \\
+\end{align*}
+
+\section{Benchmarking}
+How do you quantify the likelihood ratio? Do a benchmark experiment.
+
+Example with two hypotheses:
+
+$H_1$: box has all white balls
+
+$H_2$: box has 50\% white, 50\% black balls
+
+$E$: drawing 5 white balls in a row (with replacement)
+
+\[
+  \frac{P \given{E}{H_1}}{P \given{E}{H_2}} = \frac{1}{\frac{1}{32}} = 32 = LR
+\]
+
+Then, if some experiment has $LR = 357$, compared to benchmark, it's about as likely as drawing 8-9 white balls in a row.
+\textit{But} you still can't say whether the situation is $H_1$ or $H_2$, because it depends on the prior odds.
+
+
+\section{General LR properties}
+
+The likelihood ratio cannot be \textit{wrong}: given the evidence, the LR points a certain way.
+But it can be \textit{misleading} and point towards a hypothesis that's not true.
+
+Probability theory depends on the available information.
+Image placing bets for or against something -- that's a first indication of the probabilities.
+\textbf{How often can the LR be misleading, and to what degree?}
+
+Example: throw a pin, lands pin up with
+$\begin{cases} H_1: p = \frac{1}{2}\\
+  H_2: p = \frac{3}{4}
+\end{cases}$
+
+\newpage
+
+One throw:
+
+\vspace{1em}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{| l | c |}
+  \hline
+  \textbf{outcome} & \textbf{LR} \\ \hline
+  up & $(\frac{1}{2})/(\frac{3}{4}) = \frac{2}{3}$ \\ \hline
+  down & $(\frac{1}{2})/(\frac{1}{4}) = 2$ \\ \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+\vspace{1em}
+
+If $H_1$ is true, the average LR is \[
+  \frac{1}{2} \times \frac{2}{3} + \frac{1}{2} \times 2 = \frac{1}{3} + 1 = \frac{4}{3}
+\]
+
+If $H_2$ is true, the average LR is \[
+  \frac{3}{4} \times \frac{2}{3} + \frac{1}{4} \times 2 = 1
+\]
+
+With two throws, the average LR will be:
+
+\begin{itemize}
+  \item if $H_1$ true, $(\frac{4}{3})^2$
+  \item if $H_2$ true, 1
+\end{itemize}
+
+Average LR: $\sum P(\text{outcome}) \times LR_\text{outcome}$
+
+If we compute LR for $H_1$ vs $H_2$ then:
+
+\begin{itemize}
+  \item If $H_1$ is true, on average $LR > 1$
+  \item If $H_2$ is true, on average $LR = 1$
+  \item The following always holds:
+    \[ \frac{P \given{LR = x}{H_1}}{P \given{LR = x}{H_2}} = x \]
+\end{itemize}
+The LR is a sufficient statistic for the two hypotheses, you won't learn more from seeing the evidence.
+So if we know $LR(E)$, we don't need to know $E$ itself.
+
+The probability of misleading evidence is \[
+  P \given{LR_{H_1, H_2} (E) \geq k}{H_2} \leq \frac{1}{k}
+\] regardless of $H_1$ and $H_2$.
+
+LR is not additive, but multiplicative:
+
+\begin{align*}
+  LR(E_1, E_2) &= LR(E_1) \times LR \given{E_2}{E_1} \\
+               &= LR(E_1) \times LR(E_2) &&\text{[if independent]}
+               \\\\
+  \log(LR(E_1, E_2)) &= \log(LR(E_1)) + \log(LR \given{E_2}{E_1})
+  \\\\
+  \log(LR) &> 0: \quad \text{support $H_1$}\\
+  \log(LR) &= 0: \quad \text{no evidence either way}\\
+  \log(LR) &< 0: \quad \text{support $H_2$}
+\end{align*}
+
+\subsection{Exercise 4.1}
+\subsubsection{What's the likelihood ratio in favour of accused's guilt?}
+
+\begin{align*}
+  P \given{E}{H_1} &= 1 \\
+  P \given{E}{H_2} &= \frac{1}{10000} \\
+  LR &= \frac{1}{\frac{1}{10000}} = 10000
+\end{align*}
+
+\subsubsection{How can the value be used?}
+All you can do with the LR is to update the prior odds by multiplying.
+
+\subsubsection{What difference would it make if there were a 1\% chance of matching results when in reality they are different?}
+\begin{align*}
+  P\given{E}{H_1} &= 1 \quad \text{unchanged} \\
+  P\given{E}{H_2} &= 0.01 \\
+  LR &= \frac{1}{0.01} = 100
+\end{align*}
+
+\subsubsection{Extra: what if, in 1\% of chases, lab mistakenly says there is no match when there really is one?}
+\begin{align*}
+  P\given{E}{H_1} &= 0.99 \\
+  P\given{E}{H_2} &= \frac{1}{10000} \quad \text{unchanged from original} \\
+  LR &= \frac{0.99}{\frac{1}{10000}} = 9900
+\end{align*}
+
+\section{Assignment 1 Review}
+Definitions:
+
+\begin{align*}
+  H(1)&: \quad \text{All cards in deck are labelled 1}\\
+  H(i)&: \quad \text{All cards in deck are labelled $i$}\\
+  H_n&: \quad \text{Deck is normal}\\
+  E&: \quad \text{Choosing a card with label 1}
+\end{align*}
+
+How do you derive the result directly?
+
+\begin{align*}
+  P\given{E}{H(1)} &= 1 \\
+  P\given{E}{\text{not } H(1)} &= \frac{P(E \cap \text{not } H(1)}{\text{not } H(1)} \\
+                               &= \frac{p \times \frac{1}{52}}{1-\frac{1-p}{52}} &&\text{normal deck and choosing 1 out of it} \\
+                               &= \frac{p}{52-(1-p)} &&\text{multiply by 52} \\
+                               &= \frac{p}{51+p} \\
+  LR &= \frac{P\given{E}{H(1)}}{P\given{E}{\text{not } H(1)}} \\
+     &= \frac{1}{\frac{p}{51+p}} \\
+     &= \frac{51+p}{p}
+\end{align*}
+
+\section{From Data to Decision}
+The question now is, ``what should I do?''
+
+\subsection{With prior probabilities: Bayes rule}
+Example -- nuchal scan of fetus, to assess probability of trisomy 21.
+Scan produces evidence $E$.  Hypotheses $H_1: $ trisomy 21, $H_2: $ no trisomy 21. $P(H_1)$ is given, based on age of mother:
+
+\[
+  \text{Young mother:} \qquad \frac{P(H_1)}{P(H_2)} = \frac{1}{10000}, \quad \text{action A1 if $LR \geq 40$} \\
+\]
+\[
+  \text{Old mother:} \qquad \frac{P(H_1)}{P(H_2)} = \frac{1}{5}, \quad \text{action A1 if $LR \geq \frac{1}{50}$} \\
+\]
+
+Then compute posterior odds:
+
+\[
+  \frac{P\given{H_1}{E}}{P\given{H_2}{E}} = LR \times \frac{P(H_1)}{P(H_2)}
+\]
+
+If $LR = \frac{P\given{E}{H_1}}{P\given{E}{H_2}}$ large enough, make a decision:
+
+\begin{itemize}
+  \item \textbf{A1:} Further testing, or
+  \item \textbf{A2:} no action
+\end{itemize}
+
+In The Netherlands, ``large enough'' means $\geq \frac{1}{250}$.
+
+For young mothers, no more tests unless strong evidence for trisomy 21.
+For old mothers, do further test unless strong evidence against trisomy 21.
+Result depends not just on LR, but on product of LR with prior odds.
+
+\subsection{Without prior probabilities: frequentist approach}
+Suppose, if $H_1$ (the ``null hypothesis'') is true, we take action A1, and if $H_2$ is true, we take action A2.
+The options are:
+
+\vspace{1em}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{| c | c | c |}
+  \hline
+      & \textbf{A1} & \textbf{A2} \\ \hline
+  \textbf{H1} & true positive, sensitivity & false positive, type I error \\ \hline
+  \textbf{H2} & false negative, type II error & true negative, specificity \\ \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+\vspace{1em}
+
+Often we like to control the probability of a type I error, called $\alpha$. $\beta$ is the probability of a type II error ($P\given{\text{decide A1}}{H_2}$).
+
+\subsubsection{Decision procedure}
+\begin{enumerate}
+  \item Make probability distributions for evidence $E$ you will gather
+  \item Define a way to decide -- a rejection region $R$ (subset of all possible evidence)
+  \item If evidence $E$ turns out to be in $R$, reject $H_1$ (choose action A2). Otherwise, choose A1.
+\end{enumerate}
+
+Such that:
+
+\begin{itemize}
+  \item If $H_1$ is true, $P\given{E \in R}{H_1} = \alpha$ (fixed, often 0.05).
+  \item Preferably $P\given{E \in R}{H_2} = 1 - \beta$ as large as possible (this is sometimes called the ``power of the test'').
+\end{itemize}
+
+\subsubsection{Example}
+The same thumbtack, with $H_1: p = \frac{1}{4}$, collecting data from 30 trials.
+If $H_1$ is true, X successes, observe X = x.
+How do you choose rejection region $R$?
+One way is to select the most unlikely outcomes in $R$ until their joint probability to happen is too large.
+E.g. $R = \{ 0, 1, 2, 3, 13, 14, 15 \ldots 30 \}$, this would give $\alpha = 0.03$.
+
+Well, if there is no alternative, $\beta$ does not exist. So, take $H_2: p \frac{3}{4}$.
+
+If there are $x$ successes, then
+
+\begin{align*}
+  LR(X) &= \frac{P\given{X = x}{p = \frac{1}{4}}}{P\given{X = x}{p = \frac{3}{4}}} \\
+        &= \frac{\binom{30}{x} (\frac{1}{4})^x (\frac{3}{4})^{30-x} }{\binom{30}{x} (\frac{3}{4})^x (\frac{1}{4})^{30-x} } &&\text{[binomial distribution $X \sim B\Big(30, \frac{1}{4}\Big)$]} \\
+        &= \frac{\frac{1}{4^x}\frac{3^{30-x}}{4^{30-x}}}{\frac{3^x}{4^x}\frac{1}{4^{30-x}}} \\
+        &= \frac{\frac{3^{30-x}}{4^{30}}}{\frac{3^x}{4^{30}}} \\
+        &= \frac{3^{30-x}}{3^x} \\
+        &= 3^{30} - 2x
+\end{align*}
+
+We also have the property that
+
+\[
+  P \given{X = x}{p = \frac{1}{4}} = P \given{X = 30 - x}{p = \frac{3}{4}}
+\]
+Based on the result, then decide:
+
+\begin{itemize}
+  \item If $x < 15$, $LR > 1$ and supports $H_1: p = \frac{1}{4}$
+  \item If $x = 15$, $LR = 1$
+  \item If $x > 15$, $LR < 1$ and supports $H_2: p = \frac{3}{4}$
+\end{itemize}
+
+The table for this binomial distribution with the corresponding LRs is
+
+\vspace{1em}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{| l | c | r | r | r |}
+  \hline
+  \textbf{LR} & \textbf{Rejection region R} & \textbf{$\alpha$} & \textbf{$\beta$} & \textbf{$\alpha + \beta$}\\ \hline
+  $LR \leq 729$ & $x \geq 12$ & $0.0506$ & $\approx 0$ & $0.0506$ \\ \hline
+  $LR \leq 81$ & $x \geq 13$ & $\sim 0.0215$ & $\approx 0$ & $0.0215$ \\ \hline
+  $LR \leq 9$ & $x \geq 14$ & $\sim 0.0081$ & $0.0002$ & $0.0083$ \\ \hline
+  $LR \leq 1$ & $x \geq 15$ & $0.0027$ & $0.0008$ & $0.0035$ \\ \hline
+  $LR \leq \frac{1}{9}$ & $x \geq 16$ & $0.0008$ & $0.0027$ & $0.0035$ \\ \hline
+                        & $x \geq 17$ & $0.0002$ & $0.0081$ & $0.0083$ \\ \hline
+                        & etc. & & & \\ \hline
+                        & $\{0, 1, 2, 3, 13 \ldots 30\}$ & $\sim 0.03$ & $\approx 0$ & $\approx 0.03$ \\ \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+\vspace{1em}
+
+\subsubsection{Neyman-Pearson lemma}
+If LR-threshold is used for decision making, eg.
+\[
+  R_t = \{ E | LR(E) \leq t \} \qquad \text{t is threshold, whatever number}
+\]
+
+Then you get some
+\begin{align*}
+  \begin{cases}
+    \alpha_t &= P \given{LR(E) \leq t}{H_1} \\
+    \beta_t &= P \given{LR(E) > t}{H_2} \qquad (< \frac{1}{t} )
+  \end{cases}
+\end{align*}
+
+Suppose I have another procedure with rejection region $R$ and error rates $\alpha_R$ and  $\beta_R$.
+If $\alpha_R < \alpha_t$, then $\beta_R > \beta_t$.
+
+So, LR is optimal in the sense that it is impossible to improve upon \textit{both} $\alpha_t$ and $\beta_t$ at the same time.
+Therefore, there is no conceptual reason to use a different procedure (though there may be a practical reason).
+
+With $t = 1$, the sum of $\alpha + \beta$ is minimal.
+
+In the example, with $\alpha = 0.05$, we get $5 = 729$.
+\[
+  R_{729} = \{ x \geq 12 \}
+\]
+
+That is, if $x \geq 12$, $LR = 729$. Evidence supports $H_1$, but $H_1$ is rejected.
+
+Error rates are predictive, they belong to a procedure for decision making:
+
+\begin{itemize}
+  \item If $H_1$ true: probability $\alpha$ of error.
+  \item If $H_2$ true: probability $\beta$ of error.
+\end{itemize}
+
+It's not true that if you decide for $H_1$, there is a probability $\alpha$ that \textit{you} made an error!
+
+\subsubsection{Frequentist vs Bayesian statistics}
+\vspace{1em}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{| c | c |}
+  \hline
+  \textbf{Frequentist} & \textbf{Bayesian} \\ \hline
+  no priors & priors \\
+  predicting data & explaining data \\
+  LRs for decision making & LRs for updating odds, \textit{then} decision making
+  \\ \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+\vspace{1em}
+
+If you don't have priors and no good way to estimate them, it may be better to go with the frequentist approach and accept the errors that come with it.
+
+\section{Neyman-Pearson}
+To recap, the LR ``decides'' which hypothesis best explains data.
+Data-driven hypotheses are allowed, but since the posterior odds identity is true, a high LR is compensated by small prior odds.
+
+Procedure:
+
+\begin{enumerate}
+  \item Choose $\alpha$
+  \item Choose t, with t such that
+    \[
+      P \given{LR < t}{H_1} = \alpha
+    \]
+
+    Choose $A_1$ if $LR_{H_1, H_2})(E) \geq t$
+\end{enumerate}
+
+This means that we choose $A_2$ while there is evidence for $H_1$.
+
+\subsection{Example (building on the binomial coin from the previous lecture)}
+$A_1: \theta = \frac{1}{4}, \quad H_2: \theta = \frac{3}{4}, \alpha = 0.05$
+
+Choose $A_1$ if $LR \geq 729$ ($\#successes \geq 12$). Why? Because you insist on a small $\alpha$.
+
+\section{What if only the final decision is given?}
+What happens if you only get ``an expert's opinion'' and the final decision they took?
+You can still figure out the evidential value.
+
+\[
+  \frac{P \given{E_1}{H_1}}{P \given{E_1}{H_2}} = \frac{1-\alpha}{\beta} \qquad \qquad
+  \frac{P \given{E_2}{H_1}}{P \given{E_2}{H_2}} = \frac{\alpha}{1-\beta}
+\]
+
+If $\beta$ is small, LR increases and you get high evidential value.
+
+\section{P-values: what's wrong with them?}
+\subsection{Example: researchers' experiments}
+Goal is to disprove success probability $p = \frac{1}{2}$.
+20 experiments, the result is 14 successes.
+$\alpha = 0.05$, $H_1: \enspace p = \frac{1}{2}$, $H_2: \enspace p \neq \frac{1}{2}$.
+
+Compute $P \given{\geq 14 \cup \leq 6}{H_1} = 0.23$.
+Since this is $> \alpha$, not significant enough so can't reject $H_1$.
+But 15 successes would have done it, with probability of 0.0412.
+So do 20 more trials, with 19 successes.
+Then $P \given{\geq 33 \cup \leq 7}{H_1} = 0.000422$.
+
+But rejection of $H_1$ is incorrect here!
+After 40 experiments, $P \given{\geq 27 \cup \leq 13}{H_1} = 0.05$.
+The total critical region is:
+
+\begin{itemize}
+  \item $\leq 5 \cup \geq 15$ if 20 experiments
+  \item $\leq 13 \cup \geq 27$ if 40 experiments
+\end{itemize}
+
+Total probability is $\geq 0.05$
+
+So what if we do 20 experiments, possibly stopping after 10?
+Reject $H_1$ if either:
+
+\begin{itemize}
+  \item After 10 exp. $\geq 9 \cup \leq 1$ successes
+  \item After 20 exp. $\geq 16 \cup \leq 4$ successes
+\end{itemize}
+
+Probability under $H_1$ is $\leq 0.05$.
+
+Then, results are: after 10, 3 successes; after 20, 5 successes. So $H_1$ is not rejected.
+
+Another researcher only looks after 20 experiments, so for them, 5 successes means reject!
+
+It's strange that we are using probabilities of outcomes we never saw to interpret the evidence.
+The LR approach doesn't have this problem.
+
+\subsection{Example: ability to see color}
+You have 20 colors.
+Experiment 1: for people that don't see green, reject $p = \frac{1}{2}$ if \#successes = \{0,1,9,10\}.
+Experiment 2: $H_1: \enspace p = \frac{1}{2}$ for all colors, reject $H_1$ if at least one person gets 0 or 10.
+
+Result: experiment with green has 9 successes, experiment with all others in \{1,2,...9\}.
+What then?
+Reject and don't reject at the same time?
+
+Other experiments should not have an effect on evidential value of an experiment.
+
+\subsection{Example: one-tailed vs. two-tailed}
+Take $p$ to be unknown success probability.
+$\alpha = 0.05$, 100 experiments.
+$H: \enspace p = \frac{1}{2}$, reject H if $\text{successes} \leq 59 \cup \geq 61$.
+$H': \enspace p \leq \frac{1}{2}$, reject $H'$ if $\text{successes} \geq 59$.
+
+Suppose 60 successes. Reject $p \leq \frac{1}{2}$ but not $p = \frac{1}{2}$? Wtf?
+
+\subsection{Example: changing alpha}
+$H: \enspace p = \frac{1}{2}$, 40 experiments, $\alpha = 0.05$.
+$P \given{\geq 29 \cup \leq 11}{H} = 0.0003$.
+
+The researcher sees that $\alpha = 0.01$ would also be ok, so they claim to reject H at level $\alpha = 0.01$.
+
+This is wrong! $\alpha$ belongs to the whole experiment, it does not relate to an individual outcome.
+By changing $\alpha$ from experiment to experiment, it loses the \textit{only} interpretation it has.
+
+\section{P-values of LRs}
+Suppose $LR = 47$.
+The p-value is then $P \given{LR \geq 47}{H_2}$.
+The idea is that, if p-value is very small, then the LR of 47 is extreme for $H_2$.
+If it's large, then the 47 is `normal' for $H_2$.
+
+However, this still has no \textit{evidential} value.
+LR measures strength of evidence.
+The p-value tells you how rare such a LR is.
+However, once you have evidence, it doesn't matter how frequently evidence of that strength occurs.
+
+\subsection{Example: genomes}
+Two people with genomes g1, g2. $H_1:  siblings$, $H_2:  unrelated$.
+
+You can take different types of LRs:
+
+\begin{align*}
+  LR_{H_1, H_2} (g_1, g_2) &= \frac{P \given{g_1, g_2}{H_1}}{P \given{g_1,g_2}{H_2}} \\
+  LR' &= \frac{P \given{g_2}{g_1, H_1}}{P \given{g_2}{g_1, H_2}} \\
+  LR'' &= \frac{P \given{g_1}{g_2, H_1}}{P \given{g_1}{g_2 H_2}}
+\end{align*}
+
+These are all basically the same.
+Take notation $p_1 = P(g_1)$, $p_2 = P(g_2)$.
+$p_1(g_2) = P(g_1 \text{ for a sibling of someone with } g_2)$.
+$p_2(g_1) = P(g_2 \text{ for a sibling of someone with } g_1)$.
+
+Then we can rewrite the LRs from above:
+
+\begin{align*}
+  LR_{H_1, H_2} (g_1, g_2) &= \frac{p_1 p_2(g_1)}{p_1 p_2} = \frac{p_2(g_1)}{p_2} \\
+  LR' &= \frac{p_2 (g_1)}{p_2} \\
+  LR'' &= \frac{p_2 (g_1)}{p_2}
+\end{align*}
+
+The p values will be different though, because depending on the fixed genome, the frequency of how often it occurs will be different.
+This would lead to different actions, even though the LRs are identical, and thus so is the evidence.
+
+\subsection{Example: disease and test results}
+Take $H_1: \enspace \text{disease present}$, $H_2: \enspace \text{disease absent}$.
+
+Experiment 1:
+
+\vspace{1em}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{| l | c | r |}
+  \hline
+  \textbf{} & \textbf{+} & \textbf{-} \\ \hline
+  $H_1$ & 0.94 & 0.06 \\ \hline
+  $H_2$ & 0.02 & 0.98 \\ \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+\vspace{1em}
+
+\begin{align*}
+  LR(+) &= \frac{P \given{+}{H_1}}{P \given{+}{H_2}} = \frac{0.94}{0.02} = 47 \\
+  LR(-) &= \frac{P \given{-}{H_1}}{P \given{-}{H_2}} = \frac{0.06}{0.98} = \frac{1}{16} \\
+\end{align*}
+
+Experiment 2 (``0'' means experiment is not carried out):
+
+\vspace{1em}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{| l | c | r | r |}
+  \hline
+  \textbf{} & \textbf{+} & \textbf{0} & \textbf{-} \\ \hline
+  $H_1$ & 0.47 & 0.5 & 0.03 \\ \hline
+  $H_2$ & 0.01 & 0.5 & 0.49 \\ \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+\vspace{1em}
+
+\begin{align*}
+  LR(+) &= 47 \\
+  LR(-) &= \frac{1}{16} \\
+\end{align*}
+
+Experiment 3 (``*'' is negative result or no experiment):
+
+\vspace{1em}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{| l | c | r |}
+  \hline
+  \textbf{} & \textbf{+} & \textbf{*} \\ \hline
+  $H_1$ & 0.47 & 0.53 \\ \hline
+  $H_2$ & 0.01 & 0.99 \\ \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+\vspace{1em}
+
+\[
+  LR(+) = 47
+\]
+
+All of the LRs are the same.
+So essentially, if a ``+'' is obtained, the evidential value is always the same no matter how it was obtained.
+
+Per experiment, $P \given{LR \geq 47}{H_2} = $
+
+\begin{enumerate}
+  \item 0.02
+  \item 0.01
+  \item 0.01
+\end{enumerate}
+
+These are not all the same!
+
+The p-value relates to the \textit{entire} procedure, that's why it's not the same.
+The LR relates to an individual outcome, so it's always the same.
+
+\section{Why confidence intervals are similarly fucked}
+Recall testing H1 vs H2: define rejection region R, s.t. if sampled data are in R, you ``reject H1'' (take some action).
+Otherwise, do not reject.
+
+P-values define R in terms of what might happen if H1 is true, s.t. total probability for data to be in R is $\alpha$.
+The point is that you can't interpret data in R as evidence against H1.
+
+Neyman-Pearson: define R using LR threshold t. $R \{ E | LR(E) \leq t\}$ gives you optimality.
+
+Why p-values suck (recap):
+
+\begin{itemize}
+  \item do not measure strength of evidence in E against H1
+  \item they are ambiguous (several ways of defining them)
+  \item the probability $\alpha$ is a property of the procedure that you do (how data are gathered), not of the obtained data
+\end{itemize}
+
+\subsection{Confidence intervals}
+Say we have a model (e.g. a Binomial distribution) that generates the data and has unknown param $\theta$ that we want to estimate.
+Example: $\theta$ mean height of people, model $N(\theta, \sigma^2)$.
+
+A CI of $1-\alpha$ consists of two functions on data that can be obtained, $\theta_{min}$ and $\theta_{max}$, such that if $\theta$ is true value of the param of interest, it lies between $\theta_{min} (E)$ and $\theta_{max} (E)$ with probability $1-\alpha$ if we repeat sampling of E.
+
+\subsubsection{Commonly encountered 95\% CI}
+For data from $N(\theta, \sigma^2)$, if I sample n points $x_1,\ldots,x_n$, estimate $\theta$ by \[
+  \hat{\theta} = \overline{x} = \frac{1}{n} \sum_{i=1}^n x_i
+\]
+
+And take as 95\% CI $\big[ \overline{x} - 1.96 \frac{\sigma}{\sqrt{n}}, \quad \overline{x} + 1.96 \frac{\sigma}{\sqrt{n}} \big]$.
+$1.96$ is the z-score for the CI.
+
+Why? It gives the smallest 95\% CI for such data.
+
+\subsubsection{Binomial data (2 possible outcomes)}
+Data $x_1,\ldots,x_n$, interested in ``success prob'' $p$ of $p = P(x = 1)$.
+
+With success probability p, in n points $x_1,\ldots,x_n$, there are k successes (ones) with prob \[
+  P (X = k) = \binom{n}{k} p^k (1-p)^{n-k}
+\] (Binomial distribution probability).
+
+A 95\% CI can b e computed with this, but a good approximation is \[
+  \theta_{min,max} = \hat{p} \pm 1.96 \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+\] where $\hat{p} = \frac{k}{n}$.
+
+The CI at level $1-\alpha$ contains exactly the values that would not lead to rejection with significance level $\alpha$ (i.e. p-value $\geq \alpha$).
+
+\subsection{Problems with CIs}
+CIs suffer from the same problems as p-values:
+
+\begin{itemize}
+  \item $\alpha$ is a property of the procedure, not of any realized outcome
+  \item ambiguity: lots of choices possible
+\end{itemize}
+
+\subsubsection{Example}
+Want to estimate $\theta$, gather data $x$.
+
+\[
+  P(x | \theta) = \begin{cases} \frac{1}{2} \quad x = \theta \\ \frac{1}{2} \quad x = \theta+1 \end{cases}
+\]
+
+Gather two points $x_1, x_2$. CI defined as $\big[ \theta_{min} = \min(x_1, x_2), \quad \theta_{max} = \max(x_1, x_2) \big]$
+
+This is a 75\% CI.
+
+But if data are $x_1 = 28$, $x_2 = 29$, then CI is $[28, 29]$ and definitely contains $\theta$.
+If $x_1 = x_2 = 30$, then CI is $[30]$, $\theta$ could be 29 or 30.
+If the values for $\theta$ are equally likely, 50\% chance to contain $\theta$.
+
+\subsubsection{Example}
+With n points from $N(\mu, \sigma^2)$ normal dist, 95\% CI is $\overline{x} \pm 1.96 \frac{\sigma}{\sqrt{n}}$.
+
+Let $n=1$ or $n=100$ with probability $\frac{1}{2}$.
+What's a good 95\% CI?
+
+\begin{enumerate}
+  \item If $n=1$, 95\% CI is $x_1 \pm 1.96 \sigma$.
+    If $n=100$, 95\% CI is $\overline{x} \pm 1.96 \frac{\sigma}{10}$.
+    But you can do better.
+  \item If $n=1$, $x_1 \pm 1.62\sigma$ (91\% CI).
+    If $n=100$, $\overline{x} \pm 2.72 \frac{\sigma}{10}$ (99\% CI).
+    Overall, this is also 95\% CI.
+\end{enumerate}
+
+Why number 2? Expected width of intervals:
+
+\begin{enumerate}
+  \item $\frac{1}{2}(2 \times 1.96 \sigma) + \frac{1}{2}(2 \times 1.96 \frac{\sigma}{10} = 1.96\sigma + 0.196\sigma = 2.156\sigma$
+  \item $\frac{1}{2}(2 \times 1.62\sigma) + \frac{1}{2}(2*2.72 \frac{\sigma}{10} = 1.62\sigma + 0.272\sigma = 1.892\sigma$
+\end{enumerate}
+
+\subsubsection{Example}
+Heart/lung problems with newborns.
+Conventional medical treatment not very adequate, survival rate not precisely known but ~20\%.
+New, promising treatment ECMO, survival rate estimated possibly around 80\%.
+Study ECMO vs CMT.
+How large should it be?
+
+Take n patients, number of recoveries is x.
+
+Say, test $\theta_{ECMO} = 0.8$ vs $\theta_{ECMO} = 0.2$.
+If x recoveries, LR is
+
+\begin{align*}
+  \frac{P \given{x}{\theta = 0.8}}{P \given{x}{\theta = 0.2}} &= \frac{\binom{n}{x} (0.8)^x (0.2)^{n-x}}{\binom{n}{x} (0.2)^x (0.8)^{n-x}} \\
+                                                              &= \frac{4^x}{4^{n-x}} = 4^{2x-n} \\
+                                                              &= 2^{4x-n} \\
+\end{align*}
+
+If I want $LR \geq 32 (\geq 2^5)$, I need $4x -2n \geq 5$. So $x\geq \frac{2n+5}{4}$.
+
+We can compute probability to get sufficiently strong evidence in favor of the true hypothesis, or probability of strongly misleading evidence, or probability of not obtaining strong evidence.
+
+Now suppose 13 out of 17 recoveries. What does this say about $\theta_{ECMO}$?
+
+We could CI that shit, but CIs have problems.
+
+The best $\theta_{ECMO} = \frac{13}{17} = 0.76$.
+How much better than $\theta = 0.5$?
+
+\[
+  \frac{P \given{\text{13 out of 17}}{\theta = 0.8}}{P \given{\text{13 out of 17}}{\theta = 0.5}} = 11.5
+\]
+
+A likelihood interval. E.g. $\frac{1}{32}$ LI is all values $\theta$ such that LR for $\theta = \frac{13}{17}$ vs $\theta = \theta_0$ is at most 32.
+
+\section{Notes from Ioannidis}
+These are notes from the class when discussing the article ``Why Most Published Research Findings Are False'' by Ioannidis.
+
+$S$ : significant result ($p < 0.05$ ).
+
+\begin{align*}
+  \frac{P \given{\overline{H_0}}{S}}{P \given{H_0}{S}} &= \frac{P \given{S}{\overline{H_0}}}{P \given{S}{H_0}} \times \underbrace{\frac{P(\overline{H_0})}{P(H_0)}}_\text{$R$ in the article} \\
+  \frac{P \given{S}{\overline{H_0}}}{P \given{S}{H_0}} &= \frac{1-\beta}{\alpha}
+\end{align*}
+
+So $\frac{1-\beta}{\alpha} \times R > 1$ for $H_0$ to be false.
+
+In notation of Ioannidis, $(1-\beta)R > \alpha$.
+
+Odds $\frac{P \overline{H_0}}{P(H_0)} = R$ are equivalent to \[
+  P (\overline{H_0}) = \frac{R}{R+1} \\
+  P (H_0) = \frac{1}{R+1}
+\].
+
+Total number of research questions $c$ is then:
+
+\begin{align*}
+  \begin{cases}
+    c \frac{R}{R+1} \quad \text{if $\overline{H_0}$ true} \longrightarrow
+      \begin{cases}
+        S(\overline{H_0}\text{ true}) = (1-\beta) c \frac{R}{R+1} \\
+        \overline{S}(\overline{H_0}\text{ true}) = \beta c \frac{R}{R+1}
+      \end{cases}
+    \\
+    c \frac{1}{R+1} \quad \text{if $H_0$ true} \longrightarrow
+    \begin{cases}
+      S(H_0\text{ true}) = \alpha c \frac{1}{R+1} \\
+      \overline{S}(H_0\text{ true}) = (1-\alpha) c (\frac{1}{R+1})
+    \end{cases}
+  \end{cases}
+\end{align*}
+
+Ioannidis: $\beta = 0.2$, $\alpha = 0.05$. So \[
+  LR(S) = \frac{1-0.2}{0.05} = \frac{0.8}{0.05} = 16
+\]
+
+\subsection{Bias}
+Bias is when you get more significant findings than warranted by the data.
+E.g. you try to `clean up the data'.
+But then your original error rates don't apply anymore.
+
+Originally, \begin{gather*}
+  P \given{S}{H_0} = \alpha \\
+  P \given{S}{\overline{H_0}} = 1-\beta
+\end{gather*}
+
+Now, \begin{gather*}
+  P \given{S}{H_0} = \alpha + (1-\alpha)u \\
+  P \given{S}{\overline{H_0}} = (1-\beta) + \beta u
+\end{gather*} where $u$ is the probability of data becoming significant when they are not.
+
+Now, with bias, LR of S for $\overline{H_0}$ vs $H_0$ becomes \[
+  \frac{P \given{S}{\overline{H_0}}}{P \given{S}{H_0}} = \frac{1-\beta+\beta u}{\alpha + (1-\alpha) u}
+\].
+
+$PPV = P \given{\overline{H_0}}{S}$.
+Plot y-axis odds $\frac{P \given{\overline{H_0}}{S}}{P \given{H_0}{S}}$, x-axis $u$.
+
+\vspace{1em}
+Suppose several teams:
+
+\begin{itemize}
+  \item all the same research question
+  \item all the same $\alpha$ and $\beta$
+  \item result is published as soon as at least 1 team finds statistically significant result
+\end{itemize}
+
+$S$ : at least one team has $p < 0.05$. \[
+  \frac{P \given{S}{\overline{H_0}}}{P \given{S}{H_0}} = \frac{1 - \beta^n}{1 - (1-\alpha)^n} \\
+\]
+
+As $n$ goes to infinity, the result tends towards 1.
+
+Corollaries:
+\begin{itemize}
+  \item smaller studies = less likely for findings to be true
+  \item smaller effect sizes = less likely for findings to be true
+  \item greater number and less selection of tested relationships = less likely for findings to be true
+  \item greater flexibility = less likely for findings to be true
+\end{itemize}
+
+\section{The Paradox of the Ravens (Hempel)}
+H: all ravens are black.
+Equivalent to saying ``all not black things are not ravens''.
+So observation of non-black should be evidence for H.
+
+Suppose two vases, one with only ravens (R, amount $n_R $), and one with only non-ravens (NR, amount $n_{NR}$ ).
+$P_R$ is probability of black in raven vase, $P_{NR}$ is probability of black in non-ravens.
+
+X is a draw from R. $H_A: P_R = 1$, $H_B: P_R = p < 1$.
+
+Evidence is that X is black.
+
+\begin{align*}
+  LR_{A,B} (E) &= \frac{P \given{X is black}{A}}{P \given{X is black}{B}} \\
+               &= \frac{1}{p} > 1
+\end{align*}
+
+So this is evidence that all ravens are black.
+
+Y is a draw from NR. Evidence is that Y is white.
+
+\begin{align*}
+  LR_{A,B} (E') &= \frac{P \given{Y is white}{A}}{P \given{Y is white}{B}} \\
+                &= 1 \quad \text{A,B do not affect NR, just R}
+\end{align*}
+
+That's not evidence for H. It's neutral.
+
+\subsection{But there's a big but}
+What if we do this:
+
+\begin{enumerate}
+  \item Mix all the things
+  \item Choose non-black object from the mix
+  \item Suppose this non-black object came from NR
+  \item Claim this is evidence for H
+\end{enumerate}
+
+Z is outcome, R or NR.
+
+\begin{align*}
+  LR_{A,B} (Z = NR) &= \frac{P \given{Z = NR}{A}}{P \given{Z = NR}{B}} \\
+                    &= \frac{1}{P \given{Z = NR}{B}} \\
+  P (Z = NR) &= \frac{\text{num of non-black objects in NR}}{\text{total num of non-black objects}} \\
+             &= \frac{n_{NR} (1-P_{NR}}{n_{NR} (1-P_{NR}) + n_R (1-P_R} \\
+  \therefore LR_{A,B} (Z = NR) &= \frac{1}{P(Z = NR} \\
+                               &= \frac{n_{NR} (1-P_{NR}) + n_R (1-P_R}{n_{NR} (1-P_{NR}} \\
+                               &= 1 + \frac{n_R (1-P_R)}{n_{NR} (1-P_{NR}} \\
+                               &> 1, \text{ if $P_R$ is not 1 (assumed)} \\
+\end{align*}
+
+So this \textit{is} evidence for H! (though not very strong evidence)
+
+So, two ways of sampling, which one you use \textit{is} definitely relevant.
+If you select something that you \textit{know} is not a raven, and see that it's not black, that' snot evidence.
+If you randomly select something that's not black, and see that it's not a raven, it \textit{is} evidence.
+\end{document}
