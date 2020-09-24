@@ -11,3 +11,4 @@ title = "Computer and Network Security"
 - [Lecture 5: application security - simple attacks](lecture-5-application-security-simple-attacks)
 - [Lecture 6: assembly, shellcode exploits](lecture-6-assembly-shellcode-exploits)
 - [Lecture 7: exploitation techniques](lecture-7-exploitation-techniques)
+- [Lecture 8: Defenses](lecture-8-defenses)
