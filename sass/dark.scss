@@ -53,3 +53,7 @@ img, video {
 span.isdark > img, span.isdark > video {
   filter: unset;
 }
+code {
+  background: lighten($bgcolor, 5%);
+  color: lighten($textcolor, 8%);
+}

@@ -38,3 +38,6 @@ pre {
 blockquote {
   border-left: 1px solid $bgcolor;
 }
+code {
+  background: darken(white, 7%);
+}
