@@ -34,10 +34,14 @@ a {
 }
 pre {
   border: 1px solid $bgcolor;
+  code {
+    background: inherit;
+  }
 }
 blockquote {
   border-left: 1px solid $bgcolor;
 }
+
 code {
-  background: darken(white, 7%);
+  background: darken(white, 10%);
 }

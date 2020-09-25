@@ -42,6 +42,10 @@ a {
 }
 pre {
   border: 0.5px solid #333333;
+  code {
+    background: inherit;
+    color: inherit;
+  }
 }
 blockquote {
   border-left:1px groove #aeaeae;
