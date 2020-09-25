@@ -12,3 +12,4 @@ title = "Computer and Network Security"
 - [Lecture 6: assembly, shellcode exploits](lecture-6-assembly-shellcode-exploits)
 - [Lecture 7: exploitation techniques](lecture-7-exploitation-techniques)
 - [Lecture 8: Defenses](lecture-8-defenses)
+- [Lecture 9: Web security](lecture-9-web-security)
