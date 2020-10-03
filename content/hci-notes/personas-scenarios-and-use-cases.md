@@ -1,6 +1,9 @@
-%template math
-== Personas, Scenarios, and use cases ==
-=== Goal directed design ===
++++
+title = 'Personas, Scenarios, and use cases'
++++
+
+## Personas, Scenarios, and use cases
+### Goal directed design
 Design activity that links requirements to implementation (what do you need, why? what are you solving?)
 
 Generally, you have marketers, decision makers, and developers making decisions, and the result is shit.
@@ -37,7 +40,7 @@ User stories & goals:
 * As a <persona> I want <action> so that <expected outcome>
 * When <situation> I want to <motivation> so I can <expected outcome>
 
-=== Personas - archetypal users ===
+### Personas - archetypal users
 Modelling users: identify major goals and behaviours, then build models of idealised users ("personas")
 
 There isn't an 'average user', you use personas that capture important characteristics of users.
@@ -57,7 +60,7 @@ Why?
 * Help design decisions without testing on users
 * they work. you don't focus on edge cases but on normal use, avoids the self-referential user (developers thinking users are like them), and avoids the elastic user (cuz users won't bend to your will, they don't give a shit)
 
-=== Scenarios ===
+### Scenarios
 Informal narrative descriptions:
 * describe human activities in short stories
 * You can explore needs, requirements, contexts
@@ -66,7 +69,7 @@ Informal narrative descriptions:
 * Have varying levels of detail
 * You focus on the user's perspective
 
-=== Design Requirements & principles ===
+### Design Requirements & principles
 1. Establish needs & goals
     * what info do users need?
     * what capabilities?
@@ -80,7 +83,7 @@ Informal narrative descriptions:
 Don't make the user feel stupid.
 Define what the product will do before designing how.
 
-=== Use Case ===
+### Use Case
 Focus on user-system interaction instead of user's task itself.
 Describe processes as text or use case diagram
 

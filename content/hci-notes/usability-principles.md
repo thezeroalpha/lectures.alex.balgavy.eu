@@ -1,5 +1,8 @@
-%template math
-== Usability principles ==
++++
+title = 'Usability principles'
++++
+
+## Usability principles
 Nielsen usability principles:
 1. Visibility of system status
     * always keep user informed about what's happening

@@ -1,5 +1,8 @@
-%template math
-== Webpage design ==
++++
+title = 'Webpage design'
++++
+
+## Webpage design
 people rarely read websites, and they teleport from search engines to any page.
 so any page should be a plausible starting point.
 people have a goal on the page, they don't give a fuck about how beautiful it is (unless it's so ugly that it's unusable).

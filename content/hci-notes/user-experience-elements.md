@@ -1,5 +1,8 @@
-%template math
-== User experience (UX) elements ==
++++
+title = 'User experience (UX) elements'
++++
+
+## User experience (UX) elements
 * form: graphic design, product design
 * content: information architecture, audio-visual, text
 * behaviour: interaction design observation

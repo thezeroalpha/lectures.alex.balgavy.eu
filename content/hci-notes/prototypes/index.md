@@ -1,5 +1,8 @@
-%template math
-== Prototypes ==
++++
+title = 'Prototypes'
++++
+
+## Prototypes
 Prototype: representation of design before final version exists.
 Can be low fidelity to high fidelity media.
 
@@ -25,9 +28,9 @@ fail early and often.
 
 3 stages of prototyping:
 
-{{local:../img/3-stages-prototyping.png|3 stages of prototyping graph}}
+![3 stages of prototyping graph](3-stages-prototyping.png)
 
-=== Designing the prototype ===
+### Designing the prototype
 choose what to prototype for, identify measurable design goals
 
 Describe the user's journey:

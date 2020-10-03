@@ -1,5 +1,8 @@
-%template math
-== Designing for differences ==
++++
+title = 'Designing for differences'
++++
+
+## Designing for differences
 differences in:
 * demographics - gender, age, education, socio-economic status
 * culture - language, religion, ethnicity
@@ -13,12 +16,12 @@ how much should you tailor?
 * specialised audience design - economics of markets, empathy with the users
 * universal design - the kerb cut metaphor
 
-=== Ergonomics ===
+### Ergonomics
 peripherals, posture, stuff like this
 
-{{local:../img/ergonomic-keyboards.png|Ergonomic keyboard design}}
+![Ergonomic keyboard design](ergonomic-keyboards.png)
 
-=== Computers for older people ===
+### Computers for older people
 usage related to socio-economic group, with wealth and education critical
 
 accessibility features:
@@ -26,11 +29,11 @@ accessibility features:
 * motor: slower motor task response times, no fine motor control
 * cognitive: decline in linguistic and reasoning ability, impairment of memory
 
-=== Computers for kids ===
+### Computers for kids
 * bold colors
 * large buttons and text
 
-=== Web page guidelines ===
+### Web page guidelines
 do the research
 * are there local sites offering similar goods/services?
 * what are common design values and cahracteristics?
@@ -39,7 +42,7 @@ use any local knowledge you can get
 
 test the design before deployment!
 
-==== Web Content Accessibility Guidelines (WCAG, W3C initiative) ====
+#### Web Content Accessibility Guidelines (WCAG, W3C initiative)
 aims to provide guidelines, has a st of accessibility principles
 
 perceivable:

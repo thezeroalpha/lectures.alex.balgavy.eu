@@ -1,5 +1,8 @@
-%template math
-== Norman's design principles ==
++++
+title = "Norman's design principles"
++++
+
+## Norman's design principles
 1. Visibility
     * if more stuff is visible, the user's more likely to know what to do next
     * when functions are hidden, it makes them more difficult to find and know how to use
