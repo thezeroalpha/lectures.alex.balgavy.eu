@@ -13,4 +13,5 @@ title = "Computer and Network Security"
 - [Lecture 7: exploitation techniques](lecture-7-exploitation-techniques)
 - [Lecture 8: Defenses](lecture-8-defenses)
 - [Lecture 9: Web security](lecture-9-web-security)
-- [Lecture 10_ Web attacks](lecture-10-web-attacks)
+- [Lecture 10: Web attacks](lecture-10-web-attacks)
+- [Lecture 11: Web attacks on user](lecture-11-web-attacks-on-user)
