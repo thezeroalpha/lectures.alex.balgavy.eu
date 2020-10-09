@@ -15,3 +15,4 @@ title = "Computer and Network Security"
 - [Lecture 9: Web security](lecture-9-web-security)
 - [Lecture 10: Web attacks](lecture-10-web-attacks)
 - [Lecture 11: Web attacks on user](lecture-11-web-attacks-on-user)
+- [Lecture 12: advanced exploitation](lecture-12-advanced-exploitation)
