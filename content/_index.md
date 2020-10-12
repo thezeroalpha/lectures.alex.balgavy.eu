@@ -38,5 +38,5 @@ title = "Alex's university course notes"
 * [Logic & sets](https://thezeroalpha.github.io/logicsets-notes)
 * [Web tech](https://thezeroalpha.github.io/webtech-notes)
 * [Computer Networks](compnet-notes/)
-* [History of Science](https://thezeroalpha.github.io/history-science-notes)
+* [History of Science](history-science-notes/)
 * [Networks & graphs](https://thezeroalpha.github.io/networksgraphs-notes)
