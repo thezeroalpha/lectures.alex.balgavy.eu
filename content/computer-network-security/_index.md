@@ -16,3 +16,5 @@ title = "Computer and Network Security"
 - [Lecture 10: Web attacks](lecture-10-web-attacks)
 - [Lecture 11: Web attacks on user](lecture-11-web-attacks-on-user)
 - [Lecture 12: advanced exploitation](lecture-12-advanced-exploitation)
+- [Lecture 13: advanced exploitation 2](lecture-13-advanced-exploitation-2)
+- [Lecture 14: Intrusion Detection Systems (IDS)](lecture-14-intrusion-detection-systems-ids)
