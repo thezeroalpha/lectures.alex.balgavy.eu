@@ -18,3 +18,5 @@ title = "Computer and Network Security"
 - [Lecture 12: advanced exploitation](lecture-12-advanced-exploitation)
 - [Lecture 13: advanced exploitation 2](lecture-13-advanced-exploitation-2)
 - [Lecture 14: Intrusion Detection Systems (IDS)](lecture-14-intrusion-detection-systems-ids)
+- [Lecture 15: Cryptography](lecture-15-cryptography)
+
