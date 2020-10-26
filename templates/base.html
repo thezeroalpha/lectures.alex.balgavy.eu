@@ -8,7 +8,7 @@
     var hour = new Date().getHours();
     var css = document.createElement("link");
     css.setAttribute("rel", "stylesheet");
-    css.setAttribute("href", (hour >= 20 || hour < 7) ? "/dark.css" : "/light.css");
+    css.setAttribute("href", (hour >= 19 || hour < 7) ? "/dark.css" : "/light.css");
     document.head.appendChild(css);
   </script>
   {% block scripts %}{% endblock scripts %}
