@@ -8,6 +8,7 @@ title = "Alex's university course notes"
 ## Subject notes: Year 1
 * [Computer & Network Security](computer-network-security/)
 * [Logical Verification](logical-verification/)
+* [Software Architecture](software-architecture/)
 
 # BSc Computer Science (VU Amsterdam)
 ---
