@@ -1,16 +1,20 @@
-= Probability and Uncertainty =
++++
+title = "Probability and Uncertainty"
+template = 'page-math.html'
++++
+# Probability and Uncertainty
 one often has to deal with info that is underspecified, incomplete, vague, etc.
 
 logic by itself is not sufficient for these problems.
 
-== Vagueness: Fuzzy Set Theory ==
+## Vagueness: Fuzzy Set Theory
 model theory often based on set theory
 
 fuzzy set theory allows something to be _to some degree_ an element of a set
 
 dominant approach to vagueness (mostly because wtf else can you do)
 
-=== Fuzzy sets ===
+### Fuzzy sets
   * universe U, object x ∈ U
   * membership function for fuzzy set A is defined to be function $f_A$ from U to [0,1]:
     * $f_A(x)=y$: x is a member of A to degree y
@@ -20,7 +24,7 @@ dominant approach to vagueness (mostly because wtf else can you do)
 
 modifiers (hedges)
 
-{{file:img/modifiers-hedges.png|Example of modifiers' effects on graphs}}
+![Example of modifiers' effects on graphs](modifiers-hedges.png)
 
 operations on fuzzy sets:
   * complement: $f_{\sim{A}}(x)=1-f_A(x)$
@@ -34,7 +38,7 @@ semantics -- multivalued fuzzy logic
   * v(A ∧ B) = min(v(A), v(B))
   * v(A → B) = min(1, 1 - v(A) + v(B))
 
-=== Fuzzy relations ===
+### Fuzzy relations
 fuzzy sets can denote fuzzy relations between objects. e.g. approximately equal, close to, much larger than, etc.
 
 fuzzy composition:
@@ -43,14 +47,14 @@ $f_{R \circ S} (\langle x,z\rangle ) = \max_{y \in Y} \min(f_R (\langle x,y\rang
 
 hands-on example:
 
-{{file:img/fuzzy-composition.png|Fuzzy composition table}}
+![Fuzzy composition table](fuzzy-composition.png)
 
-=== Evaluation ===
+### Evaluation
   * good -- flexible, coincides with classical set theory, sever successful applications of fuzzy control
   * bad -- requires many arbitrary choices, tends to blur differences between probabilistic uncertainty/ambiguity/vagueness
 
-== Uncertainties: Probability Theory ==
-=== General ===
+## Uncertainties: Probability Theory
+### General
 main interpretations of probability theory:
   * optivist (frequentist) probability
     * frequentism: probability is only property of repeated experiments
@@ -63,7 +67,7 @@ sample space Ω: set of single outcomes of experiment
 
 event space E: things that have probability (subsets of sample space). if sample space is finite, event space is usually power set.
 
-=== Axioms of probability ===
+### Axioms of probability
 for any event A, B:
   * $0 \leq P(A) \leq 1$
   * $P(\Omega) = 1$
@@ -78,7 +82,7 @@ conditional probability ("A given B"):
 
 $P(A|B) = \frac{P(A \cap B)}{P(B)}$
 
-=== Joint probability distributions ===
+### Joint probability distributions
 for a set of random variables, it gives probability of every atomic even on those random variables.
 
 e.g. P(Toothache, Catch, Cavity):
@@ -95,8 +99,8 @@ inference by enumeration:
 
 use Bayes' rule for opposite conditionals (like finding P(disease | symptom) from P(symptom | disease))
 
-=== Bayesian networks ===
-simple graphical notation for 
+### Bayesian networks
+simple graphical notation for
   * conditional independence assertions
   * compact specification of full joint distributions
 
@@ -107,13 +111,13 @@ syntax:
 
 topology example:
 
-{{file:img/bayesian-topology.png|Bayesian network topology}}
+![Bayesian network topology](bayesian-topology.png)
 
 what does it mean?
   * _weather_ is independent of other variables
   * _toothache_ and _catch_ are conditionally independent given _cavity_.
 
-=== Evaluation of probabilities ===
+### Evaluation of probabilities
   * good -- sound theoretical basis, can be extended to decision-making, some good tools available
   * bad -- not always computationally easy, need lots of data which may be hard to get
 

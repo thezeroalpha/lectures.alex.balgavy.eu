@@ -1,4 +1,8 @@
-= Machine Learning =
++++
+title = "Machine Learning"
+template = 'page-math.html'
++++
+# Machine Learning
 
 design of a learning element is affected by:
   * which components of performance element are to be learned
@@ -15,9 +19,9 @@ feedback types (get input, make decision, learn based on feedback):
   * semi-supervised learning: learn which questions to ask (active learning)
   * reinforcement learning: occasional rewards
 
-{{file:img/neurons-vs-nn.png}}
+![image](neurons-vs-nn.png)
 
-== Learning problems ==
+## Learning problems
 
 Classification
   * use: from data to discrete classes.
@@ -39,8 +43,8 @@ Clustering
   * use: discovering structure/patterns in data
   * examples: clustering images
 
-== Methodology ==
-=== Data ===
+## Methodology
+### Data
 labeled instances (like spam, not spam)
   * training set
   * held out set (e.g. for validation)
@@ -50,42 +54,42 @@ randomly allocate to data sets.
 
 features: attribute-value pairs characterizing each x
 
-=== Experimentation ===
+### Experimentation
 experimentation cycle:
   1. select hypothesis, tune hyperparameters on held-out/validation set
   2. compute accuracy of test set (never "peek" at test set itself)
 
-=== Evaluation ===
+### Evaluation
 accuracy -- fraction of instances predicted correctly
 
 Cross validation:
 
-{{file:img/cross-validation.png|Cross validation diagram}}
+![Cross validation diagram](cross-validation.png)
 
 create a confusion matrix (TODO: there's a diagram for this but not in the old slides)
 
-== Machine Learning Steps: ==
+## Machine Learning Steps:
   1. choose the features
   2. choose the model class
   3. choose a search method
 
-=== Choose the features ===
+### Choose the features
 create a feature space: features on x-y axes, points are individual data, classification would be a color scheme.
 
-{{file:img/feature-space.png|Feature space graph}}
+![Feature space graph](feature-space.png)
 
 
-==== Inductive learning method ====
+#### Inductive learning method
   * construct/adjust h to agree with f (function predicting value) on training set
   * h is consistent if it agrees with f on all examples
   * for example, curve fitting:
-    
-    {{file:img/curve-fitting.png|Curve fitting graph}}
+
+    ![Curve fitting graph](curve-fitting.png)
 
 Occam's razor: "one should not increase, beyond what is necessary, the number of entities required to explain anything"
 basically, choose the simplest option.
 
-==== Classifying with naive Bayes ====
+#### Classifying with naive Bayes
 
 Binary classification
 * input: email
@@ -116,37 +120,37 @@ This simplifies the formula to:
 
 $P(C)P(F_1,...,F_n | C) = P(C) PI(0 to n) P(F_i | C)$
 
-{{file:img/bayes-calculation.png}}
+![image](bayes-calculation.png)
 
 Laplace smoothing helps with really small probabilities.
 Naive Bayes often works. sometimes performs well even if the assumptions are badly violated.
 classification is about predicting correct class label, _not_ about accurately estimating probabilities
 
-==== Clustering with K-nearest neighbor ====
+#### Clustering with K-nearest neighbor
 k nearest neighbor classification: find k most similar case, copy majority label
 
 e.g. to classify unlabeled document, find most similar document and copy label:
 
-{{file:img/knn.png|K-nearest neighbor example}}
+![K-nearest neighbor example](knn.png)
 
-the _k_ helps get rid of noise which would lead to misclassification  
+the _k_ helps get rid of noise which would lead to misclassification
 
-==== Linear classifier ====
+#### Linear classifier
 linear classifier: come up with a line that divides feature space, use that for prediction.
 
 works for stuff like $x \lor y$, but not if we want $x \oplus y$ or other things that are not linearly separable.
 
 you can build a design matrix of all the different features you want to include. here's an example with 5 different features *age, height, age², age × height, height²) that classifies a person as male/female:
 
-{{file:img/design-matrix.png|Design matrix}}
+![Design matrix](design-matrix.png)
 
 if you go to more dimensions (so more features in a design matrix), you need hyperplanes.
 
 hyperplanes sound fancy af but it's just a line in some higher dimension. for example, this is how you would use a hyperplane in the third dimension to separate points:
 
-{{file:img/3d-hyperplane.png|3D hyperplane example}}
+![3D hyperplane example](3d-hyperplane.png)
 
-==== Support vector machine ====
+#### Support vector machine
 k(x,y): "distance" function between instances x and y
 
 SVMs create a linear separating hyperplane
@@ -157,11 +161,11 @@ try to achieve a good margin -- a large separation from the line for both classe
 
 watch out for over-fitting -- you might end up with the model being trained extremely specifically to your data.
 
-=== Choose the model (model search) ===
+### Choose the model (model search)
 
 so we have a lot of ways to put a line on a graph. but how do you choose the right one?
 
-==== Regression ====
+#### Regression
 train a learner to produce a model (the model is the line/hyperplane). then you give the model a new instance, and it produces a new value based on a function.
 
 assign a value for each of the points in the feature space.
@@ -172,15 +176,15 @@ you use an error function (the difference between predicted and real values, squ
 
 $error(p) = \sum_i (f_p (x_i) - y_i)^2$
 
-{{file:img/error-graph.png|Error graph}}
+![Error graph](error-graph.png)
 
 in this example, each of the possible lines is represented by two parameters (s the slope, b the y-intercept), in the left graph. those parameters can be plotted on 2D axes, on the right graph.
 
-{{file:img/feature-model-space.png|Feature and model space}}
+![Feature and model space](feature-model-space.png)
 
 Then you can take those points in the right graph, and plot their respective error rates (from the error function above) on the z axis, so you end up with a 3D graph -- an error surface:
 
-{{file:img/error-surface.png|Error surface}}
+![Error surface](error-surface.png)
 
 now the point is to find the one with the lowest error (the lowest point in the surface, colored green). and that's what calculus is for, specifically differentiation.
 
@@ -192,13 +196,13 @@ so a derivative $f'(x)$ of a function $f(x)$ gives the slope of $f(x)$ at any po
 
 the rules for taking derivatives (don't need to memorize these, they will be provided on the exam):
 
-{{file:img/derivative-rules.png|Derivative rules}}
+![Derivative rules](derivative-rules.png)
 
-the problems: 
+the problems:
   * not all derivatives that we find can be resolved to zero
   * and we also have to consider that this can be in higher dimensions
 
-==== Gradient descent ====
+#### Gradient descent
 you use a variant of the hill climbing algorithm
 
 the steps:
@@ -209,37 +213,37 @@ the steps:
 
 but there may be multiple zero points -- local optima. there's no guarantee of convergence.
 
-== Neural Networks ==
-=== Overview ===
+## Neural Networks
+### Overview
 the difference between original machine learning and deep learning:
 
-{{file:img/ml-vs-dl.png}}
+![image](ml-vs-dl.png)
 
 the original perceptron:
   * binary classifier
   * bias node, always set to 1
   * n inputs for each feature, with weights
-  * $y=w_1 x_1 _ w_2 x_2 + b$
+  * $y=w_1 x_1 + w_2 x_2 + b$
 
 but chaining doesn't make it more interesting, the function collapses to a linear one
-  
-{{file:img/perceptron.png}}
+
+![image](perceptron.png)
 
 So introduce an activation function instead of using a standard linear calculation. This puts the values in a certain range, and now the diagram looks like this:
 
-{{file:img/activation-functions.png}}
+![image](activation-functions.png)
 
 Then you can build a feed-forward network with hidden layers between input and output:
 
-{{file:img/feedforward.png}}
+![image](feedforward.png)
 
-  
-=== Training neural networks ===
+
+### Training neural networks
 Loss function determines how close a given network is to being correct for an input.
-If you plot neural networks on x-y, and the amount of loss on z axis, you end up with a loss surface. Then you want to find a point in that surface where the loss is the lowest. 
+If you plot neural networks on x-y, and the amount of loss on z axis, you end up with a loss surface. Then you want to find a point in that surface where the loss is the lowest.
 
-{{file:img/loss-plot.png}}
-{{file:img/loss-surface.png}}
+![image](loss-plot.png)
+![image](loss-surface.png)
 
 You can find the low point in the error surface with gradient descent (differentiation).
 
@@ -266,30 +270,30 @@ backpropagation: if the system is a composition of modules, the gradient is the 
   * work out derivative of each module with respect to its input (_symbolically_)
   * compute the gradient for a given input by multiplying these gradients for the current input
 
-{{file:img/backpropagation.png}}
+![image](backpropagation.png)
 
 for a given input x, you do a forward pass (calculating the value for each part), then fill in into final calculation.
 
 so like this, with x = 0:
 
-{{file:img/backpropagation-calculation.png}}
+![image](backpropagation-calculation.png)
 
 neural networks are just a way of thinking about differentiable computation.
 
-=== Autoencoders: a NN architecture === 
+### Autoencoders: a NN architecture
 bottleneck architecture:
 
-{{file:img/autoencoder-architecture.png}}
+![image](autoencoder-architecture.png)
 
 input should be as close as possible to the output. but it must pass through a small representation
 
 autoencoders map data to a _latent representation_
 
-=== Trying it out ===
+### Trying it out
 * code: https://github.com/pbloem/machine-learning/blob/master/code-samples/autoencoder/autoencoder.py
 * setup: https://docs.google.com/document/d/1-LXG5Lb76xQy70W2ZdannnYMEXRLt0CsoiaK0gTkmfY/edit?usp=sharing
 
-== The promise of depth ==
+## The promise of depth
 if you have many dimensions, the gradient isn't as easy to detect anymore. there's a huge number of parameters.
 
 solutions:
@@ -298,7 +302,7 @@ solutions:
     * similar to the autoencoder idea
     * you can then stack the autoencoders (hidden layers)
 
-    {{file:img/pretraining.png|Pretraining}}
-    
-  * Pruning the network 
-    * convolutional neural network: combine multiple input nodes into one node of a hidden layer 
+    ![Pretraining](pretraining.png)
+
+  * Pruning the network
+    * convolutional neural network: combine multiple input nodes into one node of a hidden layer

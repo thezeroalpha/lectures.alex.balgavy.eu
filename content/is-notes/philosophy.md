@@ -1,4 +1,7 @@
-= Philosophy of AI =
++++
+title = "Philosophy of AI"
++++
+# Philosophy of AI
 what is intelligence?
   * classically, you test this using the Turing Test
     * interrogation game
@@ -6,7 +9,7 @@ what is intelligence?
     * if the interrogator can't tell who is the human, the computer is intelligent
   * the objections:
     * the test is subjective
-    * why are we basing intelligence on _human_ intelligence? metaphor with flight, we only managed to get off the ground once we stopped imitating natural flight 
+    * why are we basing intelligence on _human_ intelligence? metaphor with flight, we only managed to get off the ground once we stopped imitating natural flight
 
 intelligence is everything a computer can't do yet.
 
@@ -24,9 +27,9 @@ can a computer be intelligent?
 
 Mind-body problem:
   * we have the physical body, and metaphysical thoughts
-  * what could be the relationship between the physical and the metaphysical? 
+  * what could be the relationship between the physical and the metaphysical?
   * opinions:
-    * mind-body dualism, interactionism: we consist of two parts (physical _and_ metaphysical) --  Descartes 
+    * mind-body dualism, interactionism: we consist of two parts (physical _and_ metaphysical) --  Descartes
     * materialism: the mind and body is one thing
     * gradualism: we evolved the mind (intelligence, consciousness) over time
 

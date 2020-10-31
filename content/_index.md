@@ -24,7 +24,7 @@ title = "Alex's university course notes"
 * [Data Structures & Algorithms](dsa-notes/)
 * [Statistical Methods](https://thezeroalpha.github.io/stats-notes)
 * [Operating Systems](https://thezeroalpha.github.io/os-notes)
-* [Intelligent Systems](https://thezeroalpha.github.io/is-notes)
+* [Intelligent Systems](is-notes/)
 * [Linear Algebra](https://thezeroalpha.github.io/lin-algebra-notes)
 * [Software Design](https://thezeroalpha.github.io/softdesign-notes)
 * [Logic & Modelling](https://thezeroalpha.github.io/logic-modelling-notes)

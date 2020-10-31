@@ -1,15 +1,18 @@
-= Assessment info =
++++
+title = "Assessment info"
++++
+# Assessment info
 check learning goals on canvas.
 
 everything in working groups (this means go through the sheets again)
-  * informed search (DF, BF, DFID)
-  * uninformed search (Hill Climbing, BF, A, A*)
-  * adversarial search (minimax with alpha-beta)
-  * logical representations
-  * DPLL
-  * uncertainty representations
-  * Bayesian learning
-  * NN/Deep learning
+* informed search (DF, BF, DFID)
+* uninformed search (Hill Climbing, BF, A, A*)
+* adversarial search (minimax with alpha-beta)
+* logical representations
+* DPLL
+* uncertainty representations
+* Bayesian learning
+* NN/Deep learning
 
 research procedure
   * take at least 4 bots you implemented
