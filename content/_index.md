@@ -2,7 +2,7 @@
 title = "Alex's university course notes"
 +++
 
-# MSc Computer Systems Security (VU Amsterdam)
+# MSc Computer Systems Security (VU Amsterdam & UVA)
 ---
 
 ## Subject notes: Year 1
@@ -25,7 +25,7 @@ title = "Alex's university course notes"
 * [Statistical Methods](https://thezeroalpha.github.io/stats-notes)
 * [Operating Systems](https://thezeroalpha.github.io/os-notes)
 * [Intelligent Systems](is-notes/)
-* [Linear Algebra](https://thezeroalpha.github.io/lin-algebra-notes)
+* [Linear Algebra](lin-algebra-notes/)
 * [Software Design](https://thezeroalpha.github.io/softdesign-notes)
 * [Logic & Modelling](https://thezeroalpha.github.io/logic-modelling-notes)
 * [Databases](databases-notes)
