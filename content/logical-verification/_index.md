@@ -10,3 +10,4 @@ There is a [Git repository](https://github.com/blanchette/logical_verification_2
 - [Basics](basics)
 - [Backward proofs](backward-proofs/)
 - [Forward proofs](forward-proofs/)
+- [Functional programming](functional-programming/)
