@@ -29,7 +29,7 @@ title = "Alex's university course notes"
 * [Software Design](https://thezeroalpha.github.io/softdesign-notes)
 * [Logic & Modelling](logic-modelling-notes/)
 * [Databases](databases-notes)
-* [A Likelihood Approach to Statistics (Honors)](https://github.com/thezeroalpha/likelihood-notes/blob/master/notes.pdf)
+* [A Likelihood Approach to Statistics (Honors)](likelihood-notes/notes.pdf)
 * [Human Computer Interaction](hci-notes/)
 
 ## Subject notes: Year 1
