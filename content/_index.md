@@ -27,7 +27,7 @@ title = "Alex's university course notes"
 * [Intelligent Systems](is-notes/)
 * [Linear Algebra](lin-algebra-notes/)
 * [Software Design](https://thezeroalpha.github.io/softdesign-notes)
-* [Logic & Modelling](https://thezeroalpha.github.io/logic-modelling-notes)
+* [Logic & Modelling](logic-modelling-notes/)
 * [Databases](databases-notes)
 * [A Likelihood Approach to Statistics (Honors)](https://github.com/thezeroalpha/likelihood-notes/blob/master/notes.pdf)
 * [Human Computer Interaction](hci-notes/)
