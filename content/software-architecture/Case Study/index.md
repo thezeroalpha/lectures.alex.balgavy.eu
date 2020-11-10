@@ -2,7 +2,6 @@
 title = 'Case Study'
 +++
 # Case Study
-
 ## Overview
 Connecting consumers of energy directly with renewable energy sources creates a higher certainty that what consumers pay for energy ends up with a renewable producer, and not with a fossil energy plant
 Challenge: balancing the grid.
@@ -77,4 +76,5 @@ Settlements
 - SO settles payment with the Aggregator based on the delivered flexibility (MW power delivered).
 - Aggregator settles payment with the prosumer/OEM based on the power delivered from their device
 
-![Case study architecture interaction diagram](d3da04e031084587bc44f2b4b737aa84.png)
+![Case study architecture diagram](7d0ab84b042b48cc80c6bc0b8fc8cc8a.png)
+
