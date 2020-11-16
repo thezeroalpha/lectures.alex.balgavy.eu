@@ -12,3 +12,5 @@ There is a [Git repository](https://github.com/blanchette/logical_verification_2
 - [Forward proofs](forward-proofs/)
 - [Functional programming](functional-programming/)
 - [Inductive predicates](inductive-predicates/)
+- [Monads](monads/)
+- [Metaprogramming](metaprogramming/)
