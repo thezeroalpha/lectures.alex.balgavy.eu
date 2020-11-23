@@ -14,3 +14,4 @@ There is a [Git repository](https://github.com/blanchette/logical_verification_2
 - [Inductive predicates](inductive-predicates/)
 - [Monads](monads/)
 - [Metaprogramming](metaprogramming/)
+- [Operational semantics](operational-semantics/)
