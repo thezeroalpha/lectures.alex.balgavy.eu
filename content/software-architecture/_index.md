@@ -7,3 +7,4 @@ title = 'Software Architecture'
 - [Requirements](requirements/)
 - [Architecture representation](architecture-representation/)
 - [Architecture design](architecture-design/)
+- [Architecture & quality](architecture-quality/)
