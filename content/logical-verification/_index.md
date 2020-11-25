@@ -15,3 +15,4 @@ There is a [Git repository](https://github.com/blanchette/logical_verification_2
 - [Monads](monads/)
 - [Metaprogramming](metaprogramming/)
 - [Operational semantics](operational-semantics/)
+- [Hoare logic](hoare-logic/)
