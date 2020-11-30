@@ -16,3 +16,4 @@ There is a [Git repository](https://github.com/blanchette/logical_verification_2
 - [Metaprogramming](metaprogramming/)
 - [Operational semantics](operational-semantics/)
 - [Hoare logic](hoare-logic/)
+- [Denotational semantics](denotational-semantics/)
