@@ -17,3 +17,4 @@ There is a [Git repository](https://github.com/blanchette/logical_verification_2
 - [Operational semantics](operational-semantics/)
 - [Hoare logic](hoare-logic/)
 - [Denotational semantics](denotational-semantics/)
+- [Logical foundations of mathematics](logical-foundations-of-mathematics/)
