@@ -18,3 +18,5 @@ There is a [Git repository](https://github.com/blanchette/logical_verification_2
 - [Hoare logic](hoare-logic/)
 - [Denotational semantics](denotational-semantics/)
 - [Logical foundations of mathematics](logical-foundations-of-mathematics/)
+- [Basic mathematical structures](basic-mathematical-structures/)
+- [Rational and real numbers](rational-and-real-numbers/)
