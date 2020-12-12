@@ -2,7 +2,6 @@
 title = 'Basics'
 template = 'page-math.html'
 +++
-
 # Basics
 ## Type checking
 

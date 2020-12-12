@@ -1,9 +1,7 @@
 +++
 title = 'Inductive predicates'
 +++
-
 # Inductive predicates
-
 This is basically "logic programming."
 Inductive predicates: inductively defined propositions, way to specify functions of type `... → Prop`.
 

@@ -1,7 +1,6 @@
 +++
 title = 'Backward proofs'
 +++
-
 # Backward proofs
 
 This is like going up the proof tree.
