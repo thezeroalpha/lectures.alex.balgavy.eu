@@ -17,8 +17,6 @@ Examples:
 {b ≥ 5} b := b + 1 {b ≥ 6}
 ```
 
-## Hoare rules
-
 ## Semantic approach to Hoare Logic
 We can define Hoare triples semantically in Lean.
 Use predicates on states (`state → Prop`) to represent pre and postconditions.

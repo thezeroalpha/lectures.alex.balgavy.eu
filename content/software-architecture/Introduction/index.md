@@ -1,7 +1,6 @@
 +++
 title = 'Introduction'
 +++
-
 # Introduction
 What is software architecture?
 - fundamental concepts/properties of system in its environment

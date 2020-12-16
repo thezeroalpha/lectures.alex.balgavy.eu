@@ -45,7 +45,6 @@ There is a [Git repository](https://github.com/blanchette/logical_verification_2
     - [Properties of small-step semantics](operational-semantics#properties-of-small-step-semantics)
 - [Hoare logic](hoare-logic)
     -  [Hoare triples](hoare-logic#hoare-triples)
-    -  [Hoare rules](hoare-logic#hoare-rules)
     -  [Semantic approach to Hoare Logic](hoare-logic#semantic-approach-to-hoare-logic)
     -  [Verification condition generator](hoare-logic#verification-condition-generator)
     -  [Hoare triples for total correctness](hoare-logic#hoare-triples-for-total-correctness)
