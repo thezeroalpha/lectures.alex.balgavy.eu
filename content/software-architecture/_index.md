@@ -31,7 +31,7 @@ title = 'Software Architecture'
     -  [Architectural decisions](architecture-design#architectural-decisions)
 - [Architecture & quality](architecture-quality/)
     -  [Quality](architecture-quality#quality)
-    -  [Evaluation](Architecture-quality#evaluation)
+    -  [Evaluation](architecture-quality#evaluation)
         - [Architecture documentation review (structured approach)](architecture-quality#architecture-documentation-review-structured-approach)
         - [ATAM (Architecture Tradeoff Analysis Method)](architecture-quality#atam-architecture-tradeoff-analysis-method)
         - [Architecture metrics](architecture-quality#architecture-metrics)
