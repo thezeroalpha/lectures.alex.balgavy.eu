@@ -15,7 +15,7 @@ title = "Alex's university course notes"
 
 ## Subject notes: Year 3
 * [Equational Programming](equational-notes/)
-* [Machine Learning](https://thezeroalpha.github.io/ml-notes) **(unfinished)**
+* [Machine Learning](ml-notes/) **(unfinished)**
 * [Automata & Complexity](automata-complexity-notes/) **(unfinished)**
 * [Philosophy](https://thezeroalpha.github.io/philosophy-notes)
 
