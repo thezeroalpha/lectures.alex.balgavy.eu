@@ -61,3 +61,14 @@ code {
   background: lighten($bgcolor, 5%);
   color: lighten($textcolor, 8%);
 }
+
+:target {
+  background-clip: border-box;
+  animation-name: anchor-jump;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+@keyframes anchor-jump {
+  from {background-color: lighten($bgcolor, 10%);}
+  to {background-color: $bgcolor;}
+}

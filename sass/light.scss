@@ -45,3 +45,14 @@ blockquote {
 code {
   background: darken(white, 10%);
 }
+
+:target {
+  background-clip: border-box;
+  animation-name: anchor-jump;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+}
+@keyframes anchor-jump {
+  from {background-color: darken($bgcolor, 5%);}
+  to {background-color: white;}
+}
