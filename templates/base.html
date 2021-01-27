@@ -4,17 +4,23 @@
     <title>{% block title %}{% endblock title %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="text/javascript">
-    var hour = new Date().getHours();
-    var css = document.createElement("link");
-    css.setAttribute("rel", "stylesheet");
-    css.setAttribute("href", (hour >= 18 || hour < 7) ? "/dark.css" : "/light.css");
-    document.head.appendChild(css);
-  </script>
-  {% block scripts %}{% endblock scripts %}
-  <noscript>
-    <link rel="stylesheet" href="/light.css">
-  </noscript>
+    <!-- For browsers without prefers-color-scheme, change theme based on time of day -->
+    <script type="text/javascript">
+      if (window.matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+        document.documentElement.style.display = 'none';
+        var hour = new Date().getHours();
+        var sheet = (hour >= 18 || hour < 7) ? "/dark.css" : "/light.css";
+        document.head.insertAdjacentHTML(
+          'beforeend',
+          '<link rel="stylesheet" type="text/css" href="'+sheet+'" onload="document.documentElement.style.display = \'\'">'
+        );
+      }
+    </script>
+    <!-- For browsers without JS, load the light theme -->
+    <noscript><link rel="stylesheet" type="text/css" href="/light.css"></noscript>
+    <!-- For browsers supporting prefers-color-scheme, use that -->
+    <link rel="stylesheet" type="text/css" href="/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" type="text/css" href="/light.css" media="(prefers-color-scheme: light)">
   </head>
   <body>
     {% if config.extra.debug %}
