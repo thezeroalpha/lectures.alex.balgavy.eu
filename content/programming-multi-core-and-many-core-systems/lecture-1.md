@@ -51,7 +51,7 @@ Organisation principle: parallel supersteps
 How measure parallel performance?
 - speedup: $S_{n} = \frac{T_{1}}{T_{n}}$
 - T₁: exec time using 1 core
-- $𝑇_{𝑛}$: exec time using n cores
+- $T_n$: exec time using n cores
 
 Parallel program dev process:
 1. formulate problem
