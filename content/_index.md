@@ -9,6 +9,7 @@ title = "Alex's university course notes"
 * [Computer & Network Security](computer-network-security/)
 * [Logical Verification](logical-verification/)
 * [Software Architecture](software-architecture/)
+* [Programming Multi-Core and Many-Core Systems](programming-multi-core-and-many-core-systems)
 
 # BSc Computer Science (VU Amsterdam)
 ---
