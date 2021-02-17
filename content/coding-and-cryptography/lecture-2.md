@@ -82,7 +82,7 @@ Basis for C:
 3. locate leading cols
 4. original cols corresponding to leading cols are basis
 
-Basis for $C^{\perp}$:
+Basis for $C^{\perp}$ ("Algorithm 2.5.7"):
 1. make matrix A where rows are words in S
 2. Find RREF
 3. $\begin{aligned}
