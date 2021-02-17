@@ -159,7 +159,7 @@
      inkscape:window-width="1902"
      inkscape:window-height="1040"
      inkscape:window-x="1449"
-     inkscape:window-y="9"
+     inkscape:window-y="0"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
@@ -169,7 +169,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -230,10 +230,12 @@
          id="tspan1393"
          x="81.684685"
          y="40.661774"
-         style="text-align:center;text-anchor:middle;stroke-width:0.264583">&quot;basis for C⟂&quot; </tspan><tspan
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583">&quot;basis for C<tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan933">⟂</tspan>&quot; </tspan><tspan
          sodipodi:role="line"
          x="81.684685"
-         y="47.132256"
+         y="46.8354"
          style="text-align:center;text-anchor:middle;stroke-width:0.264583"
          id="tspan1432">(Algorithm 2.5.7)</tspan></text>
     <path
@@ -250,10 +252,12 @@
          id="tspan1393-9"
          x="77.894569"
          y="87.360626"
-         style="text-align:center;text-anchor:middle;stroke-width:0.264583">&quot;basis for C⟂&quot; </tspan><tspan
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583">&quot;basis for C<tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan935">⟂</tspan>&quot; </tspan><tspan
          sodipodi:role="line"
          x="77.894569"
-         y="93.831108"
+         y="93.534248"
          style="text-align:center;text-anchor:middle;stroke-width:0.264583"
          id="tspan1432-5">(Algorithm 2.5.7)</tspan></text>
     <path
