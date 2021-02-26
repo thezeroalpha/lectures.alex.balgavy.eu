@@ -1,10 +1,91 @@
 +++
-title = "Lecture 3"
-template = 'page-math.html'
+title = "Linear codes"
+template = "page-math.html"
 +++
 
-## Generating matrices & encoding
+# Linear codes
+Code linear v+w is word in C when v and w in C.
 
+dist of linear code = min weight of any nonzero codeword.
+
+vector w is linear combination of vectors $v_{1} \dots v_{k}$ if scalars $a_1 \dots a_k$ st. $w = a_{1} v_{1} + \dots + a_{k} v_{k}$
+
+linear span \<S\> is set of all linear comb of vectors in S.
+
+For subset S of Kⁿ, code C = \<S\> is: zero word, all words in S, all sums.
+
+## Scalar/dot product
+$\begin{aligned}
+v &= (a_{1} \dots a_{n}) \\\\
+w &= (b_{1} \dots b_{n}) \\\\
+v \dot w &= a_{1} b_{1} + \dots + a_{n} b_{n}
+\end{aligned}$
+
+- orthogonal: v ⋅ w = 0
+- v orthogonal to set S if ∀w ∈ S, v ⋅ w = 0
+- $S^{\perp}$ orthogonal complement: set of vectors orthogonal to S
+
+For subset S of vector space V, $S^{\perp}$ subspace of V.
+
+if C = \<S\>, $C^{\perp} = S^{\perp}$ and $C^{\perp}$ is _dual code_ of C.
+
+To find $C^{\perp}$,  compute words whose dot with elements of S is 0.
+
+## Linear independence
+linearly dependent $S = {v_{1} \dots v_{k}}$ if scalars $a_1 \dots a_k$ not all zero st. $a_{1} v_{1} + \dots + a_{k} v_{k} = 0$.
+
+If all scalars have to be zero ⇒ linearly independent.
+
+Largest linearly independent subset: eliminate words that are linear combination of others, iteratively.
+
+## Basis
+Any linearly independent set B is basis for \<B\>
+
+Nonempty subset B of vectors from space V is basis for V if:
+1. B spans V
+2. B is linearly independent
+
+dimension of space is number of elements in any basis for the space.
+
+linear code dimension K contains $2^{K}$ codewords.
+
+$\dim C + \dim C^{\perp} = n$
+
+if ${v_{1} + \dots + v_{k}}$ is basis for V, any vector in V is linear combination of ${v_{1} + \dots + v_{k}}$.
+
+Basis for C = \<S\>:
+1. make matrix A where rows are words in S
+2. find REF of A by row operations
+3. read nonzero rows
+
+Basis for C:
+1. make matrix A where rows are words in S
+2. find REF of A
+3. locate leading cols
+4. original cols corresponding to leading cols are basis
+
+Basis for $C^{\perp}$ ("Algorithm 2.5.7"):
+1. make matrix A where rows are words in S
+2. Find RREF
+3. $\begin{aligned}
+    G &= \text{nonzero rows of RREF} \\\\
+    X &= \text{G without leading cols} \\\\
+    H &= \begin{cases}
+        \text{rows corresponding to leading cols of G} &\text{are rows of X} \\\\
+        \text{remaining rows} &\text{are rows of identity matrix}
+        \end{cases}
+    \end{aligned}$
+4. Cols of H are basis for $C^{\perp}$
+
+## Matrices
+product of A (m × n) and B (n × p) is C (m × p), where row i col j is dot product (row i of A) ⋅ (col i of B).
+
+leading column: contains leading 1
+
+row echelon form: zero rows of all at bottom, leading 1s stack from right.
+- reduced REF: each leading col has exactly one 1
+
+## Generating matrices & encoding
 - rank of matrix over K: num of nonzero rows in any REF
 - dim k of code C: dim of C as subspace of Kⁿ
     - if C has length n and dist d -- C is (n, k, d) linear code

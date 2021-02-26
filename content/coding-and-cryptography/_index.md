@@ -3,7 +3,11 @@ title = "Coding and Cryptography"
 +++
 
 # Table of Contents
-1. [Lecture 1](lecture-1)
-2. [Lecture 2](lecture-2)
-3. [Lecture 3](lecture-3)
-4. [Lecture 4](lecture-4)
+1. [Introduction, basic concepts](introduction-basic-concepts)
+2. [Linear codes](linear-codes)
+3. [Perfect & related codes](perfect-related-codes)
+4. [Cyclic linear codes](cyclic-linear-codes)
+    - [Euclidian algorithm](euclidian-algorithm)
+6. [BCH codes](bch-codes)
+
+<!-- vim: set sua+=.md: -->

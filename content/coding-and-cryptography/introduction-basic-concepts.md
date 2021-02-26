@@ -1,8 +1,9 @@
 +++
-title = "Lecture 1"
+title = "Introduction, basic concepts"
 template = "page-math.html"
 +++
 
+# Introduction, basic concepts
 Some definitions:
 - digit: 0, 1
 - word: sequence of digits
@@ -52,4 +53,20 @@ Reliability: probability that if v sent over BSC of prob b, then IMLD concludes 
 
 $\theta_{p} (c, v) = \sum_{w \in L(v)} \phi_{p} (v, w)$ where $L(v) = \lbrace words \in K^{n} \enspace \| \enspace \text{IMLD correctly concludes v sent} \rbrace$
 
+## Error-detecting codes
+error pattern is u = v + w if v ∈ C sent and w ∈ Kⁿ received.
 
+error detected if u is not a codeword.
+error patterns that can't be detected are sums of codewords
+
+distance of code: smallest d(v, w) ∀v,w.
+
+Code of dist d at least detects patterns of weight d-1, there's at least one pattern of weight d not detected.
+
+t-error-detecting code if detects pattern weight max t, and does not detect at least one pattern of weight t+1.
+so code with dist d is "d-1 error-detecting code"
+
+## Error-correcting codes
+Code C corrects error pattern u if ∀v ∈ C, v+u closer to v than any other word
+
+Code of dist d corrects all error patterns $weight \leq \frac{d-1}{2}$, at least one pat weight $1+\frac{d-1}{2}$ not corrected.
