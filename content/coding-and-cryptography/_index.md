@@ -9,5 +9,5 @@ title = "Coding and Cryptography"
 4. [Cyclic linear codes](cyclic-linear-codes)
     - [Euclidian algorithm](euclidian-algorithm)
 6. [BCH codes](bch-codes)
-
+7. [Reed-Solomon codes](reed-solomon-codes)
 <!-- vim: set sua+=.md: -->

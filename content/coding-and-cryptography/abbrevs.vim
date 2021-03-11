@@ -16,5 +16,7 @@ Ab repd represented
 Ab cw codeword
 Ab len length
 Ab dim dimension
+Ab cyc cyclic
+Ab erpat{,s} error pattern{,s}
 iab sup <backspace>^{}<left>
 iab sub <backspace>_{}<left>
