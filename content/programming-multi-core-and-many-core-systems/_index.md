@@ -7,3 +7,4 @@ title = "Programming Multi-Core and Many-Core Systems"
 3. [Lecture 3](lecture-3)
 4. [Lecture 4](lecture-4)
 5. [Lecture 5](lecture-5)
+6. [Lectures on GPU programming](lectures-gpu)
