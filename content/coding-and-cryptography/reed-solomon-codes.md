@@ -64,3 +64,20 @@ a_{1}^{m+1} & a_{2}^{m+1} & \dots & a_{e}^{m+1} \\\\
 a_{1}^{m+e} & a_{2}^{m+e} & \dots & a_{e}^{m+e}
 \end{bmatrix} \begin{bmatrix} b_{1} \\\\ b_{2} \\\\ \vdots \\\\ b_{e} \end{bmatrix}
 = \begin{bmatrix} s_{m+1} \\\\ s_{m+2} \\\\ \vdots \\\\ s_{m+e} \end{bmatrix}$ yielding the error magnitudes.
+
+## Transform approach to Reed-Solomon coes
+Instead of vector being coefficients of polynomial, consider it representing function from set S to field $F = GF(2^r)$
+
+Set of all functions from S to $F = GF(2^r )$ represented by polynomials of degree ≤ k-1 form function space of dimension k with basis $1, x, x^{2}, \dots, x^{{k-1}}$.
+
+Function space on S ⊆ GF($2^r$) of all polynomials degree ≤ k - 1 with coefficients from GF($2^r$) form linear (n, k, n-k+1) MDS code, where n = |S| ≤ $2^r$.
+
+Set of nth roots of unity in F = GF($2^r$) is {a ∈ F | aⁿ = 1}
+
+Let S be the set of nth roots of unity in GF($2^r$)
+Function space of all polynomials in GF($2^r$)[x] of degree ≤ k-1 on S forms cyclic (n, k, n-k+1) code over GF($2^r$).
+
+Let β be primitive nth root of unity.
+If $v_j = V( \beta^j )$ for $V(x) = V_0 + V_1 x + \dots + v_{{n-1}} x^{{n-1}}$ then $v_i = v( \beta^{{-1}} )$ where $v(x) = v_0 + v_1 x + \dots + v_{{n-1}} x^{{n-1}}$
+
+Let S be set of nth roots of unity in GF($2^r$). Then function space of all polynomials of degree $<$ n - δ + 1 on S is cyclic MDS code with generator polynomial $g(x) = ( \beta + x) ( \beta^2 + x ) \dots ( \beta^{ \delta - 1}+x)$ where β is primitive root of unity.
