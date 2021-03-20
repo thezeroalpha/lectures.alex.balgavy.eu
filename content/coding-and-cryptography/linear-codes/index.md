@@ -99,6 +99,11 @@ if G generator matrix for linear code C length n and dimension k, then v = u G r
 
 info rate of (n, k, d) code: $\frac{\log_{2} (2^{k})}{n} = \frac{k}{n}$
 
+For C is (n,k,d):
+- $\dim C^{\perp} = n - k $
+- $|C| = 2^{k}$
+- $H_{C}$ is n row, n - k cols, rank n - k (nonzero rows in REF)
+
 ## Parity check matrices
 H parity check matrix for linear code C if columns form basis for dual code $C^{\perp}$.
 - if C length n dimension k, parity check matrix has n rows, n-k columns, n-k rank
