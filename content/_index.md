@@ -24,7 +24,7 @@ title = "Alex's university course notes"
 ## Subject notes: Year 2
 
 * [Data Structures & Algorithms](dsa-notes/)
-* [Statistical Methods](https://thezeroalpha.github.io/stats-notes)
+* [Statistical Methods](stats-notes)
 * [Operating Systems](https://thezeroalpha.github.io/os-notes)
 * [Intelligent Systems](is-notes/)
 * [Linear Algebra](lin-algebra-notes/)
