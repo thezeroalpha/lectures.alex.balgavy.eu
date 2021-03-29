@@ -11,6 +11,7 @@ title = "Alex's university course notes"
 * [Software Architecture](software-architecture/)
 * [Programming Multi-Core and Many-Core Systems](programming-multi-core-and-many-core-systems)
 * [Coding and Cryptography](coding-and-cryptography)
+* [Binary and Malware Analysis](binary-malware-analysis-notes)
 
 # BSc Computer Science (VU Amsterdam)
 ---
