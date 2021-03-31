@@ -43,7 +43,7 @@ Big O notation
 - complexity measures show how resource consumption grows _in relation to input size_
 - an algorithm with worst-case message complexity (n²) for input size n takes max in order of n² messages
 - "in the order of": give or take some constant
-- f = O(g) if for some C > 0, f(n) ≤ C dot g(n) for all n ∈ ℕ
+- f = O(g) if for some C > 0, f(n) ≤ C·g(n) for all n ∈ ℕ
 - f = Θ(g) if f = O(g) and g = O(f) (both upper and lower bound)
 
 Transition systems
