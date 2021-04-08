@@ -50,7 +50,10 @@ Transition systems
 - global state of distributed system is a "configuration"
 - configuration evolves in discrete steps called "transitions"
 - transition system:
-     - TODO: he's going too fast
+     - set C of configurations
+     - binary transition relation → on C
+     - and set I ⊆ C of initial configurations
+- A state is terminal if there are no transitions from it
 
 Execution: sequence γ₀ γ₁ γ₂... of configurations that
 - either is infinite,

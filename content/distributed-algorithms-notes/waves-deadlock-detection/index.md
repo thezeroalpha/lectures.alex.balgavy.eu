@@ -56,7 +56,7 @@ complexity:
     - tree edge carries 2 tokens
     - each process waits at most 2 time units for acks to return
 
-### Cidn's algorithm
+### Cidon's algorithm
 Awerbuch's but without acks.
 - token forwarded without delay
 - each process records to which process it forwarded the token last
@@ -94,7 +94,7 @@ Complexity:
 To determine largest process ID in network:
 - each process runs echo algorithm tagged by its ID
 - processes only participate in largest wave they've seen so far
-- the one that decides is TODO
+- the one that decides is the one with the largest ID
 
 # Deadlocks
 Deadlock if cycle of processes waiting until
