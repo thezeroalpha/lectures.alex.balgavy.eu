@@ -8,3 +8,4 @@ title = 'Distributed Algorithms'
 3. [Termination detection & garbage collection](termination-detection-garbage-collection)
 4. [Routing](routing)
 5. [Election algorithms](election-algorithms)
+6. [Anonymous networks](anonymous-networks)

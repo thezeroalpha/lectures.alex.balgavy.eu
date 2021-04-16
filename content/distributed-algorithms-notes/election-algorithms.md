@@ -136,7 +136,7 @@ Neighboring fragments F(fn, l) and F' = (fn', l') can be joined:
 - l = l' ∧ ef = ef': F ∪ F' = (weight ef, l+1)
 
 Core edge of fragment is last edge that connected two sub-fragments at same level, its end points are core nodes.
-Name is the <!-- TODO: fill this from lecture! -->
+Name is the weight.
 
 ### Parameters of process
 Its state:
