@@ -9,3 +9,4 @@ title = 'Distributed Algorithms'
 4. [Routing](routing)
 5. [Election algorithms](election-algorithms)
 6. [Anonymous networks](anonymous-networks)
+7. [Fault tolerance](fault-tolerance)
