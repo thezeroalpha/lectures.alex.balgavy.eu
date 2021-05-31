@@ -13,6 +13,7 @@ title = "Alex's university course notes"
 * [Coding and Cryptography](coding-and-cryptography)
 * [Binary and Malware Analysis](binary-malware-analysis-notes)
 * [Distributed Algorithms](distributed-algorithms-notes)
+* [Machine Learning for the Quantified Self](ml4qs)
 
 # BSc Computer Science (VU Amsterdam)
 ---
