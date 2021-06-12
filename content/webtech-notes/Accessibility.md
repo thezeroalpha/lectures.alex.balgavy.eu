@@ -1,0 +1,45 @@
++++
+title = 'Accessibility'
++++
+# Accessibility
+- Content is available to different user groups through multiple devices
+- Implements universal access
+    - single version of content, equally accessible
+    - unattainable in full, but we can approach it
+- But why?
+    - legal stuff
+    - reaching all customers
+    - promotes sound design principles
+- Disabilities: visual, auditory, motor, cognitive
+- Principles of accessibility
+    - perceivable: sight, hearing, touch
+    - operable: input, interaction, error recovery
+    - understandable: meaning, language
+    - robust: reusable, current & future tech
+- Screen readers & links
+    - links should make sense out of context
+    - use alt text
+- Screen magnifiers
+    - need true text, not images
+    - keep user feedback local
+- Videos
+    - don't assume plugins
+    - no autostart please for the love of fuck
+    - keyboard controls
+    - add toggling captions
+- People with motoric impairments
+    - voice recognition
+    - eye tracking
+    - sip/puff switch
+- Cognitive disabilities
+    - keep it simple & consistent
+    - readability
+        - avoid full justified text ("rivers of white")
+        - sans-serif fonts
+        - good contrast & size
+    - error prevention
+    - focus, structure
+        - avoid popups
+        - please god no background sounds
+- text-only isn't bad, but not the only solution!
+- use semantic

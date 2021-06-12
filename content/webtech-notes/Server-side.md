@@ -1,0 +1,41 @@
++++
+title = 'Server-side'
++++
+# Server-side
+- not all requests are for static content, need dynamic content through programmable server behaviour
+    - from a browser's perspective, it's just a URI
+    - how to deal with this?
+- enter CGI: common gateway interface
+    - commonly agreed way to run scripts as response to HTTP requests
+    - program's output returned verbatim to client
+    - pros: very flexible
+    - cons: new process per request, inconvenient with DBs, mixes program logic & HTML
+- alternatives: frameworks, other languages
+    - PHP, Java, Python, Ruby on Rails
+    - templates: stuff like Bottle, Flask, Handlebars…
+- problems: concurrency, sessions/cookies, security…
+    - concurrency solution
+        - multiple threads (multithreading)
+        - master thread delegates requests
+    - sessions
+        - how do you identify users? cookies.
+        - first connection, user given ID in cookie
+        - subsequent requests contain info (ID), used by the server for e.g. shopping cart
+    - database connectivity
+        - all frameworks simplify DB interaction
+        - a server needs a LAMP (or MAMP, or WinAMP)
+            - OS with TCP/IP support (Linux)
+            - HTTP server implementation (Apache)
+            - Database for content (MySQL)
+            - Framework to make page from database (PHP)
+    - security issues
+        - some clients don't have access to servers: proxy
+        - some servers can't access clients: reverse proxy
+        - auth & encryption
+            - originally HTTP 1.0 Basic Access Auth (plaintext)
+            - now, HTTPS over secure layer (public key encryption, everything is encrypted)
+                - not as vulnerable to man-in-the-middle attacks
+                - site needs to send certificate, which is signed by a CA (certificate authority)
+        - cross-origin resource sharing (CORS)
+            - opt in using HTTP headers
+            - include origin, then server verifies if it's OK
