@@ -39,6 +39,7 @@ title = "Alex's university course notes"
 
 ## Subject notes: Year 1
 
+* [Introduction to Programming in C++](cpp-notes)
 * [Computational thinking](compthink-notes)
 * [Systems architecture](https://thezeroalpha.github.io/sysarch-notes)
 * [Physical Computing](https://thezeroalpha.github.io/physcomp-notes)
