@@ -42,7 +42,7 @@ title = "Alex's university course notes"
 * [Introduction to Programming in C++](cpp-notes)
 * [Computational thinking](compthink-notes)
 * [Systems architecture](https://thezeroalpha.github.io/sysarch-notes)
-* [Physical Computing](https://thezeroalpha.github.io/physcomp-notes)
+* [Physical Computing](physcomp-notes)
 * [Logic & sets](logicsets-notes/)
 * [Web tech](webtech-notes)
 * [Computer Networks](compnet-notes/)
