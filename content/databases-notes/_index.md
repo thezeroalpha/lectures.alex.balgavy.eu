@@ -4,7 +4,9 @@ title = "Databases"
 
 # Databases
 
-Slides are [here](http://joerg.endrullis.de/databases/)
+Slides are [here](http://joerg.endrullis.de/databases/).
+
+I used Anki to study for the exam, [here's my notecards deck](Databases.apkg).
 
 -   [Kind of a syllabus](kind-of-a-syllabus)
 -   [Introduction](introduction)

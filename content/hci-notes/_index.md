@@ -3,6 +3,8 @@ title = "Human Computer Interaction"
 +++
 
 # Human Computer Interaction
+I used Anki to study for the exam, [here's my notecards deck](Human-Computer-Interaction.apkg).
+
 HCI is concerned with design, evaluation, implementation of interactive computer systems
 
 how people use software & computing devices. usability engineering:
