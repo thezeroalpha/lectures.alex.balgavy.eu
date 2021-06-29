@@ -59,7 +59,7 @@ Takes density into account.
 
 Define $k_{dist}$ for point $x_{i}^{j}$ as largest distance to one of its k closest neighbors.
 
-Set of neighbors of $x_{i}^{j}$ within $k_{dist]$ is k-distance neighborhood.
+Set of neighbors of $x_{i}^{j}$ within $k_{dist}$ is k-distance neighborhood.
 
 Reachability distance of $x_{i}^{j}$ to $x$: $k_{reach dist} (x_{i}^{j}, x) = \max (k_{dist}(x), d(x, x_{i}^{j}))$
 
