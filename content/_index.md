@@ -5,6 +5,9 @@ title = "Alex's university course notes"
 # MSc Computer Systems Security (VU Amsterdam & UVA)
 ---
 
+## Subject notes: Year 2
+* [Advanced Operating Systems](aos-notes/)
+
 ## Subject notes: Year 1
 * [Computer & Network Security](computer-network-security/)
 * [Logical Verification](logical-verification/)
