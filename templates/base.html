@@ -9,7 +9,7 @@
       if (window.matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
         document.documentElement.style.display = 'none';
         var hour = new Date().getHours();
-        var sheet = (hour >= 18 || hour < 7) ? "/dark.css" : "/light.css";
+        var sheet = (hour >= 20 || hour < 6) ? "/dark.css" : "/light.css";
         document.head.insertAdjacentHTML(
           'beforeend',
           '<link rel="stylesheet" type="text/css" href="'+sheet+'" onload="document.documentElement.style.display = \'\'">'
