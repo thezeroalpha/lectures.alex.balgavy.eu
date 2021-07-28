@@ -44,7 +44,7 @@ An example of ambiguity is the dangling else problem. Joerg gave an
 example in ALGOL, but it\'s the same in C (and is solved by always
 making else bind tightly, i.e. to the nearest if):
 
-``` {.c}
+```c
 if (condition)
 if (condition2) printf("Whatever");
 else printf("Something else");

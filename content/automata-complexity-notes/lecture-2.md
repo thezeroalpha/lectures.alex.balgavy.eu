@@ -57,7 +57,7 @@ every u,v ∈ (V ∪ T)<sup>\*</sup>.
 
 Find grammar G such that L(G) = {a,b}<sup>\*</sup> {c} {b,c}<sup>\*</sup>
 
-``` {.example}
+```
 S → AcB
 A → aA   B → bB
 A → bA   B → cB
@@ -71,7 +71,7 @@ multiple rules with an or.
 
 So like:
 
-``` {.example}
+```
 S → a
   | b
   | λ

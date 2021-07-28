@@ -53,7 +53,7 @@ things
 
 Start with random point p in model space.
 
-``` {.example}
+```
 loop:
   pick random point p' close to p
   if loss(p') < loss(p):
@@ -76,7 +76,7 @@ structure), you need to figure out a transition function.
 
 'Improved' random search.
 
-``` {.example}
+```
 pick random point p' close to p
 loop:
 pick random point p' close to p
@@ -91,7 +91,7 @@ some communication between searches.
 
 Population methods, eg. evolutionary algorithms:
 
-``` {.example}
+```
 start with population of k models
 loop:
   rank population by loss
@@ -104,7 +104,7 @@ loop:
 
 Coming closer to gradient descent:
 
-``` {.example}
+```
 pick random point p in model spce
 loop:
   pick k random points {p_i} close to p
@@ -141,7 +141,7 @@ $
 The angle is maximised when cos(α) is 1, so α is 0. So the gradient
 is the direction of steepest ascent
 
-``` {.example}
+```
 pick a random point p in model space
 loop:
   p <- p - \eta \nabla loss(p)
