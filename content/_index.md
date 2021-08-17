@@ -30,6 +30,7 @@ title = "Alex's university course notes"
 ## Subject notes: Year 2
 
 * [Data Structures & Algorithms](dsa-notes/)
+* [Advanced Programming](ap-notes/)
 * [Statistical Methods](stats-notes)
 * [Operating Systems](os-notes)
 * [Intelligent Systems](is-notes/)
