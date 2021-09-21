@@ -7,6 +7,7 @@ title = "Alex's university course notes"
 
 ## Subject notes: Year 2
 * [Advanced Operating Systems](aos-notes/)
+* [Software Security](softsec-notes/)
 
 ## Subject notes: Year 1
 * [Computer & Network Security](computer-network-security/)
