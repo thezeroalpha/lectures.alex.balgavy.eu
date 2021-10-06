@@ -55,6 +55,57 @@ easy version:
     - enqueue interrupted process at tail
     - dequeue process at heat and run on CPU
 
+Time management:
+- hardware offers clock and timer circuits
+- clock circuits: expose counters incd at given frequency, can be used for time measurements and tracking time of day
+- timer circuits: issue periodic interrupts at given frequency, can be used for scheduling and to implement timers
+
+Linux clock sources:
+- tsc: timestamp counter
+- hpet: high-precision event timer
+- acpi_pm: ACPI power management timer
+- real time clock (RTC): persistent (battery-powered), low-precision (seconds)
+
+Linux clock event devices:
+- abstraction of timer circuit
+- clock event device programmed to issue interrupts at `CONFIG_HZ` frequency
+- both user and kernel preemption possible
+
+Scheduling per-task building blocks:
+- state: running, runnable, sleeping
+- quantum or time slice: max number of jiffies a task can run on CPU
+- priority
+- scheduling policy: fair, real-time, etc.
+
+Linux O(1) scheduler:
+- preemptive round-robin priority scheduler
+    - preemptive: uses timer interrupts to preempt execution of user processes and maybe reschedule before a process is done (when it runs out of its time-slice/quantum)
+    - round-robin: goes around all processes
+    - priority: some processes are more important
+- maintains N run queues (1 per priority level)
+- strategy:
+    - find highest priority queue with runnable task
+    - find first task on that queue and dequeue it
+    - calculate its time slice size based on priority
+    - run it
+    - when time's up, enqueue
+    - repeat
+- improving fairness:
+    - priorities adjusted based on sleep time
+    - bonuses for IO vs CPU bound processes
+- all operations are O(1)
+
+Linux CFS scheduler:
+- CFS: tasks get a completely fair CPU share
+- with N tasks:
+    - record how much CPU time each task has
+    - schedule task with biggest delta to `tot_CPU_time/N`
+        - always schedule the task that has spent least CPU time
+    - virtualise time to deal with priorities
+    - increase virtual runtime faster for lower-priority tasks
+- no heuristics to distinguish tasks
+- uses red-black tree instead of run queues
+
 ## IPC
 communications, sync, signals
 
