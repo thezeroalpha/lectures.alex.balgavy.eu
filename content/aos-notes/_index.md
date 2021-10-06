@@ -8,3 +8,5 @@ title = 'Advanced OS'
 - [Managing physical memory](managing-physical-memory)
 - [Page tables](page-tables)
 - [User mode](user-mode)
+- [Paging](paging)
+- [Multiprocessing](multiprocessing)

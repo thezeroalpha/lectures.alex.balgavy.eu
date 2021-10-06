@@ -1,0 +1,73 @@
++++
+title = 'Multiprocessing'
++++
+# Multiprocessing
+## Process creation
+### Fork
+fork: creates new child process by duplicating calling process
+
+Simple part:
+- duplicate task: copy most info, with exceptions (e.g. PID)
+- allocate and initialize new kernel stack: setup `thread_info`, copy trap frame and update
+- and copy some other stuff
+
+`copy_mm`:
+- duplicate descriptor of address space of parent (`mm` descriptor): copy basic info, initialize empty address space (new page directory)
+- duplicate address space: copy VMA info, page tables, and fix up page table entries
+    - `MAP_SHARED`: share page frames
+    - `MAP_PRIVATE (R)`: share page frames
+    - `MAP_PRIVATE (R/W)`: copy-on-write page frames
+    - shared memory: permissions of VMA are identical to permissions of PTE
+    - COW: permissions of VMA are RW, permissions of PTE are read-only
+        - duplicate page frme and remap new private copy into faulting PTE on demand
+
+COW: copy on write, share the same resource until one copy is written to, at which point you duplicate the resource.
+- `MAP_PRIVATE` file pages - dedupes binary pages
+- `MAP_PRIVATE` anonymous forked pages - dedupes pages in process hierarchy
+- `MAP_PRIVATE` anonymous forked pages - dedupes zero pages for unrelated processes
+
+### Exec
+Executes program pointed by filename.
+
+implementation:
+- input and permission checking
+- load binary headers in memory
+- find binary format
+- flush old resources:
+    - reinit `task_struct` and empty `mm`
+    - flush VMAs, page tables, page frames
+- load binary (binary-format specific)
+    - parse headers and sections
+    - create corresponding VMAs (data, text, stack, etc.)
+    - update `%rsp` and `%rip` in trap frame
+        - `%rsp` is top of user stack
+        - `%rip`: program entry point for statically linked, dynamic linker's entry point for dynamically linked
+    - page tables initially empty
+        - even binary files are demand paged
+        - PF handler maps them from cache using COW-based strategy
+
+## Scheduling
+easy version:
+- hardware raises periodic timer interrupts
+- timer interrupt handler invokes simple scheduler
+- simple scheduler
+    - FIFO scheduling queue
+    - enqueue interrupted process at tail
+    - dequeue process at heat and run on CPU
+
+## IPC
+communications, sync, signals
+
+Shared mem:
+- System V: get/create shmem segment by key, attach/detach
+
+semaphores:
+- counter shared across processes
+- atomic wait (decrement), release (increment) if val >= -sem\_op
+
+message queue:
+- mailbox with senders and receivers
+- get/create queue by key & permission
+- block if queue full (on send) or empty (on receive)
+
+POSIX: uses names instead of keys, thread safety, ref counting, shmem is file oriented
