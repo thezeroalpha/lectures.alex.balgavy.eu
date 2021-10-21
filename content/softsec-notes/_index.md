@@ -16,3 +16,5 @@ title = 'Software Security'
 12. [Web Security](web-security)
 13. [AEG pipeline](aeg-pipeline)
 14. [Fuzzing](fuzzing)
+15. [ASLR (BROP)](aslr-brop)
+16. [Crypto](crypto)
