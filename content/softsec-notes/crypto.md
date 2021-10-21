@@ -98,23 +98,23 @@ Padding oracle attack:
         2. send c0..c7 ⨁ b...c15, for each b ∈ [0, 256)
             - because block size 8, c7 is used to compute p15
         3. find that only b=0 (unchanged) and b=2 work
-            - so p15 XOR 2 = 1 (length 1 padding)
-            - so p15 = 1 XOR 2 = 3
+            - so p15 ⨁ 2 = 1 (length 1 padding)
+            - so p15 = 1 ⨁ 2 = 3
             - so plaintext has 3 bytes of padding
             - so p13 = p14 = p15 = 3
-        4. Now send c0...c4 XOR b, c5 XOR 7, c6 XOR 7, c7 XOR 7...c15
-            - 7 because 3 (plaintext) XOR 4 (new padding length) == 7
+        4. Now send c0...c4 ⨁ b, c5 ⨁ 7, c6 ⨁ 7, c7 ⨁ 7...c15
+            - 7 because 3 (plaintext) ⨁ 4 (new padding length) == 7
             - c4 used to compute p12, because block size 8
         5. Find thatonly b=0x36 works
-            - so p12 XOR 0x36 = 4 (legnth 4 padding)
-            - so p12 = 0x36 XOR 4 = 0x32 = ASCII "2"
-        6. Now send c0...c3 XOR b, c4 XOR 0x37, c5 XOR 6, c6 XOR 6, c7 XOR 6...c15
-            - 6 because 3 (plaintext) XOR 5 (padding) == 6
-            - 0x37 because 0x32 (plaintext) XOR 5 (padding) == 0x37
+            - so p12 ⨁ 0x36 = 4 (legnth 4 padding)
+            - so p12 = 0x36 ⨁ 4 = 0x32 = ASCII "2"
+        6. Now send c0...c3 ⨁ b, c4 ⨁ 0x37, c5 ⨁ 6, c6 ⨁ 6, c7 ⨁ 6...c15
+            - 6 because 3 (plaintext) ⨁ 5 (padding) == 6
+            - 0x37 because 0x32 (plaintext) ⨁ 5 (padding) == 0x37
             - c3 used to compute p11 (because block size 8)
             - only b=0x31 works
-            - so p11 XOR 0x31 = 5 (length 5 padding)
-            - so p11 = 0x31 XOR 5 = 0x34 = ASCII "4"
+            - so p11 ⨁ 0x31 = 5 (length 5 padding)
+            - so p11 = 0x31 ⨁ 5 = 0x34 = ASCII "4"
         7. etc.
 
 Symmetric signatures/message authentication code
