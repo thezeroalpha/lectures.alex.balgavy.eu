@@ -1,5 +1,6 @@
 +++
 title = 'Crypto'
+template = 'page-math.html'
 +++
 # Crypto
 Allows secure communication between two or more parties in presence of an attacker
