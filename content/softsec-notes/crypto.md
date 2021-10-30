@@ -1,6 +1,6 @@
 +++
 title = 'Crypto'
-template = 'page-math.html'
+template = 'page-math.HTML'
 +++
 # Crypto
 Allows secure communication between two or more parties in presence of an attacker
@@ -18,7 +18,7 @@ Terms:
 - decryption: convert ciphertext to plaintext
 
 Kerckhoff's principle:
-- separate algorithm fro mkey
+- separate algorithm from key
 - assume attacker knows algorithm
 - keep key secret
 

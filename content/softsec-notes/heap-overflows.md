@@ -18,7 +18,7 @@ Buffer overflows:
     - scanf() etc. -- put bound on %s formats
 
 Off-by-one:
-- wrong comparison operator, forget about strong terminator
+- wrong comparison operator, forget about string terminator
 - can only overwrite one element above array capacity
 
 Pointer storage:

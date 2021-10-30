@@ -2,6 +2,8 @@
 title = 'Software Security'
 +++
 # Software Security
+[Here are the Anki cards I used to prepare for the exam.](Softsec.apkg)
+
 1. [Intro](intro)
 2. [Buffer overflow](buffer-overflow)
 3. [Local privilege escalation](local-privilege-escalation)

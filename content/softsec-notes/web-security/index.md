@@ -269,7 +269,7 @@ Preventing XSS:
     5. URI escape before inserting into HTML URL attributes
 - use `httponly` on cookies to prevent access by scripts
 
-### Cross-site request forger (CSRF)
+### Cross-site request forgery (CSRF)
 Allows attacker to execute requests on behalf of victim.
 
 "Confused deputy attack": browser uses victim's authority to do what the attacker wants
@@ -279,7 +279,7 @@ Allows attacker to execute requests on behalf of victim.
 Preventing:
 - HTML-only: web server embeds token (secret & unique value) for each request, in all HTML forms, verified on server side
 - header-based (for JS sites)
-    - on long, web app sets cookie containing random token that stays same for whole session
+    - on login, web app sets cookie containing random token that stays same for whole session
     - JS on client side copies it into custom HTTP header. Only JS within the same origin.
     - server validates this
 
@@ -343,5 +343,3 @@ Serialization of python datatypes.
 Pickle allows arbitrary objects to be pickled by providing a `__reduce__` method, which should return:
 - a string
 - or tuple describing how to reconstruct object
-
-
