@@ -10,3 +10,4 @@ title = 'Advanced OS'
 - [User mode](user-mode)
 - [Paging](paging)
 - [Multiprocessing](multiprocessing)
+- [Multicore](multicore)
