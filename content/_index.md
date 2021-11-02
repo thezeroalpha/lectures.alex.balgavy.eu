@@ -9,6 +9,7 @@ title = "Alex's university course notes"
 * [Advanced Operating Systems](aos-notes/)
 * [Software Security](softsec-notes/)
 * [Hardware Security](hwsec-notes/)
+* [Advanced Computer Networks](acn-notes/)
 
 ## Subject notes: Year 1
 * [Computer & Network Security](computer-network-security/)
