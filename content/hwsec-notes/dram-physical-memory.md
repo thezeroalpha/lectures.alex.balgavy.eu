@@ -65,3 +65,50 @@ Timing side channel: "something" leaks depending on how fast the operation is
 - can be done remotely, software-only. but cannot look at data bits, cannot easily reconstruct address selection functions.
 
 You can also probe the bus directly using an oscilloscope, and send requests for very different physical addresses.
+## Rowhammer
+DRAM defect on memory modules.
+
+Under certain conditions, the capacitors quickly leak charge, causing bits to flip.
+All the attacker has to do from software is activate the same rows numerous times within a refresh interval.
+
+If you repeatedly access row 0 and 2 in the same bank (aggressor rows), the capacitors in the middle row (row 1, victim row) leak charge and the data is corrupted.
+
+Can be useful for e.g. privilege escalation, flipping bits in page tables.
+
+Mitigations:
+- hardware:
+  - ECC memory: automatically correct bit flips
+  - target row refresh: refresh neighboring rows of rows being hammered
+- software:
+  - disable features: pagemap for unprivileged users, disable DMA allocators, memory deduplication
+  - other mitigations (ZebRAM, Drammer, Hammertime)
+
+ECC memory:
+- data bus has 72 bits instead of 64
+- ECC bits have info for error correction
+- ECC function is secret, part of memory controller
+- figuring it out:
+  - probe the pins -- possible, but expensive
+  - inject errors on bus, monitor behavior of ECC implementation (choose pins to make sure that short-circuiting flips a bit)
+  - using data patterns, recover full ECC function
+
+## Cold boot attack
+Thread model: stolen laptop, DRAM holds secrets
+
+DRAM cells keep charge for a while even if not refreshed, especially if cold.
+
+Steps:
+1. Cool down DIMMs with a spray
+2. Shut down laptop
+3. USB-boot into malicious OS, or move DIMM
+4. Read any sensitive data
+
+Mitigation: data scrambling -- memory controller randomizes data encoding when writing data to DRAM.
+## Address translation
+MMU: multiple address spaces
+- virtualize physical memory
+- flexible memory management
+- isolation and protection
+
+Program the MMU using page tables.
+Modern architectures use four-level page tables (PML4).
