@@ -66,7 +66,7 @@ Timing side channel: "something" leaks depending on how fast the operation is
 
 You can also probe the bus directly using an oscilloscope, and send requests for very different physical addresses.
 ## Rowhammer
-DRAM defect on memory modules.
+Works because of DRAM defect on memory modules.
 
 Under certain conditions, the capacitors quickly leak charge, causing bits to flip.
 All the attacker has to do from software is activate the same rows numerous times within a refresh interval.
@@ -93,7 +93,7 @@ ECC memory:
   - using data patterns, recover full ECC function
 
 ## Cold boot attack
-Thread model: stolen laptop, DRAM holds secrets
+Threat model: stolen laptop, DRAM holds secrets
 
 DRAM cells keep charge for a while even if not refreshed, especially if cold.
 

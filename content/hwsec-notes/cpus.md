@@ -46,11 +46,13 @@ Observing cache activity: FLUSH+RELOAD
 - attacker can selectively flush a desired shared location from cache, then reload the target location
 - measuring access times, can determine whether the victim accesses a memory address
 
-## Cache attacks on hardware
+## Cache attacks on hardware - out-of-order execution
 for FLUSH+RELOAD, victim hardware unit must:
 - use cache
 - share memory with attacker-controlled software
 - must access secrets
+
+covert channel: both parties controlled by attacker
 
 Rogue Data Cache Load (Meltdown): flush+reload attack
 - user process accesses kernel memory location
@@ -59,3 +61,61 @@ Rogue Data Cache Load (Meltdown): flush+reload attack
 - the reload 'sees' the filled cache line in the timing difference
 - avoiding termination: transactional memory (TSX) suppresses exceptions, use that
 - reducing noise: prefetcher in OoOE may fill extra cache lines, but usually doesn't operate across pages. also randomize accesses during reload state.
+
+Mitigating Meltdown:
+- KPTI: kernel page table isolation. don't map the kernel into user space, only some small part to switch to kernel space.
+  - but very expensive -- better to fix in silicon
+
+## Transient execution attacks
+Branch prediction unit: avoids pipeline stalls using speculative execution
+- pipeline stalls normally slow down execution
+- speculative execution runs some instructions in a branch, which may be rolled back
+- branch target buffer stores source addresses and history of the branch
+- speculative execution can have many levels of nesting
+
+After branch prediction:
+- correct → retire after branch instruction
+- misprediction → discard speculatively executed instructions
+  - but does not revert microarchitectural state
+
+Spectre v1: bounds check bypass
+- train branch predictor at given program location to go to a specific branch
+- flush data that controls the branch
+- give the target branch an input that makes it go the other way
+- you need a gadget that accesses data out of bounds and transfers it to a variable
+- can generalize Meltdown -- leak from any array offset
+- can suppress exception with branch misprediction
+
+Mitigations for Spectre v1:
+- `lfence` stops speculation
+  - but: serializes all loads in pipeline, so costly up to 2x overhead (though there are optimizations)
+  - other instructions stop speculation, e.g. instructions to toggle SMAP
+- pointer/index masking on array access, so index can't go out of bounds
+  - requires manual annotations in Linux kernel
+- low-resolution timers (but attackers can find other timer, or amplify signal by repeating)
+- process-based site isolation (different websites are in their own process)
+  - assumes process isolation can't be breached
+
+Spectre v2: branch target injection
+- branch target buffer stores call target predictions (in another partition)
+- train branch prediction for a certain path
+- call in some context, the trained branch will be speculatively executed
+- attacker can train predictor in their address space
+- victim then mispredicts in their address space, calls into attacker-controlled address → ROP in speculative execution
+- when e.g. address spaces don't overlap, can't easily train for specific virtual address. can still abuse collisions in branch target buffer
+  - BTB uses a few bits in the virtual address to select an entry
+
+Mitigations for Spectre v2:
+- Intel initially released microcode update with instructions to partially flush BTB
+  - OS vendors did not adopt it
+- Retpoline: compiler-based, turns indirect calls into returns, predicted with Return Stack Buffer
+  - goal: redirect speculation to safe landing pad
+  - `ret` predictor assumes we are returning to first instruction after last call, which contains an infinite loop with an `lfence`
+  - problems:
+    - indirect calls don't actually speculate, which is slow
+    - on recent microarchitectures, if RSB is empty, predictor uses BTB, enabling attacks
+      - options: "stuff" RSB with special entries, or use eIBRS (BTB partitioned across privilege levels & hyperthreads)
+
+Other applications of transient/speculative execution
+- ExSpectre: craft shadow `memcpy` -- one that transfers memory between addresses, but its data flows are hidden in speculative execution
+- BlindSide: BROP attack against kernel, buffer overflow without exceptions (suppressed by speculative execution)
