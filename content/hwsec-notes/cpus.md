@@ -119,3 +119,51 @@ Mitigations for Spectre v2:
 Other applications of transient/speculative execution
 - ExSpectre: craft shadow `memcpy` -- one that transfers memory between addresses, but its data flows are hidden in speculative execution
 - BlindSide: BROP attack against kernel, buffer overflow without exceptions (suppressed by speculative execution)
+
+## Advanced cache attacks
+Limitations of flush+reload:
+- need `clflush` instruction access (not in JavaScript or ARM)
+- need shared memory, not in e.g. in-kernel Spectre
+- relies on timing, not in e.g. sandbox forbidding access to timers
+- causes cache misses on victim execution
+
+Eviction-based attacks:
+- goal: no `clflush` and shared memory
+- monitor cache sets instead of cache lines, use 1 eviction set to monitor 1 victim cache set
+  - eviction set: given a target cache set, it's a set of memory addresses that, if accessed, will evict any other entry in the set
+
+Building eviction set for L1:
+- 1 eviction set for each cache set in L1
+- build eviction sets for all cache sets → can monitor L1 for victim accesses
+- L1: 64 sets (within 4KB page, we have 64 cache lines, each belonging to different color (cache set)).
+- 8 ways (we need 8 4KB pages, need to access first cache line of these pages to fill entire red cache set).
+
+Building an eviction set for L2:
+1. Allocate large pool of pages (large enough to cover all cache sets and ways of target cache)
+2. Pick page P from pool
+3. Check that accessing first cache line of all other pages evicts first cache line of P
+4. Pick page Q from pool and remove it. See if pool without Q still evicts P. If yes, remove Q from pool.
+5. Keep removing pages until pool has exactly 4 members. This is eviction set for P (64 sets).
+6. Try this again with page that eviction set for P doesn't does not evict to find another eviction set.
+
+In L1 and L2, cache sets will be striped throughout memory.
+But because L3 is sliced, the distribution will be chaotic.
+However, the same eviction set algorithm also works for L3, because no assumptions are made on physical addresses.
+
+Prime+probe attack:
+- attacker does not control victim, code/data not shared
+- steps:
+  1. Prime: Build L3 eviction sets for victim locations. Walk all eviction sets corresponding to cache sets the attacker wants to monitor. This puts the cache in a known state.
+  2. Victim accesses cache set
+  3. Probe: walk eviction set, check for speed. If slow, the attacker knows the cache set was accessed.
+
+Evict+time:
+- attacker controls victim, code/data not shared
+- less noisy -- we can control execution of victim
+- steps:
+  1. Build L3 eviction sets for victim locations. Walk all eviction sets corresponding to cache sets the attacker wants to monitor.
+  2. Craft input to interface (e.g. RPC) to talk to victim and create execution of victim that performs secret-dependent computation
+  3. Time execution of victim under its control, and if slow, the victim accessed the cache set
+- as an attack against the MMU, trigger page table walk of MMU and time the accesses
+  - MMU accesses CPU caches because address translation is frequent and costly
+  - AnC needs to trigger victim page table walks, at least flush TLB (evict entries in TLB with eviction sets)
