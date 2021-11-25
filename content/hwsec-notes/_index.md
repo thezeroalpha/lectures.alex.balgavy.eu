@@ -10,3 +10,4 @@ title = 'Hardware security'
 5. [Side channel analysis & fault injection](side-channel-analysis-fault-injection)
 6. [Firmware analysis & rehosting](firmware-analysis-rehosting)
 7. [Exploitation for embedded systems](exploitation-for-embedded-systems)
+8. [Defending firmware](defending-firmware)
