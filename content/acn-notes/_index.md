@@ -9,3 +9,5 @@ title = 'Advanced Computer Networks'
 4. [Network transport](network-transport)
 5. [Datacenter networking](datacenter-networking)
 6. [Datacenter transport](datacenter-transport)
+7. [Software-defined networking](software-defined-networking)
+8. [Network automation](network-automation)
