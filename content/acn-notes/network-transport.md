@@ -1,66 +1,68 @@
 +++
 title = 'Network transport'
 +++
-# Network transport
-## TCP congestion control
-Congestion control: determine rate to send data on connection, such that network is efficiently utilized, and sender doesn't overrun network capability
 
-In TCP, end hosts control sending rate, based on ACKs.
+## Network transport
+### Congestion control
+determine rate to send data, such that sender doesn't overrun network capability, and network is efficiently used
+- switches have packet queue, packets dropped if not enough space in queue
+- TCP sends data across network as fast as possible, but not faster
+  - end hosts control sending rate based on ACKs
+  - packet conservation principle: for connection in equilibrium, new packet shouldn't be put into network until an old packet leaves
 
-Packet conservation: for connection to stay in equilibrium, a new packet should not be put into network until an old packet leaves
+self-clocking: new packets sent when packet leaves, at bottleneck rate.
 
-Reaching equilibrium quickly: TCP slow-start
+quickly reaching equilibrium: TCP slow start
 - upon receiving ACK, increase congestion window by 1
+- timeout or 3 duplicate ACKs assumed to be packet drop
 
-Packet loss is not good indicator of congestion. Instead, provide a model, estimate parameters for the model based on probing, and decide sending rate using the model.
+adapt to available space: additive increase multiplicative decrease (AIMD)
+- congestion window increased by 1, but decreased by half of window size
 
-## Multi-path transport
-Multiple paths, e.g. cellular and wifi simultaneously. Higher throughput, failover from one path to another, and seamless mobility.
+BBR: congestion-based congestion control
+- models network, estimates maxBW (bandwidth) and minRTT (round tirp time) on every ACK
+- control sending rate based on model
+- uses a state machine
 
-To not modify apps, present same socket API and expectations.
+### Multi-path transport
+Benefits: higher throughput, failover, seamless mobility
 
-During TCP 3-way handshake, set option `MP_CAPABLE` in TCP header for multipath.
+For unmodified apps, present same socket API and expectations, establish TCP connections in the normal way. Single flow by default, add sub-flows if possible.
 
-To add sub-flows, use token hashed from exchanged key, and use HMAC (code) for auth based on exchanged keys.
-Associate sub-flows with existing connection.
+MPTCP
+- to add new sub-flow, use token hashed from key exchanged in handshake, HMAC for authentication.
+- start sending packets with new IP/port pair, associate sub-flows with exiting connection
 
-Middleboxes: network equipment that apply special operations on path of network packets.
-- examples: firewall, NAT
-- some inspect TCP traffic and check sequence numbers
-- so, need to have per-flow sequence numbers
+Middleboxes: network equipment that apply special operations on path of network packets (e.g. firewall, NAT)
+- some check TCP sequence numbers
+- solution: use per-flow sequence number
 
-All sub-flows share same receive buffer and use same receive window.
-
-MPTCP congestion control goals:
-- be fair to TCP at bottleneck links: take as much capacity as TCP at bottleneck link
-- use efficient paths: each connection should send all traffic on least-congested paths, but keep some traffic on alternative paths as probe
+MPTCP congestion control:
+- be fair to TCP at bottleneck links: take as much capacity as TCP, no matter how many paths it's using
+- use efficient paths: each congestion should send all traffic on least-congested paths, but keep some traffic on alternative paths as probe
 - perform as well as TCP
+- don't oscillate
+- so, maintains a congestion window for each sub-flow, using a formula that I hope we don't need to know
 
-Congestion control mechanism:
-- congestion window for each sub-flow
-- increase window for sub-flow for each ACK on that path
-- halve window for each drop on that path
+### HTTP
+HTTP/1
+- 1 round trip to set up TCP connection
+- 2 round trips to set up TLS 1.2 connection
+- after setup, requests/responses flow over connection, one at a time
+  - head-of-line (HoL) blocking on HTTP connection
 
-## HTTP
-### HTTP/1
-1 round trip to set up TCP, 2 for TLS1.2.
+HTTP/1.1: avoid HoL blocking
+- multiple TCP connections allow multiple objects to be fetched through concurrent HTTP requests/responses
 
-After setup, only one request/response possible at a time, so Head-of-Line (HoL) blocking.
+HTTP/2: stream multiplexing
+- multiple streams (each for an object) multiplexed on same TCP connection
+- even multiple domains can share same TCP connection
+- supports stream priority set by client
 
-### HTTP/1.1
-Avoids HoL blocking using multiple TCP connections, allowing concurrent requests/responses.
+### QUIC
+new streaming protocol to make streaming faster
 
-### HTTP/2
-Multiple streams (each for object) multiplexed on same TCP connection.
-
-Even multiple domains can share same TCP connection.
-
-Supports priority of streams, using dependency tree.
-
-But still has HoL blocking on _TCP_ connection -- packet retransmission for one object delays transmissions of others.
-
-## QUIC
-Protocol to make streaming faster.
-
-No round trip to known server, or if crypto keys not new. And connections survive change of IP address.
-Uses multiple streams over UDP.
+HTTP/3 over QUIC:
+- 0 round trip to known server, or if crypto keys not new
+- connections survive IP address change
+- after setup, HTTP requests/responses flow over connection via QUIC streams
