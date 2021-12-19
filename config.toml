@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "lectures.alex.balgavy.eu"
+base_url = "https://lectures.alex.balgavy.eu"
 title = "Lecture Notes"
 description = "My lecture notes. Primarily for myself, maybe useful for others."
 default_language = "en"
