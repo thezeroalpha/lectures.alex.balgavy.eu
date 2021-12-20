@@ -30,7 +30,7 @@ Explicit congestion notification
 
 DCTCP main idea
 - switch: marks with ECN after the threshold K
-- ECN receiver: marks ACKs with ECE (ECN echo) flag, until sener ACKs back using CWR (congestion window reduce) flag
+- ECN receiver: marks ACKs with ECE (ECN echo) flag, until sender ACKs back using CWR (congestion window reduce) flag
 - DCTCP receiver: marks ACKs corresponding to ECN packet
 - sender: estimate packets that are marked with ECN in a running window
 

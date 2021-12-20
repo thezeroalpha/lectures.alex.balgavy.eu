@@ -24,13 +24,13 @@ Main goals of Propane:
 
 ### Autocompleting partial network configurations
 Problems:
-- produced configs may widely differ from human-generating ones, lowing confidence in them
+- produced configs may widely differ from human-generating ones, lowering confidence in them
 - can produce widely different configurations given slightly different requirements
 - can't flexibly adapt to operational requirements
 
 Existing synthesizers don't provide operators with fine-grained control over synthesized configurations.
 
 NetComplete: network operators can specify their intents through configuration sketches with "holes"
-- holes can identify specific attributes (e.g. IP adresses), link costs, BGP local preferences, or entire pieces of configuration
+- holes can identify specific attributes (e.g. IP addresses), link costs, BGP local preferences, or entire pieces of configuration
 - encodes requirements as logical formula in SMT
 - use solver (Z3) to find assignment that satisfies constraints

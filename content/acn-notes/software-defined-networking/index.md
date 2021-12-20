@@ -4,7 +4,7 @@ title = 'Software defined networking'
 
 ## Software defined networking
 Software defined network:
-- control plane physically separate form data plane
+- control plane physically separate from data plane
 - single (logically centralized) control plane controls several forwarding devices
 
 Abstractions in SDN:
