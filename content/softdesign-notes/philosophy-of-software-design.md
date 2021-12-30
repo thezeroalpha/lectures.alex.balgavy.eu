@@ -1,5 +1,8 @@
-= Philosophy of Software Design =
-== Summary of Design Principles ==
++++
+title = 'Philosophy of Software Design'
++++
+# Philosophy of Software Design
+## Summary of Design Principles
 - Complexity is incremental, even small things make a difference
 - Working code isn't enough, don't introduce complexity just to finish faster
 - Make continual small investments to improve system design
@@ -16,7 +19,7 @@
 - Software should be designed for ease of reading, not ease of writing
 - Increments of software development should be abstractions, not features. It's ok to put off an abstraction until it's needed by a feature, but once it's needed, take the time to design it cleanly.
 
-== Summary of red flags ==
+## Summary of red flags
 - Shallow module: one whose interface is complicated relative to the functionality it provides
 - Information leakage: when the same knowledge is used in multiple places (e.g. two different classes both understand format of a particular type of file)
 - Temporal decomposition: execution order is reflected in the code structure, which can lead to information leakage
