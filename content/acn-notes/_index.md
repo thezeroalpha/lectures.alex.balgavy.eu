@@ -17,3 +17,5 @@ title = 'Advanced Computer Networks'
 - [Network monitoring](network-monitoring)
 - [In-network computing](in-network-computing)
 - [Machine learning for networking](machine-learning-for-networking)
+
+[My Anki deck](advanced-computer-networks.apkg)
