@@ -8,3 +8,6 @@ title = 'Software Containerisation'
 4. [Workload resources and controllers](workload-resources-and-controllers)
 5. [YAML syntax](yaml-syntax)
 6. [Networking](networking)
+7. [Storage](storage)
+8. [StatefulSet](statefulset)
+9. [ConfigMaps & Secrets](configmaps-secrets)
