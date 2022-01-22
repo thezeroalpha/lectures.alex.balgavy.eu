@@ -11,3 +11,5 @@ title = 'Software Containerisation'
 7. [Storage](storage)
 8. [StatefulSet](statefulset)
 9. [ConfigMaps & Secrets](configmaps-secrets)
+10. [Deployment updates](deployment-updates)
+11. [Helm: Kubernetes package manager](helm)
