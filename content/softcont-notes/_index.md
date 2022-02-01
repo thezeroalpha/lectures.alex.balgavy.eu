@@ -17,3 +17,4 @@ title = 'Software Containerisation'
 13. [Controlling access to Kubernetes API](controlling-access-to-kubernetes-api)
 14. [Affinity and anti-affinity](affinity-and-anti-affinity)
 15. [Pod disruption budget](pod-disruption-budget)
+16. [Istio](istio)
