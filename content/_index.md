@@ -11,6 +11,7 @@ title = "Alex's university course notes"
 * [Hardware Security](hwsec-notes/)
 * [Advanced Computer Networks](acn-notes/)
 * [Software Containerisation](softcont-notes/)
+* [Advanced Logic](advanced-logic-notes/)
 
 ## Subject notes: Year 1
 * [Computer & Network Security](computer-network-security/)
