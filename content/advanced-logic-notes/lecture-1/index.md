@@ -8,6 +8,8 @@ Basic model logic operators:
 - □: necessary, known, provable
 - ◇: possible, considered possible
 
+In a diagram, one of these symbols is exactly one transition step (use multiple for multiple steps).
+
 - ◇ φ ⇔ ¬□ ¬φ
 - □ φ ⇔ ¬◇ ¬φ
 
