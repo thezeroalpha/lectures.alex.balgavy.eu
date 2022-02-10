@@ -45,12 +45,13 @@ A strategy for player P is subset of steps for P, and it's a winning strategy if
 ### Example
 Diagram:
 
-![Diagram](digraph.svg)
+![States](states.svg)
+
 <details>
-<summary>PlantUML/Dot code</summary>
-```plantuml
-@startdot
-digraph example {
+<summary>Dot code</summary>
+
+```dot
+digraph states {
 1 -> 2
 1 -> 3
 2 -> 3
@@ -59,22 +60,24 @@ digraph example {
 4 -> 2
 4 -> 3
 }
-@enddot
 ```
+
+Generated with PlantUML, surround it with `@startdot` and `@enddot`.
+
 </details>
 
-formula ◇ p ∨ □ ◇ p, in state 2.
-
-p is true in state 3.
+Given:
+- formula ◇ p ∨ □ ◇ p, in state 2.
+- p is true in state 3.
 
 Complete game tree:
 
 ![Game tree](tree.svg)
 
 <details>
-<summary>PlantUML/Dot code</summary>
-```plantuml
-@startdot
+<summary>Dot code</summary>
+
+```dot
 digraph gametree {
     top [label="[V] ◇ p ∨ □ ◇ p, 2"]
     l11 [label="[V] ◇ p, 2"]
@@ -96,8 +99,10 @@ digraph gametree {
     l32 -> l41
     l33 -> l42
 }
-@enddot
 ```
+
+Generated with PlantUML, surround it with `@startdot` and `@enddot`.
+
 </details>
 
 ## Truth and validity
