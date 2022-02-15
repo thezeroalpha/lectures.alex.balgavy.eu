@@ -5,6 +5,7 @@ title = 'Advanced Logic'
 1. [Lecture 1](lecture-1)
 2. [Lecture 2](lecture-2)
 3. [Exercise 1](exercise-1)
+4. [Lecture 3](lecture-3)
 
 I drew the graphs on these pages with [Graphviz](https://graphviz.org/).
 You can install Graphviz and run e.g. `dot < graph.dot -Tsvg > graph.svg` (also accepts input files as parameters).
