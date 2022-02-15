@@ -16,11 +16,11 @@ But validity in a frame is preserved under substitution: if F ⊨ φ, then $F \m
 Validity is closed under substitution: if F ⊨ φ, then $F \models \phi^{\sigma}$ for any substitution σ.
 
 ### Alternative semantics
-The interpretation $[\![ \phi ]\!] _{M}$ of a formula φ in model M = (W,R,V) is set of worlds in which φ is true.
+The interpretation $[\\![ \phi ]\\!] _{M}$ of a formula φ in model M = (W,R,V) is set of worlds in which φ is true.
 
-M, w ⊨ φ iff $w \in [\![\phi]\!]_{M}$
+M, w ⊨ φ iff $w \in [\\![\phi]\\!]_{M}$
 
-M ⊨ φ iff $[\![\phi]\!]_{M} = W$
+M ⊨ φ iff $[\\![\phi]\\!]_{M} = W$
 
 ### Preservation of truth and validity
 Local truth preserved by modus ponens: if M, w ⊨ φ → ψ and M, w ⊨ φ then M, w ⊨ ψ
