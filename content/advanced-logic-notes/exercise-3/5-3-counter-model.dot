@@ -1,0 +1,6 @@
+digraph g {
+rankdir=LR
+1 -> 2; 2 [shape="Mrecord", label="{2 | p}"]
+1 -> 3
+}
+

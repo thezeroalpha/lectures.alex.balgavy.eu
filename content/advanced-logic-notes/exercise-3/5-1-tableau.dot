@@ -1,0 +1,6 @@
+graph g {
+a [label="* ◇ ¬ p ∨ ◇ p", xlabel="1"]
+a -- b
+b [label="* ◇ ¬ p, ◇ p", xlabel="1"]
+}
+

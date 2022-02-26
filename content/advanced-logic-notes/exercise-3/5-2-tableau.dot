@@ -1,0 +1,12 @@
+graph g {
+a [label="* ◇ (p ∧ ¬ q), ◇ ¬ p, ¬ ◇ ¬ q", xlabel="1"]
+b [label="◇ ¬ q * ◇ (p ∧ ¬ q), ◇ ¬ p", xlabel="1"]; a -- b
+c [label="¬ q * p ∧ ¬ q, ¬ p", xlabel="2"]; b -- c [style="dashed"]
+d [label="p * p ∧ ¬ q, q", xlabel="2"]; c -- d
+
+el [shape="record", label="{ p * p, q | closes. }", xlabel="2"]; d -- el
+
+er [label="p * ¬ q, q", xlabel="2"]; d -- er
+f [shape="record", label="{ p, q * q | closes. }", xlabel="2"]; er -- f
+}
+

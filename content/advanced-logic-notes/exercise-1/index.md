@@ -77,7 +77,7 @@ M, a₁ ⊨ □ □ (p ∨ q)
 M, a₂ ⊨ ◇ q → ◇ ◇ q
 - R[a₂] = {a₅}.
 - Since a₅ ⊭ q, then a₂ ⊭ ◇ q.
-- So formula holds because ◇ q doesn't hold. <!-- TODO: really? -->
+- So formula holds because ◇ q doesn't hold.
 
 ### 1d
 Change V by making p true in all states.

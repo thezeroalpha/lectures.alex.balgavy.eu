@@ -1,0 +1,20 @@
+graph g {
+a [label="* (¬ ◇ ¬ p ∧ ◇ ¬ q), ¬ ◇ (p ∧ ¬ q)", xlabel="1"]
+b [label="◇ (p ∧ ¬ q) * ¬ ◇ ¬ p ∧ ◇ ¬ q", xlabel="1"]; a -- b
+
+la [label="◇ (p ∧ ¬ q) * ¬ ◇ ¬ p", xlabel="1"]; a -- la
+lb [label="◇ (p ∧ ¬ q), ◇ ¬ p *", xlabel="1"]; la -- lb
+
+lla [label="p ∧ ¬ q *", xlabel="2"]; lb -- lla [style="dashed"]
+llb [label="p, ¬ q *", xlabel="2"]; lla -- llb
+llc [label="{p * q | does not close}", xlabel="2", shape="record"]; llb -- llc
+
+lra [label="{¬ p * | does not close}", xlabel="3", shape="record"]; lb -- lra [style="dashed"]
+
+ra [label="◇ (p ∧ ¬ q) * ◇ ¬ q", xlabel="1"]; b -- ra
+rb [label="p ∧ ¬ q * ¬ q", xlabel="4"]; ra -- rb [style="dashed"]
+rc [label="p ∧ ¬ q, q *", xlabel="4"]; rb -- rc
+rd [label="p, ¬ q, q *", xlabel="4"]; rc -- rd
+re [label="{p, q * q | closes}", xlabel="4", shape="record"]; rd -- re
+}
+
