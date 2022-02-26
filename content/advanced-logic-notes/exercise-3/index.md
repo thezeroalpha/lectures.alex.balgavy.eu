@@ -64,11 +64,12 @@ digraph g {
 | 2     | c -> a | stuck.       |       |               |
 
 So even in an optimal game, D gets stuck.
+Therefore, M,a and K,1 are not bisimilar.
 
 Once we find a winning strategy for S no matter what D does, we can stop.
 
 ### b)
-◇ ◇ □ ⊥
+A formula distinguishing M,a and K,1 is: ◇ ◇ □ ⊥
 
 In two steps, we reach a blind state.
 
