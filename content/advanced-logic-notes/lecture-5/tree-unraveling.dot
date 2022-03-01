@@ -1,0 +1,10 @@
+digraph g {
+a [label="(1)"]
+b [label="(1,2)"]; a -> b
+c [label="(1,1)"]; a -> c
+d [label="(1,1,2)"]; c -> d
+e [label="(1,1,1)"]; c -> e
+f [label="(1,1,1,2)"]; e -> f
+g [label="..."]; e -> g
+}
+
