@@ -184,6 +184,13 @@ table {
     text-decoration: underline;
   }
 }
-details summary {
-  cursor: pointer;
+details {
+  border-width: 2px;
+  border-style: solid;
+  padding: 0.3rem;
+  border-radius: 9px;
+  margin-bottom: 1rem;
+  summary {
+    cursor: pointer;
+  }
 }

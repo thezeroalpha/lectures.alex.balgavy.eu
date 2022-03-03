@@ -62,6 +62,11 @@ code {
   color: lighten($textcolor, 8%);
 }
 
+details {
+  border-color: $bgcolor;
+  background: lighten($bgcolor, 6%);
+}
+
 :target {
   background-clip: border-box;
   animation-name: anchor-jump;

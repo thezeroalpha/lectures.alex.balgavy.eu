@@ -46,6 +46,11 @@ code {
   background: darken(white, 10%);
 }
 
+details {
+  border-color: $bgcolor;
+  background: lighten($bgcolor, 5%);
+}
+
 :target {
   background-clip: border-box;
   animation-name: anchor-jump;
