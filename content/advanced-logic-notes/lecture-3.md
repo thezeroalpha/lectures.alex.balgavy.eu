@@ -44,6 +44,7 @@ This holds in the opposite.
 So the formula □ p → p characterizes the frame property 'reflexivity'.
 
 In general, formula φ characterizes the frame property P means: F has property P iff F ⊨ φ.
+If you need to prove that a formula characterizes a property, you need to prove this bi-implication in _both_ directions.
 
 ## Modal equivalence
 Two states M, w and M', w' are modally equivalent if they satisfy the same formulas.

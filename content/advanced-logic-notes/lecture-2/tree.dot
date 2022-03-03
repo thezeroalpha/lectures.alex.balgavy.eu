@@ -1,0 +1,22 @@
+digraph gametree {
+    top [label="[V] ◇ p ∨ □ ◇ p, 2"]
+    l11 [label="[V] ◇ p, 2"]
+    l12 [label="[F] □ ◇ p, 2"]
+    top -> l11
+    top -> l12
+    l21 [label="p 3"]
+    l22 [label="[V] ◇ p, 3"]
+    l11 -> l21
+    l12 -> l22
+    l31 [label="Verifier wins"]
+    l32 [label="p, 2"]
+    l33 [label="p, 4"]
+    l21 -> l31
+    l22 -> l32
+    l22 -> l33
+    l41 [label="Falsifier wins."]
+    l42 [label="Falsifier wins."]
+    l32 -> l41
+    l33 -> l42
+}
+

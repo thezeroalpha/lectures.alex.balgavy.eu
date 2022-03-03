@@ -23,6 +23,7 @@ a valuation v : Var → {0,1} maps propositional variables to truth values.
 the semantics of a formula under a valuation is defined with ⟦p⟧ᵥ = v(p), with p ∈ Var
 
 if ⟦φ⟧ᵥ = 1, we write v ⊨ φ (read "v models φ")
+- that is, if φ is true in the model v
 - then, φ has a model, so φ is satisfiable
 
 If every model of all φᵢ is a model of ψ, we write φ₁,...,φn ⊨ ψ
@@ -45,13 +46,15 @@ Veridicality: □ φ → φ
 
 Truth s relative to current situation/world/environment:
 - formulas evaluated in given structure
-- necessity: truth in all accessible worlds
-- possibility: truth in some accessible world (at least one)
+- necessity (□): truth in all accessible worlds. if there are no accessible worlds, it's true.
+- possibility (◇): truth in some accessible world (at least one). if there are no accessible worlds, it's false.
 
 ## Frames
 A situation is set by a frame F = (W,R)
 - W ≠ ∅ set of possible worlds/states
 - R ⊆ W × W an accessibility/transition relation
+
+A frame is just the states and transitions between them, without a valuation (i.e. without saying what's true in each state).
 
 A frame could be (ℕ, <), or ({1,2,3,4}, {(1,2), (2,4), (1,3), (3,4), (2,2)})
 
@@ -59,6 +62,7 @@ A frame could be (ℕ, <), or ({1,2,3,4}, {(1,2), (2,4), (1,3), (3,4), (2,2)})
 model: pair M = (F, V)
 - a frame F = (W,R)
 - a valuation V : Var → W → {0,1}, or V : Var → P(W)
+    - the valuation says which letters/formulas are true in which states
 
 pointed model: pair (M,w) of model M and w a world in M
 

@@ -1,0 +1,15 @@
+graph t {
+t [label="M,v ⊨? ◇ (q ∧ ◇ p)", xlabel="V's turn"]
+tl [label="M,y ⊨? q ∧ ◇ p", xlabel="F's turn"]; t -- tl
+tll [label="{ M,y ⊨ q | Verifier wins }", shape="Mrecord"]; tl -- tll
+tlr [label="M, y ⊨? ◇ p", xlabel="V's turn"]; tl -- tlr
+tlrn [label="{ M, z ⊨ p | Verifier wins. }", shape="Mrecord"]; tlr -- tlrn
+
+tr [label="M, v ⊨? q ∧ ◇ p", xlabel="F's turn"]; t -- tr
+trl [label="{ M, v ⊭ q | Falsifier wins }", shape="Mrecord", xlabel="V's turn"]; tr -- trl
+trr [label="M, v ⊨? ◇ p", xlabel="V's turn"]; tr -- trr
+trrl [label="{ M, v ⊭ p | Falsifier wins. }", shape="Mrecord"]; trr -- trrl
+trrr [label="{M, y ⊭ p | Falsifier wins.}", shape="Mrecord"]; trr -- trrr
+}
+
+

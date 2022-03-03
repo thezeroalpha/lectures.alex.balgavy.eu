@@ -18,6 +18,8 @@ Above:
 - the formula 2 ⊨ ◇ □ ⊥ characterizes state 2
 
 ## Game semantics
+This is an approach to determine if a formula φ holds in a pointed model M, w.
+
 We have:
 - model M = ((W,R), V), world w ∈ W, formula φ
 - two players:
@@ -45,11 +47,12 @@ A strategy for player P is subset of steps for P, and it's a winning strategy if
 ### Example
 Diagram:
 
-![States](states.svg)
+![States](states.dot.svg)
 
 <details>
-<summary>Dot code</summary>
+<summary>Graphviz code</summary>
 
+<!-- :Tangle(dot) states.dot -->
 ```dot
 digraph states {
 1 -> 2
@@ -62,8 +65,6 @@ digraph states {
 }
 ```
 
-Generated with PlantUML, surround it with `@startdot` and `@enddot`.
-
 </details>
 
 Given:
@@ -72,11 +73,12 @@ Given:
 
 Complete game tree:
 
-![Game tree](tree.svg)
+![Game tree](tree.dot.svg)
 
 <details>
-<summary>Dot code</summary>
+<summary>Graphviz code</summary>
 
+<!-- :Tangle(dot) tree.dot -->
 ```dot
 digraph gametree {
     top [label="[V] ◇ p ∨ □ ◇ p, 2"]
@@ -101,8 +103,6 @@ digraph gametree {
 }
 ```
 
-Generated with PlantUML, surround it with `@startdot` and `@enddot`.
-
 </details>
 
 ## Truth and validity
@@ -125,7 +125,7 @@ Show universal validity of □ (φ → ψ) → (□ φ → □ ψ)
 3. Assume a2: F,V,x ⊨ □ φ
 4. Aim to show F,V,x ⊨ □ ψ.
 5. □ is universal quantification, so take an arbitrary successor y ∈ W.
-6. If Rxy, aim to show y ⊨ ψ. If not, we are one.
+6. If Rxy, aim to show y ⊨ ψ. If not, □ ψ holds.
 7. Have y ⊨ φ → ψ and y ⊨ φ.
 8. From a2, have y ⊨ φ.
 9. From a1, have have y ⊨ ψ.

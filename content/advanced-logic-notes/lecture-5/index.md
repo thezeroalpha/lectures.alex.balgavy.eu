@@ -11,14 +11,15 @@ Prove by taking modal equivalence as bisimulation.
 
 Let Z := {(x, x') | for all φ: x ⊨ φ iff x' ⊨ φ}.
 Z is a bisimulation.
-Local harmony is satisfied.
-zig: suppose (x, x') ∈ Z and x → y.
-Because x ⊨ ◇ T also x' ⊨ ◇ T.
-So x' has finitely many successor y'₁...y'n with n ≥ 1.
-Suppose for all i: y is not modally equivalent to y'ᵢ.
-There are φ₁...φn such that y ⊨ φᵢ and y'ᵢ notmodel φᵢ.
-x ⊨ ◇(φ₁ ∧ ... ∧ φn) so also x' ⊨ ◇ (φ₁ ∧ ... ∧ φn)
-Contradiction.
+- Local harmony is satisfied.
+- zig: suppose (x, x') ∈ Z and x → y.
+    Because x ⊨ ◇ T also x' ⊨ ◇ T.
+    So x' has finitely many successors y'₁...y'n with n ≥ 1.
+    Suppose for all i: y is not modally equivalent to y'ᵢ.
+    There are φ₁...φn such that y ⊨ φᵢ and y'ᵢ ⊭ φᵢ.
+    x ⊨ ◇(φ₁ ∧ ... ∧ φn) so also x' ⊨ ◇ (φ₁ ∧ ... ∧ φn).
+    Contradiction.
+
 
 Asymmetry is not modally definable.
 To deal with only frames, we can use surjective bounded morphisms.
@@ -53,7 +54,7 @@ Modal formulas are 'nearsighted':
 - md(φ ∨ ψ) = md(φ ∧ ψ) = max{md(φ), md(ψ)}
 - md(□ φ) = md(◇ φ) = md(φ) + 1
 
-We need a formula of model depth k to distuinguish states x and y.
+We need a formula of model depth k to distinguish states x and y.
 Spoiler can win bisimulation game in k rounds.
 Every winning strategy for Spoiler corresponds to a distinguishing formula.
 Games of less than k rounds can be won by Duplicator.

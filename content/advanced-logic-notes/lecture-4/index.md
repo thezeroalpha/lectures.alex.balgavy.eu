@@ -12,10 +12,25 @@ A non-empty relation Z ⊆ W × W' is bisimulation ($Z : M \underline{\leftright
 
 Two models are bisimilar ($M \underline{\leftrightarrow} M'$) if there exists a bisimulation Z ∈ W × W'.
 
+Basically, models are bisimilar if they are, in essence, the same (there may be extra states or relations in one of the models but those states/relations do not add any new information compared to the other model). A bisimulation then is the set of states that are bisimilar between two models.
+
 Two pointed models are bisimilar if there exists a bisimulation such that (w,w') ∈ Z
 
 Two states are modally equivalent if they satisfy exactly the same formulas.
 So if M,w and M',w' are bisimilar, then they are modally equivalent.
+
+If two states are modally equivalent, then they are bisimilar.
+
+### Example
+It's a bit hard to describe this in words, but intuitive if you see it.
+Here's an example:
+
+![Bisimulation diagram](bisimulation-example.png)
+
+You see that from the top state, you can get to a terminal state in one or two steps, in both models.
+Therefore, the top states of both models are _bisimilar_.
+Since all of the states in the models are bisimilar, _the two models are bisimilar_.
+The dotted lines connect the pairs that make up the _bisimulation_.
 
 ## Transforming and constructing models
 Disjoint union of models: combine models by union of states, relations, and valuations.
@@ -35,4 +50,4 @@ Bisimulation contraction
 - R' relates |s| to |t| if Ruv for some u ∈ |s| and some v ∈ |t|
 - V'(p) = { |s| | s ∈ V(p) }
 
-If two states are modally equivalent, then they are bisimilar.
+More on this, with examples, in [lecture 5](../lecture-5/#transforming-and-constructing-models).
