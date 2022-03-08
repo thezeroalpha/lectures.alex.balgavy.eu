@@ -32,6 +32,92 @@ Therefore, the top states of both models are _bisimilar_.
 Since all of the states in the models are bisimilar, _the two models are bisimilar_.
 The dotted lines connect the pairs that make up the _bisimulation_.
 
+### Example: finding bisimulations
+
+Take two example models:
+
+<table>
+<thead>
+<th>A</th> <th>B</th>
+</thead>
+
+<tbody>
+<tr>
+
+<td>
+
+![Model A diagram](model-a.dot.svg)
+
+<details>
+<summary>Graphviz code</summary>
+
+<!-- :Tangle(dot) model-a.dot -->
+```dot
+digraph g {
+1 -> 2
+2 -> 3
+3 -> 4
+3 -> 5
+1 [xlabel="p"]
+2 [xlabel="q"]
+3 [xlabel="q"]
+4 [xlabel="q"]
+5 [xlabel="q"]
+}
+```
+
+</details>
+</td>
+
+<td>
+
+![Model B diagram](model-b.dot.svg)
+
+<details>
+<summary>Graphviz code</summary>
+
+<!-- :Tangle(dot) model-b.dot -->
+```dot
+digraph g {
+a -> b
+a -> c
+c -> d
+b -> d
+d -> e
+a [xlabel="p"]
+b [xlabel="q"]
+c [xlabel="q"]
+d [xlabel="q"]
+e [xlabel="q"]
+}
+```
+
+</details>
+</td>
+
+</tr>
+</table>
+
+The claim is that states (A,1) and (B,a) are bisimilar.
+How do you prove or refute the claim?
+
+Well, we need to find a bisimulation with the pair (1, a).
+1. Start with pair (1, a)
+2. In A, move from 1 to 2. Have to mimic the move in B, can do so by moving from a to b or from a to c.
+    Yields the pairs (2, b) and (2, c).
+3. In A, move from 2 to 3. Have to mimic the move in B, can move from both b and c to d.
+    Yields the pair (3, d).
+4. In A, two options:
+    - move from 3 to 4. Have to mimic the move in B, can move from d to e.
+        Yields the pair (4, e).
+    - move from 3 to 5. Have to mimic the move in B, can move from d to e.
+        Yields the pair (5, e).
+
+Since for any move in the first model, we can mimic it in the second model, we have a bisimulation.
+The bisimulation contains exactly the pairs we just listed.
+So there is a bisimulation Z = {(1, a), (2, b), (2, c), (3, d), (4, e), (5, e)}.
+Since (1, a) ∈ Z, we can say that states (A, 1) and (B, a) are bisimilar.
+
 ## Transforming and constructing models
 Disjoint union of models: combine models by union of states, relations, and valuations.
 A state in one of the models is modally equivalent with the state in the union.

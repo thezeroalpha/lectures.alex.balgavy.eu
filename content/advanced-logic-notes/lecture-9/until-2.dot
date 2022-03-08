@@ -1,0 +1,10 @@
+digraph g {
+rankdir=BT
+a -> b
+a -> c
+c -> d
+b -> d
+d [xlabel="q"]
+c [xlabel="p"]
+}
+

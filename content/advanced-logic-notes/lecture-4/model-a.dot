@@ -1,0 +1,12 @@
+digraph g {
+1 -> 2
+2 -> 3
+3 -> 4
+3 -> 5
+1 [xlabel="p"]
+2 [xlabel="q"]
+3 [xlabel="q"]
+4 [xlabel="q"]
+5 [xlabel="q"]
+}
+

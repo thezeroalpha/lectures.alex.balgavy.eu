@@ -1,0 +1,13 @@
+digraph g {
+a -> b
+a -> c
+c -> d
+b -> d
+d -> e
+a [xlabel="p"]
+b [xlabel="q"]
+c [xlabel="q"]
+d [xlabel="q"]
+e [xlabel="q"]
+}
+

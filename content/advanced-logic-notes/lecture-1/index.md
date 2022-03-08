@@ -31,9 +31,9 @@ If every model of all φᵢ is a model of ψ, we write φ₁,...,φn ⊨ ψ
 
 If v ⊨ φ for all valuations of v, then ⊨ φ (φ is a tautology)
 
-Soundness: ⊢ implies ⊨, proved by induction on length of proof
+Soundness: ⊢ implies ⊨ -- what we can derive is true. proved by induction on length of proof
 
-Completeness: ⊨ implies ⊢, can be proven using consistency
+Completeness: ⊨ implies ⊢ -- we can derive what is true. can be proven using consistency
 
 # Basic modal logic
 E.g. "whatever is necessary is possible" == □φ → ◇φ
