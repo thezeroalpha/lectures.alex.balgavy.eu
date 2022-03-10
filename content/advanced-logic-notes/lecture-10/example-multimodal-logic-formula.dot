@@ -1,0 +1,6 @@
+digraph g {
+rankdir=LR
+1 -> 2 [label="a"]
+2 -> 3 [label="b"]
+}
+

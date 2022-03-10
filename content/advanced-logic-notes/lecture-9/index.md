@@ -11,6 +11,10 @@ A frame F = (T, <) is a temporal frame if both:
 - < is irreflexive: not t < t for all t
 - < is transitive: if t < u and u < v then t < v
 
+Truth and validity:
+
+![Truth and validity](truth-and-validity.png)
+
 Right-linearity:
 - "all future points are related"
 - definition: ∀ x,y,z: (x < y) ∧ (x < z) → (y < z) ∨ (y = z) ∨ (z < y)

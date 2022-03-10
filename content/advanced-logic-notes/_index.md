@@ -14,6 +14,7 @@ title = 'Advanced Logic'
 10. [Homework 1](homework-1/)
 11. [Lecture 8](lecture-8/)
 12. [Lecture 9](lecture-9/)
+13. [Lecture 10](lecture-10/)
 
 I drew the graphs on these pages with [Graphviz](https://graphviz.org/), I used [vim-literate-markdown](https://github.com/thezeroalpha/vim-literate-markdown)'s tangling functionality to quickly extract graph code to separate files.
 You can install Graphviz and run e.g. `dot < graph.dot -Tsvg > graph.svg` (also accepts input files as parameters).
