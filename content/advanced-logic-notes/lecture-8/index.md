@@ -31,7 +31,7 @@ Need to memorize soundness and completeness results
     - T: K with □ p → p
 - S4 sound and complete for all _reflexive-transitive_ frames
     - S4: T with □ p → □ □ p
-- S5 sound and complete for for frames with R an equivalence relation
+- S5 sound and complete for all frames with R an equivalence relation
     - S5: S4 with ¬ □ p → □ ¬ □ p
 
 ## Example of derivation
