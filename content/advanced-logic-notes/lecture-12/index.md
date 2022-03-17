@@ -13,6 +13,7 @@ The R of the frame is all sets of Rₐ where _a_ is a program (i.e. a label on a
 
 <details>
 <summary>Proof example of 〈α, β〉 p → 〈α〉〈β〉p</summary>
+
 - Take a PDL model and a state x.
 - Assume x ⊨ 〈α, β〉 p
 - That is, there is a state y such that $(x, y) \in R_{\alpha;\beta}$ and y ⊨ p.
