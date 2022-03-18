@@ -1,0 +1,7 @@
+digraph g {
+ac -> b
+b -> ac
+ac -> ac
+b [xlabel="[p]"]
+}
+
