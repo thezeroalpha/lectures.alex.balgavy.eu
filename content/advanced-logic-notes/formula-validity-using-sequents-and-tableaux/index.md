@@ -1,5 +1,5 @@
 +++
-title = 'Lecture 6'
+title = 'Formula validity using sequents and tableaux'
 +++
 # Lecture 6
 ## Sequents

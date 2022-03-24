@@ -1,5 +1,5 @@
 +++
-title = 'Lecture 8'
+title = 'Proof systems and derivation'
 +++
 # Lecture 8
 ## Modal tautologies

@@ -1,5 +1,5 @@
 +++
-title = 'Lecture 7'
+title = 'Standard translation: mapping basic modal logic to first-order predicate logic'
 +++
 # Lecture 7
 ## Standard translation

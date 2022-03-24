@@ -1,5 +1,5 @@
 +++
-title = 'Lecture 10'
+title = 'Multi-modal logic'
 +++
 # Lecture 10
 ## Multi-modal logic
@@ -45,20 +45,3 @@ For a bisimulation, when you do a step between states, they have to be with the 
 ◇ □ p → □ ◇ p.
 
 Valid in frame iff for every r ← s → u there is r → v ← u.
-
-## Program correctness
-Prove that a program meets its specification.
-
-Correctness specification: formal description of how program is supposed to behave
-
-Program is correct: its executions satisfy the specification
-
-### Verification - Hoare approach
-Prove statements of form `{precondition} program {postcondition}`
-- pre/postcondition are formulas
-- program is a while-program
-- we have proof rules for showing {φ} α {ψ}
-
-Partial correctness: if program starts satisfying φ, and if it halts, then when it halts ψ is satisfied
-
-Total correctness: partially correct, and terminates whenever started while satisfying φ

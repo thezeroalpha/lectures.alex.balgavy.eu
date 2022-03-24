@@ -1,5 +1,5 @@
 +++
-title = 'Lecture 9'
+title = 'Temporal logic'
 +++
 # Lecture 9
 ## Temporal logic using temporal frames

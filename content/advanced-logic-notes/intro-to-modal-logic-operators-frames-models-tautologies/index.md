@@ -1,5 +1,5 @@
 +++
-title = 'Lecture 1'
+title = 'Intro to Modal Logic (operators, frames, models, tautologies)'
 +++
 
 # Intro
