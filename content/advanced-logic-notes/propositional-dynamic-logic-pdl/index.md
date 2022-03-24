@@ -2,7 +2,7 @@
 title = 'Propositional dynamic logic (PDL)'
 template = 'page-math.html'
 +++
-# Lecture 11
+# Propositional dynamic logic (PDL)
 In propositional dynamic logic (PDL), aim to prove: φ → [while σ do α] ψ
 - i.e. starting with φ true, for any terminating execution of the program, we have ψ true.
 

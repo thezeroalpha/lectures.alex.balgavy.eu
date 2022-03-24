@@ -1,8 +1,7 @@
 +++
 title = 'Temporal logic'
 +++
-# Lecture 9
-## Temporal logic using temporal frames
+# Temporal logic using temporal frames
 Linear time logic: events along a single computation path. 'at some point we will have p'
 
 Branching time logic: quantify over possible paths. 'there is a path where eventually p'

@@ -2,22 +2,7 @@
 title = 'Semantics: truth and validity, game semantics for formula validity'
 template = 'page-math.html'
 +++
-# Lecture 2
-## Semantics: local truth
-Valuation notation:
-- V : Var → P(W) means Var → W → {0,1}
-- V(p,w) = 1 is the same as w ∈ V(p)
-
-A formula φ _characterizes_ a state x in model M if φ is true in x but not in other states of M.
-
-A formula φ _distinguishes_ state x from state y in a model M if φ is true in x but not in y.
-
-![State diagram](example-characterizing.png)
-
-Above:
-- the formula 3 ⊨ □ ⊥ characterizes state 3
-- the formula 2 ⊨ ◇ □ ⊥ characterizes state 2
-
+# Semantics: truth and validity, game semantics for formula validity
 ## Game semantics
 This is an approach to determine if a formula φ holds in a pointed model M, w.
 
@@ -43,9 +28,12 @@ Who starts:
 
 A complete game tree for φ and (M,w) starts with (w,φ) and contains all possible moves.
 A strategy for player P is subset of steps for P, and it's a winning strategy if it ensures that P wins the game.
-φ is true in M in s ⇔ V has a winning strategy for M,s,φ.
 
-### Example
+To determine validity: φ is true in M in s ⇔ V has a winning strategy for M,s,φ.
+
+<details>
+<summary>Example: complete game tree</summary>
+
 Diagram:
 
 ![States](states.dot.svg)
@@ -69,7 +57,7 @@ digraph states {
 </details>
 
 Given:
-- formula ◇ p ∨ □ ◇ p, in state 2.
+- question: formula ◇ p ∨ □ ◇ p, is it valid in state 2?
 - p is true in state 3.
 
 Complete game tree:
@@ -105,20 +93,26 @@ digraph gametree {
 ```
 
 </details>
+</details>
 
 ## Truth and validity
-(((W,R),V),w) ⊨ φ means φ is valid in a point w.
-(W,R) ⊨ φ means φ is valid in a frame (W,R).
-⊨ φ means φ is valid/tautology.
+There are different levels of validity:
+- (((W,R),V),w) ⊨ φ means φ is valid in a state/world w.
+- (W,R) ⊨ φ means φ is valid in a frame (W,R).
+- ⊨ φ means φ is valid universally (a tautology).
+
 If a part is omitted, it's implicitly universally quantified.
 
 Satisfiability:
 - φ _satisfiable in model M_ if there's a world w ∈ M such that M,w ⊨ φ
 - φ _satisfiable_ if there's a model M and a world w ∈ M such that M,w ⊨ φ
-- φ and ψ _semantically equivalent_ if ∀ M,w: M,w ⊨ φ ⇔ M,w ⊨ ψ
 - φ valid iff ¬ φ not satisfiable
 
-### Example
+φ and ψ _semantically equivalent_ if they're only valid in the same worlds, i.e. ∀ M,w: M,w ⊨ φ ⇔ M,w ⊨ ψ
+
+<details>
+<summary>Example: showing universal validity</summary>
+
 Show universal validity of □ (φ → ψ) → (□ φ → □ ψ)
 
 1. let F = (W,R) be frame, V valuation on F, let x ∈ W.
@@ -132,17 +126,17 @@ Show universal validity of □ (φ → ψ) → (□ φ → □ ψ)
 9. From a1, have have y ⊨ ψ.
 10. Hence x ⊨ □ ψ, hence x ⊨ □ φ → □ ψ. Hence formula is valid.
 
+</details>
+
 ## Preservation of truth and validity
 ### Substitution
 Substitution for propositional variables
 - σ : Var → Form
 - T and ⊥ not substituted
 
-If (W,R), V ⊨ φ then not necessarily $(W,R) V \models \phi^{\sigma}$
+If (W,R), V ⊨ φ then not necessarily $(W,R), V \models \phi^{\sigma}$
 
-But validity in a frame is preserved under substitution: if F ⊨ φ, then $F \models \phi^{\sigma}$ for any substitution σ.
-
-Validity is closed under substitution: if F ⊨ φ, then $F \models \phi^{\sigma}$ for any substitution σ.
+But validity in a _frame_ is preserved under substitution: if F ⊨ φ, then $F \models \phi^{\sigma}$ for any substitution σ.
 
 ### Alternative semantics
 The interpretation $[\\![ \phi ]\\!] _{M}$ of a formula φ in model M = (W,R,V) is set of worlds in which φ is true.
@@ -159,20 +153,17 @@ Global truth preserved by modus ponens and necessitation: if M ⊨ φ then M ⊨
 Frame validity preserved by modus ponens, necessitation, and substitution: if F ⊨ φ then $F \models \phi^{\sigma}$.
 
 ## Modal tautologies
-⊨ □ (p → q) → □ p → □ q
-
-If ⊨ φ → ψ and ⊨ φ then ⊨ ψ
-
-If ⊨ φ then ⊨ □ φ
-
-If ⊨ φ then $\models \phi^{\sigma}$
+- ⊨ □ (p → q) → □ p → □ q
+- If ⊨ φ → ψ and ⊨ φ then ⊨ ψ
+- If ⊨ φ then ⊨ □ φ
+- If ⊨ φ then $\models \phi^{\sigma}$
 
 ## Characterizations of frame properties
 If F reflexive then F ⊨ □ p → p.
 This holds in the opposite.
 So the formula □ p → p characterizes the frame property 'reflexivity'.
 
-In general, formula φ characterizes the frame property P means: F has property P iff F ⊨ φ.
+In general, "formula φ characterizes the frame property P" means: F has property P iff F ⊨ φ.
 If you need to prove that a formula characterizes a property, you need to prove this bi-implication in _both_ directions.
 
 ## Modal equivalence

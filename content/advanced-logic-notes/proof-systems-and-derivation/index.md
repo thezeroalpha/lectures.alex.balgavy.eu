@@ -1,11 +1,7 @@
 +++
 title = 'Proof systems and derivation'
 +++
-# Lecture 8
-## Modal tautologies
-
-![Modal tautologies](modal-tautologies.png)
-
+# Proof systems and derivation
 ## Proof systems
 Hilbert systems:
 - proof is sequence of numbered formulas
@@ -24,8 +20,7 @@ Admissible rule:
 
 Proof system K is sound and complete with respect to all frames, ⊢K φ iff ⊨ φ.
 
-<!-- TODO: add this to anki -->
-Need to memorize soundness and completeness results
+Soundness and completeness results (**note:** the frame classes _do_ need to be memorized)
 - K sound and complete for all frames
 - T sound and complete for all _reflexive_ frames
     - T: K with □ p → p
@@ -40,14 +35,14 @@ Same as example in book <abbr title='Modal Logic for Open Minds (Benthem)'>MLOM<
 
 First, work backwards from the goal towards an axiom or tautology:
 
-```
+<pre>
 ◇ φ ∧ □ (φ → ψ) → ◇ ψ ≡ □ (φ → ψ) → (◇ φ → ◇ ψ)                 [you can rewrite a conjunction as an implication]
                       ≡ □ (φ → ψ) → (¬ □ ¬ φ → ¬ □ ¬ ψ)         [rewrite diamond to ¬ □ ¬]
                       ≡ □ (φ → ψ) → (□ ¬ ψ → □ ¬ φ)             [rewrite contrapositive (¬ a → ¬ b) to (b → a)]
                       ≡ □ (φ → ψ) → □ (¬ ψ → ¬ φ)               [box distribution over implication]
                       ≡ □ (φ → ψ) → □ (φ → ψ)                   [again contrapositive]
                       ≡ (φ → ψ) → (φ → ψ)                       [because if derivable (a → b), then derivable (□ a → □ b)]
-```
+</pre>
 
 We arrive at a tautology.
 

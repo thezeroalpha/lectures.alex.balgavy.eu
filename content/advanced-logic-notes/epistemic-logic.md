@@ -1,8 +1,7 @@
 +++
 title = 'Epistemic logic'
 +++
-# Lecture 13
-Epistemic logic:
+# Epistemic logic
 - □ φ: 'we know that φ is true' (also written Kφ)
 - ◇ φ: 'we consider φ possible'
 - [i] φ: 'agent i knows that φ is true' (also written Kᵢφ)

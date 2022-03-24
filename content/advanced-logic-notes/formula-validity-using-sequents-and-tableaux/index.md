@@ -1,7 +1,12 @@
 +++
 title = 'Formula validity using sequents and tableaux'
 +++
-# Lecture 6
+# Formula validity using sequents and tableaux
+Sequents and tableaux are two ways to determine validity of formulas.
+Tableaux also conveniently provide a countermodel if a formula is not valid.
+
+Some examples in [exercise class 3](../exercise-3/#sequents-and-tableaux-exercise-5).
+
 ## Sequents
 φ₁...φn ⇒ ψ₁...ψm valid if in every model, in every world in that model, the conjunction of the φᵢ implies the disjunction of the ψᵢ.
 
@@ -44,7 +49,7 @@ In modal logic:
 
 ![Tableau modal logic](tableau-modal-logic.png)
 
-Example:
+### Example
 
 ![Example](example-tableau.png)
 

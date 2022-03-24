@@ -3,8 +3,7 @@ title = 'Bisimulations'
 template = 'page-math.html'
 +++
 
-# Lecture 4
-## Bisimulations
+# Bisimulations
 A non-empty relation Z ⊆ W × W' is bisimulation ($Z : M \underline{\leftrightarrow} M'$) if for all pairs (w, w') ∈ Z we have:
 - w ∈ V(p) iff w' ∈ V'(p)
 - if Rwv then for some v' ∈ W' we have R'w'v' and vZv'
@@ -12,18 +11,18 @@ A non-empty relation Z ⊆ W × W' is bisimulation ($Z : M \underline{\leftright
 
 Two models are bisimilar ($M \underline{\leftrightarrow} M'$) if there exists a bisimulation Z ∈ W × W'.
 
-Basically, models are bisimilar if they are, in essence, the same (there may be extra states or relations in one of the models but those states/relations do not add any new information compared to the other model). A bisimulation then is the set of states that are bisimilar between two models.
+Basically, models are bisimilar if they are, in essence, the same (there may be extra states or relations in one of the models but those states/relations do not add any new information compared to the other model). A bisimulation then is the set of pairs of states that are bisimilar between two models.
 
-Two pointed models are bisimilar if there exists a bisimulation such that (w,w') ∈ Z
+Two pointed models are bisimilar if there exists a bisimulation Z such that (w,w') ∈ Z
 
 Two states are modally equivalent if they satisfy exactly the same formulas.
 So if M,w and M',w' are bisimilar, then they are modally equivalent.
 
 If two states are modally equivalent, then they are bisimilar.
 
-### Example
+## Example of a bisimulation
 It's a bit hard to describe this in words, but intuitive if you see it.
-Here's an example:
+Here's an example with two models:
 
 ![Bisimulation diagram](bisimulation-example.png)
 
@@ -32,7 +31,7 @@ Therefore, the top states of both models are _bisimilar_.
 Since all of the states in the models are bisimilar, _the two models are bisimilar_.
 The dotted lines connect the pairs that make up the _bisimulation_.
 
-### Example: finding bisimulations
+## Example: finding bisimulations
 
 Take two example models:
 
@@ -121,8 +120,11 @@ Since (1, a) ∈ Z, we can say that states (A, 1) and (B, a) are bisimilar.
 If two states are bisimilar, then they are modally equivalent.
 Prove by induction on definition of formulas.
 
-For finitely branching models, if two states modally equivalent, then they are bisimilar.
+For finitely branching models, if two states are modally equivalent, then they are bisimilar.
 Prove by taking modal equivalence as bisimulation.
+
+<details>
+<summary>Proof of modal equivalence implying bisimilar</summary>
 
 Let Z := {(x, x') | for all φ: x ⊨ φ iff x' ⊨ φ}.
 Z is a bisimulation.
@@ -135,6 +137,7 @@ Z is a bisimulation.
     x ⊨ ◇(φ₁ ∧ ... ∧ φn) so also x' ⊨ ◇ (φ₁ ∧ ... ∧ φn).
     Contradiction.
 
+</details>
 
 Asymmetry is not modally definable.
 To deal with only frames, we can use surjective bounded morphisms.
@@ -147,14 +150,21 @@ A bounded morphism f is surjective if for every w' ∈ W' there exists w ∈ W s
 
 If f: W → W' is surjective bounded morphism from (W,R) to (W',R'), then if (W,R) ⊨ φ then (W', R') ⊨ φ
 
-### Bisimulation games for two players
+## Modal depth of formulas
+Modal formulas are 'nearsighted':
+- md(p) = md(⊥) = md(T) = 0
+- md(¬φ) = md(φ)
+- md(φ ∨ ψ) = md(φ ∧ ψ) = max{md(φ), md(ψ)}
+- md(□ φ) = md(◇ φ) = md(φ) + 1
+
+## A bisimulation game for two players
 Spoiler S claims M,s an N,t to be different.
 Duplicator D claims they are similar.
 
 Play consists of sequence of links, starting with link s ~ t.
 
 At current link m ~ n (with m in M and n in N):
-- if m an n different in their atoms, then S wins
+- if m and n different in their atoms, then S wins
 - if not, then S picks a successor x either of m or of n
 - then D has to find a matching transition to y in the other model
 - play continues with next link x ~ y (or y ~ x)
@@ -162,12 +172,7 @@ At current link m ~ n (with m in M and n in N):
 If player cannot make a move, he loses.
 D wins infinite games.
 
-Modal depth of formulas.
-Modal formulas are 'nearsighted':
-- md(p) = md(⊥) = md(T) = 0
-- md(¬φ) = md(φ)
-- md(φ ∨ ψ) = md(φ ∧ ψ) = max{md(φ), md(ψ)}
-- md(□ φ) = md(◇ φ) = md(φ) + 1
+There's an example of this [in exercise class 3](../exercise-3/#a).
 
 We need a formula of model depth k to distinguish states x and y.
 Spoiler can win bisimulation game in k rounds.
