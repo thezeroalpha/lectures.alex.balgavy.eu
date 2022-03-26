@@ -173,6 +173,6 @@ digraph g {
 
 </details>
 
-We cannot influence falsifier here since we play as verifier (trying to show that it hols).
+We cannot influence falsifier here since we play as verifier (trying to show that it holds).
 But no matter what falsifier does, verifier has a winning strategy.
 

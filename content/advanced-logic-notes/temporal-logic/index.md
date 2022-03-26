@@ -38,7 +38,7 @@ Operator next:
 - symbol ⊗
 - M,t ⊨ ⊗ φ iff ∃ v : t < v ∧ (¬ ∃ u : t < u < v) ∧ M,v ⊨ φ
     - e.g. x ⊨ ⊗p: there a future we can reach only in 1 step from x where p holds
-    - you can go directly from centraal to Utrecht, but Amstelstation is still there
+    - not true if other options. e.g. you can go directly from Centraal to Utrecht, but Amstel station is still there.
 - next not definable in basic modal logic
 
 Operator until:

@@ -20,7 +20,7 @@ Admissible rule:
 
 Proof system K is sound and complete with respect to all frames, ⊢K φ iff ⊨ φ.
 
-Soundness and completeness results (**note:** the frame classes _do_ need to be memorized)
+Soundness and completeness results (**note:** the frame classes _need_ to be memorized)
 - K sound and complete for all frames
 - T sound and complete for all _reflexive_ frames
     - T: K with □ p → p

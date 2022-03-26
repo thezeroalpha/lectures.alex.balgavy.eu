@@ -11,8 +11,8 @@ Definitions:
 - program: regular program which slightly generalizes a while program
 - statement {pre}program{post}: formula pre → [program] post
 
-For every program α we have modality \<α\>:
-- \<α\>: it's possible to execute α from current state, and successfully halt in state satisfying φ (like existential quantification)
+For every program α we have modality 〈α〉:
+- 〈α〉φ: it's possible to execute α from current state, and successfully halt in state satisfying φ (like existential quantification)
 - [α]φ: for all executions of α, if α successfully halts, then it halts in a state satisfying φ (like universal quantification)
 
 Program definitions:
@@ -84,7 +84,7 @@ Calculate the relation for `if p then a else b`, which is encoded as `(p?; a) �
 
 While:
 - program: `while p do a`
-- encoding: (P?; a)\*; ¬ p?
+- encoding: (p?; a)\*; ¬ p?
 
 <details>
 <summary>Example</summary>
