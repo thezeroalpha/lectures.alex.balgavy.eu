@@ -18,3 +18,5 @@ title = 'Software Containerisation'
 14. [Affinity and anti-affinity](affinity-and-anti-affinity)
 15. [Pod disruption budget](pod-disruption-budget)
 16. [Istio](istio)
+
+[Here's the Anki deck I used to study for the exam.](software-containerization.apkg)
