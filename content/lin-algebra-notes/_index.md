@@ -5,6 +5,8 @@ title = 'Linear Algebra'
 # Linear Algebra
 If you need help with any of the topics, check out [PatrickJMT on Youtube](https://www.youtube.com/user/patrickJMT). He has some of the best math videos on the internet.
 
+[Preliminary - a great article about why linear algebra is useful and important.](intuitive-guide-to-linear-algebra-notes/)
+
 - [Introduction](introduction)
     - [Linear Equations](introduction#linear-equations)
     - [Matrix notation](introduction#matrix-notation)
