@@ -52,5 +52,5 @@
 {% endblock %}
 
 {% block content %}
-{{ page.content | safe }}
+{{ page.content | replace(from="<img ", to="<img loading=lazy ") | safe }}
 {% endblock content %}

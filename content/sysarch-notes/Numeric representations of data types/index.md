@@ -34,6 +34,8 @@ Division is a pain in the ass, exactly the same as decimal long division. Just w
 
 ## Floats
 
+Useful website: [https://float.exposed/](https://float.exposed)
+
 float in binary: sign for number, significant bits, signed scale factor exponent for implied base 2
 
 IEEE standard (32 bit floats) — sign bit, 8-bit signed exponent in excess-127, 23-bit mantissa (fractional)
