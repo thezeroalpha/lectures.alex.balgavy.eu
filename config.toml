@@ -20,4 +20,4 @@ smart_punctuation = true
 
 [extra]
 # Put all your custom variables here
-debug = true
+debug = false
