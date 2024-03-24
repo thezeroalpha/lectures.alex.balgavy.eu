@@ -39,6 +39,12 @@
     </script>
   </head>
   <body>
+    {% if page %}
+    <img src="https://stats.alex.balgavy.eu/count?p={{ page.path }}&t={{ page.title }}">
+    {% elif section %}
+    <img src="https://stats.alex.balgavy.eu/count?p={{ section.path }}&t={{ section.title }}">
+    {% endif %}
+
     {% if config.extra.debug %}
     <div>
       <font size="1px" face="courier">
