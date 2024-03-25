@@ -40,9 +40,9 @@
   </head>
   <body>
     {% if page %}
-    <img src="https://stats.alex.balgavy.eu/count?p={{ config.base_url | replace(from='https://', to='/') }}/{{ page.path }}&t={{ page.title }}">
+    <img src="https://stats.alex.balgavy.eu/count?p={{ config.base_url | replace(from='https://', to='/') }}{{ page.path }}&t={{ page.title }}">
     {% elif section %}
-    <img src="https://stats.alex.balgavy.eu/count?p={{ config.base_url | replace(from='https://', to='/') }}/{{ section.path }}&t={{ section.title }}">
+    <img src="https://stats.alex.balgavy.eu/count?p={{ config.base_url | replace(from='https://', to='/') }}{{ section.path }}&t={{ section.title }}">
     {% endif %}
 
     {% if config.extra.debug %}
